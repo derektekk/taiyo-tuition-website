@@ -1,0 +1,39 @@
+#cursor-container {
+    height: 4rem;
+    width: 6rem;
+    position: absolute;
+    backface-visibility: hidden;
+    z-index: 9999999;
+    pointer-events: none; /* pointer-events: none is needed */
+    cursor: none;
+}
+
+#cursor {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    
+}
+
+#contact-us-button{
+    cursor: none;
+}
+
+#count {
+    font-size: 3rem;
+    margin: 0;
+}
+
+#cursor p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.cursor-text {
+    color: #f3f3f3;
+    text-shadow: 1px 1px 1rem #3572e2;
+}

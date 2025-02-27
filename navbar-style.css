@@ -1,9 +1,7 @@
-
-
 .navbar-container {
   /* background-color: #333; */
   background-color: white;
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   box-shadow: 0 2px 4px 0 rgba(157, 157, 157, 0.5);
@@ -26,6 +24,7 @@
   font-weight: bold;
 }
   
+
 .navbar-logo ul,
 .navbar-items ul {
   list-style: none;
@@ -71,7 +70,9 @@
   #company-name {
     font-size: 18px;
   }
-
+  .scrolled div{
+    width: 20% !important;
+  }
 }
 
 @media only screen and (max-width: 335px){
@@ -114,4 +115,120 @@
     
   } */
   
+.floating-navbar{
+  display: none;
+  position:absolute;
+  background-color: white;
+  top: 0;
+  box-shadow: 0 2px 4px 0 rgba(157, 157, 157, 0.5);
+  z-index: 1;
+  
+}
+ul, .nav-menu{
+  padding-left: 0;
+}
 
+
+.floating-navbar-item {
+  text-decoration: none;
+  color: black;
+  border-radius: 1.5rem;
+  background-color: white;
+  padding: 0.8rem 1.2rem;
+  transition: background-color 0.3s ease-in-out;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  white-space: nowrap;
+}
+
+.floating-navbar-item:hover{
+  background-color: #afd8f2;
+}
+
+.floating-navbar-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.nav-menu {
+  display: flex;
+  list-style: none;
+  text-decoration: none;
+  font-size: 1rem;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  gap: 0.8rem;
+  flex-wrap: nowrap;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-menu {
+    gap: 0.4rem;
+  }
+  .floating-navbar-item {
+    padding: 0.6rem 1rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .floating-navbar-item {
+    padding: 0.5rem 0.8rem;
+  }
+}
+
+.scrolled {
+  margin-top: 1rem;
+  display: block;
+  position: fixed;
+  opacity: 1;
+  width: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  color: black;
+  border-radius: 2rem;
+
+}
+
+@media only screen and (max-width: 1450px) {
+  .scrolled {
+    width: 70%;
+  }
+}
+
+
+@media only screen and (max-width: 1280px) {
+  .scrolled {
+    width: 70%;
+    padding: 1rem 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .scrolled {
+    width: 80%;
+    padding: 1rem 1.5rem;
+  }
+  .floating-navbar-item{
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .scrolled {
+    width: 85%;
+    gap: 1rem;
+    bottom: 1rem !important;
+    top: auto !important;
+    margin-top: 0;
+  }
+  .nav-menu {
+    justify-content: center;
+  }
+}

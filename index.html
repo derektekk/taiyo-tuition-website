@@ -11,8 +11,15 @@
 		<link rel="stylesheet" href="pricing-style.css">
 		<link rel="stylesheet" href="footer-style.css">
 		<link rel="stylesheet" href="about-us-style.css">
+		<link rel="stylesheet" href="review-style.css">
+		<link rel="stylesheet" href="button-hover.css">
+		<link rel="stylesheet" href="atar-style.css">
+		<link rel="icon" href="assets/companyLogo2025.jpg" type="image/png">
 
-		<link rel="icon" href="assets/favicon-16x16.png" type="image/png">
+		<!-- embed for font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 		<!-- CSS and JS for slick -->
 		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
@@ -26,34 +33,55 @@
 					<div class="navbar-logo">
 							<ul>
 									<li>
-											<a class="navbar-item" id="company-name" href="/#home">TAIYO TUITION</a>
+											<a class="navbar-item inter-font" id="company-name" href="/#home">
+												TAIYO TUITION
+											</a>
 									</li>
 							</ul>
 					</div>
 					<div class="navbar-items">
 							<ul class="nav-menu">
 									<li class="nav-link">
-											<a class="navbar-item" href="/#home">HOME</a>
+										<a class="navbar-item inter-font" href="#about-us">ABOUT US</a>
 									</li>
 									<li class="nav-link">
-										<a class="navbar-item" href="#about-us">ABOUT US</a>
+											<a class="navbar-item inter-font" href="#tutoring">TUTORING</a>
 									</li>
 									<li class="nav-link">
-											<a class="navbar-item" href="#tutoring">TUTORING</a>
-									</li>
-									<li class="nav-link">
-											<a class="navbar-item" href="#prices">PRICES</a>
+											<a class="navbar-item inter-font" href="#prices">PRICES</a>
 									</li>
 									<li class="nav-btn">
 											<a 
-											class="navbar-item" 
+											class="navbar-item inter-font" 
 											id="onboard-button" 
 											href="https://pdu2aawxpdr.typeform.com/to/o6rQPFyz">
-											ONBOARD ME</a>
+											Free Trial</a>
 											<!-- <a class="navbar-item" id="onboard-button" href="/onboard-me.html">ONBOARD ME</a> -->
 									</li>
 							</ul>
 					</div>
+			</div>
+		</div>
+		<!-- floating navbar -->
+		<div class="floating-navbar">
+			<div class="floating-navbar-container">
+					<ul class="nav-menu">
+						<li class="floating-nav-link" id="floating-nav-link-home">
+							<a class="floating-navbar-item inter-font" href="/#home"> HOME </a>
+						</li>	
+						<li class="floating-nav-link">
+							<a class="floating-navbar-item inter-font" href="#about-us">ABOUT US</a>
+						</li>
+						<li class="floating-nav-link">
+							<a class="floating-navbar-item inter-font" href="#tutoring">TUTORING</a>
+						</li>
+						<li class="floating-nav-link">
+							<a class="floating-navbar-item inter-font" href="#prices">PRICES</a>
+						</li>
+						<li class="nav-btn">
+								<a class="floating-navbar-item inter-font" id="onboard-button" href="https://pdu2aawxpdr.typeform.com/to/o6rQPFyz">FREE TRIAL</a>
+						</li>
+					</ul>
 			</div>
 		</div>
 	</nav>
@@ -78,8 +106,14 @@
 							</div>
 							<div class="landing-page-item" id="landing-page-item-bottom">
 									<ul class="landing-page-list">
-											<li>
-													<a class="landing-page-nav" id="contact-us-button" href="https://pdu2aawxpdr.typeform.com/to/o6rQPFyz">ONBOARD ME</a>
+											<li>	
+												<div id="cursor-container">
+													<div id="cursor">
+														<pre class="cursor-text" id="count">0</pre>
+														<p class="cursor-text">ATAR AWAITS!</p>
+													</div>
+												</div>
+													<a class="landing-page-nav" id="contact-us-button" onmouseenter="cursor.hidden = false" onmouseleave="cursor.hidden = true" href="https://pdu2aawxpdr.typeform.com/to/o6rQPFyz">FREE TRIAL</a>
 													<!-- <a class="landing-page-nav" id="contact-us-button" href="/onboard-me.html">ONBOARD ME</a> -->
 											</li>
 											<li>
@@ -88,11 +122,25 @@
 									</ul>
 							</div>
 					</div>
-					<img class="landing-page-img" id="landing-page-item-right" src="assets/teaching-team2.PNG" alt="Taiyo Tutors"></img>
+					<!-- <div class="atar-container">
+						<h3>Recent ATAR Results</h3>
+						<div class="atar-items">
+							<div class="atar-item">
+								<div class="atar-results"></div>
+							</div>
+							<div class="atar-item">
+								<div class="atar-results"></div>
+							</div>
+							<div class="atar-item">
+								<div class="atar-results"></div>
+							</div>
+						</div>
+						<div class="arrows"></div>
+					</div> -->
 				</div>
 			</section>
 		</div>
-
+		<!-- about us -->
 		<section class="section-with-margin" id="about-us">
 			<div class="about-us-container">
 				<div>
@@ -103,7 +151,7 @@
 					<div class="about-us-info" id="our-team">
 						<h1>Our Team</h1>
 						<p class="about-us-text">
-							The Taiyo Tuition team is a vibrant assembly of Australia's finest private tutors, ranked in Australia’s Top 5% of tutors. Each tutor is dedicated to nurturing students' academic journeys from Years 1-12. Our educators, renowned for their expertise and empathy, personalise learning experiences to unlock every student's potential. They are more than just tutors; they are mentors committed to inspiring confidence and academic success. At Taiyo Tuition, we pride ourselves on creating an environment where students are empowered to achieve excellence through tailored guidance and support.
+							The Taiyo Tuition team is a vibrant assembly of Australia's finest private tutors, ranked in Australia's Top 5% of tutors. Each tutor is dedicated to nurturing students' academic journeys from Years 1-12. Our educators, renowned for their expertise and empathy, personalise learning experiences to unlock every student's potential. They are more than just tutors; they are mentors committed to inspiring confidence and academic success. At Taiyo Tuition, we pride ourselves on creating an environment where students are empowered to achieve excellence through tailored guidance and support.
 						</p>
 					</div>
 				</div>
@@ -111,17 +159,46 @@
 					<div class="about-us-info" id="our-aim">
 						<h1>Our Aim</h1>
 						<p class="about-us-text">
-							Our purpose at Taiyo Tuition is straightforward: to empower every student to achieve their full personal potential and excel beyond their expectations. We strive to provide an educational experience that is not only enriching but also transformative, enabling students from Years 1-12 to master their studies, develop a lifelong love for learning, and confidently navigate their academic paths. Through personalised tutoring and meticulously designed online courses, we focus on unlocking each student’s unique abilities and fostering an environment where academic challenges are met with enthusiasm and resilience. Our commitment is to guide our students towards academic excellence, instilling in them the skills, confidence, and determination to succeed in all their educational endeavors.
+							Our purpose at Taiyo Tuition is straightforward: to empower every student to achieve their full personal potential and excel beyond their expectations. We strive to provide an educational experience that is not only enriching but also transformative, enabling students from Years 1-12 to master their studies, develop a lifelong love for learning, and confidently navigate their academic paths. Through personalised tutoring and meticulously designed online courses, we focus on unlocking each student's unique abilities and fostering an environment where academic challenges are met with enthusiasm and resilience. Our commitment is to guide our students towards academic excellence, instilling in them the skills, confidence, and determination to succeed in all their educational endeavors.
 						</p>
 					</div>
 					<img class="about-us-img" src="assets/teaching-team3.JPG" alt="Taiyo's Aim">
 				</div>
 			</div>
 		</section>
-
-
+		<!-- Reviews -->
+		<!-- <section class="section-with-margin" id="reviews">
+			<div>
+				<div>
+					<p class="heading">REVIEWS</p>
+				</div>
+				<div class="reviews-container">
+					<div class="reviews-items">
+						<div class="reviews-item">
+							<h3>Review 1</h3>
+							<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero sit veritatis soluta est, sed ut delectus nesciunt quaerat voluptatem earum deleniti aut consequuntur at perferendis cupiditate beatae culpa magnam provident.</p>
+						</div>
+						<div class="reviews-item">
+							<h3>Review 2</h3>
+							<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero sit veritatis soluta est, sed ut delectus nesciunt quaerat voluptatem earum deleniti aut consequuntur at perferendis cupiditate beatae culpa magnam provident.</p>
+						</div>
+						<div class="reviews-item">
+							<h3>Review 3</h3>
+							<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero sit veritatis soluta est, sed ut delectus nesciunt quaerat voluptatem earum deleniti aut consequuntur at perferendis cupiditate beatae culpa magnam provident.</p>
+						</div>
+						<div class="reviews-item">
+							<h3>Review 3</h3>
+							<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero sit veritatis soluta est, sed ut delectus nesciunt quaerat voluptatem earum deleniti aut consequuntur at perferendis cupiditate beatae culpa magnam provident.</p>
+						</div>
+						<div class="reviews-item">
+							<h3>Review 3</h3>
+							<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero sit veritatis soluta est, sed ut delectus nesciunt quaerat voluptatem earum deleniti aut consequuntur at perferendis cupiditate beatae culpa magnam provident.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section> -->
 		<!-- TUTORING PAGE -->
-		<!-- add heading for tutoring -->
 		<section class="section-with-margin" id="tutoring">
 			<div>
 				<div>
@@ -143,10 +220,10 @@
 											The foundational years set the stage for a lifetime of learning. At Taiyo Tuition, we ensure to carefully select and train our primary school tutors to especially cater to young learners, instilling in them a passion for knowledge that lasts a lifetime. 
 										</p>
 										<p>
-											No matter if your child faces challenges in their studies or is seeking more rigorous enrichment, our tutors are equipped to make an actual difference. We turn learning into an engaging and enjoyable experience, it is such a crucial stage for a child’s learning. Many parents have shared with us how their children look forward to their tutoring sessions, often wishing their Taiyo tutor could visit every day!
+											No matter if your child faces challenges in their studies or is seeking more rigorous enrichment, our tutors are equipped to make an actual difference. We turn learning into an engaging and enjoyable experience, it is such a crucial stage for a child's learning. Many parents have shared with us how their children look forward to their tutoring sessions, often wishing their Taiyo tutor could visit every day!
 										</p>
 										<p>
-											We provide comprehensive tutoring across all primary school grades and subjects, ensuring our approach is in accordance with Melbourne’s and Sydney’s curriculum standards. Whether it’s reinforcing foundational skills or pushing the boundaries of academic excellence, Taiyo Tuition is here to support your child’s educational journey.
+											We provide comprehensive tutoring across all primary school grades and subjects, ensuring our approach is in accordance with Melbourne's and Sydney's curriculum standards. Whether it's reinforcing foundational skills or pushing the boundaries of academic excellence, Taiyo Tuition is here to support your child's educational journey.
 										</p> -->
 								</div>
 								<div class="tutoring-service-list">
@@ -159,7 +236,7 @@
 											For our senior students, the guidance of a Year 11 or Year 12 tutor is irreplaceable. They bring a wealth of academic insight and serve as a robust support network, navigating students through the pressures of their concluding high school years.
 										</p>
 										<p>
-											Taiyo Tuition covers all subjects for high school students up to Year 12, accommodating both Melbourne’s and Sydney’s state curriculum. Our tutors are not just educators; they are pillars of support, dedicated to empowering students throughout their high school journey and preparing them for University.
+											Taiyo Tuition covers all subjects for high school students up to Year 12, accommodating both Melbourne's and Sydney's state curriculum. Our tutors are not just educators; they are pillars of support, dedicated to empowering students throughout their high school journey and preparing them for University.
 										</p> -->
 								</div>
 								<div class="tutoring-service-list">
@@ -176,7 +253,8 @@
 				</div>		
 			</div>
 		</section>
-		<section class="section-with-margin" id="prices">
+		<!-- PRICING PAGE -->
+		<!-- <section class="section-with-margin" id="prices">
 			<div>
 				<div>
 					<p class="heading">OUR PRICING</p>
@@ -184,7 +262,6 @@
 				<div class="pricing-container">
 						<div class="pricing-items">
 								<div class="pricing-list">
-										<!-- <img src="https://placehold.co/100x100/png" alt="placeholder-img"></img> -->
 										<p class="pricing-icon" id="pricing-emoji-1">👨🏻‍💻</p>
 										<h2>Online Lessons</h2>
 										<p class="service-info">Set up lessons with your tutor online! 
@@ -204,7 +281,6 @@
 
 								</div>
 								<div class="pricing-list">
-										<!-- <img src="https://placehold.co/100x100/png" alt="placeholder-img"></img> -->
 										<p class="pricing-icon" id="pricing-emoji-2">👩🏻‍🎓🏠</p>
 										<h2>In-Person Lessons</h2>
 										<p class="service-info">Lessons are available whereby tutors are able to meet you at your home or the closet library to you! 
@@ -222,7 +298,6 @@
 
 								</div>
 								<div class="pricing-list">
-										<!-- <img src="https://placehold.co/100x100/png" alt="placeholder-img"></img> -->
 										<p class="pricing-icon" id="pricing-emoji-3">👩🏻‍🏫📝</p>
 										<h2>Group Lectures</h2>
 										<p class="service-info">Invite your friends to study with you! 
@@ -245,15 +320,10 @@
 				</div>
 				<div class="navigate-to-contact-btn">
 					<a class="navigate-to-contact" id="contact-us-button" href="https://pdu2aawxpdr.typeform.com/to/o6rQPFyz
-					">ONBOARD ME</a>
-					<!-- <a class="navigate-to-contact" id="contact-us-button" href="/onboard-me.html">ONBOARD ME</a> -->
+					">FREE TRIAL</a>
 				</div>
-				
 			</div>
-		</section>
-		<section id="contact-us">
-			
-		</section>	
+		</section> -->
 	</main>
 
 	<footer>
@@ -261,7 +331,7 @@
 				<div class="footer">
 						<div class='footer-items'>
 								<!-- <h1>TAIYO TUITION</h1> -->
-								<img class="company-logo" src="assets/company-logo2.png" alt="taiyo-tuition" />
+								<img class="company-logo" src="assets/companyLogo2025.jpg" alt="taiyo-tuition" />
 						</div>
 						<div class='footer-items'>
 								<ul>
@@ -283,7 +353,7 @@
 										<p class='link-separator'>|</p>
 										<li>
 											<a class="footer-item" href="https://pdu2aawxpdr.typeform.com/to/o6rQPFyz
-											">ONBOARD ME</a>
+											">FREE TRIAL</a>
 												<!-- <a class="footer-item" href="onboard-me.html">ONBOARD ME</a> -->
 										</li>
 								</ul>
@@ -303,15 +373,20 @@
 								</ul>
 							</div>
 							<div class="footer-items">
-								<p>Copyright &copy; 2024 Taiyo Tuition.</p>
+								<p>Copyright &copy; 2025 Taiyo Tuition.</p>
 							</div>
 				</div>
 			</div>
-		</footer>
+	</footer>
 
-
-
-
+		<script src="atar-results.js"></script>
+		<script type="module">
+			import { animate, scroll } from "https://cdn.jsdelivr.net/npm/motion@latest/+esm"
+			window.animate = animate; // Make animate available globally
+		</script>
+		<script src="button-animation.js" type="module"></script>
+		<script src="navbar.js"></script>
+		<script src="button-hover.js"></script>
 		<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
