@@ -79,9 +79,6 @@
   #onboard-button{
     font-size: 0.9rem;
   }
-  /* #company-name{
-    font-size: 1.1rem;
-  } */
 }
   
   .navbar-item {
@@ -111,19 +108,16 @@
     border-radius: 30px;
   }
 
-  /* #onboard-button:hover {
-    
-  } */
   
 .floating-navbar{
   display: none;
-  position:absolute;
+  position: absolute;
   background-color: white;
   top: 0;
   box-shadow: 0 2px 4px 0 rgba(157, 157, 157, 0.5);
   z-index: 1;
-  
 }
+
 ul, .nav-menu{
   padding-left: 0;
 }
