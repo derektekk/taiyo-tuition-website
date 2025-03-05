@@ -22,8 +22,17 @@
 #company-name {
   font-size: 28px;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-  
+
+.navbar-logo-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+}
 
 .navbar-logo ul,
 .navbar-items ul {
@@ -69,7 +78,15 @@
 
   #company-name {
     font-size: 18px;
+    gap: 8px;
   }
+
+  .navbar-logo-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+  }
+
   .scrolled div{
     width: 20% !important;
   }
@@ -78,6 +95,17 @@
 @media only screen and (max-width: 335px){
   #onboard-button{
     font-size: 0.9rem;
+  }
+  
+  #company-name {
+    font-size: 16px;
+    gap: 6px;
+  }
+
+  .navbar-logo-img {
+    width: 25px;
+    height: 25px;
+    border-radius: 4px;
   }
 }
   

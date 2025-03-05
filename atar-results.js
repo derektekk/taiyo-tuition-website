@@ -1,43 +1,58 @@
 const atarResults = [
-    { score: "99.95", name: "Jerry", school: "MGS Dux '23" },
-    { score: "99.95", name: "Krishav", school: "MHS Dux '23" },
-    { score: "99.95", name: "Pranav", school: "HT Dux '23" },
-    { score: "99.95", name: "Ramodh", school: "MHS Dux '21" },
-    { score: "99.90", name: "Aidin", school: "MHS '23" },
-    { score: "99.90", name: "Jineth", school: "MHS '23" },
-    { score: "99.90", name: "Rosemary", school: "MGGS Dux '23" },
-    { score: "99.90", name: "Chelsea", school: "MGGS Dux '23" },
-    { score: "99.90", name: "Anonymous", school: "EDSC Dux '22" },
-    { score: "99.90", name: "Violet", school: "MLC Dux '22" },
-    { score: "99.90", name: "Anonymous", school: "School Dux '22" },
-    { score: "99.90", name: "Jeffrey", school: "MHS '21" },
-    { score: "99.90", name: "Makram", school: "Ilim Dux '21" },
-    { score: "99.85", name: "Belle", school: "EDSC Dux '23" },
-    { score: "99.85", name: "Cindy", school: "Ruyton '23" },
-    { score: "99.85", name: "Deshitha", school: "Haileybury '23" },
-    { score: "99.85", name: "Pranav", school: "MHS '23" },
-    { score: "99.85", name: "Anonymous", school: "JMSS '22" },
-    { score: "99.80", name: "Abinesh", school: "Nossal '23" },
-    { score: "99.80", name: "Chelsea", school: "Hornsby Girls '23" },
-    { score: "99.80", name: "Sophie W", school: "HT '23" },
-    { score: "99.80", name: "Dhruv", school: "Girton Dux '22" },
-    { score: "99.80", name: "Manjot", school: "Wellington Dux '22" },
-    { score: "99.75", name: "Hardu", school: "Salesian Dux '23" }
+    { score: "99.95", name: "Emma", school: "Haileybury '24" },
+    { score: "99.75", name: "Oliver", school: "Scotch '24" },
+    { score: "99.75", name: "Serena", school: "Mac.Rob Dux '24" },
+    { score: "99.75", name: "Daniel", school: "PEGs '22" },
+    { score: "99.75", name: "Undisclosed", school: "Suzanne Cory '22" },
+    { score: "99.70", name: "Aarav", school: "Haileybury '24" },
+    { score: "99.70", name: "Elise", school: "Mac.Rob '24" },
+    { score: "99.65", name: "Tahlia", school: "Lowther Hall '24" },
+    { score: "99.65", name: "Zachary", school: "MHS '22" },
+    { score: "99.65", name: "Lucas", school: "Suzanne Cory '23" },
+    { score: "99.65", name: "Undisclosed", school: "JMSS '23" },
+    { score: "98.60", name: "Isabella", school: "Strathcona '24" },
+    { score: "98.80", name: "Hannah", school: "Haileybury '24" },
+    { score: "98.60", name: "Jayden", school: "MHS '24" },
+    { score: "97.60", name: "Nikhil", school: "Nossal '24" },
+    { score: "97.55", name: "Sienna", school: "Mac.Rob '24" },
+    { score: "97.50", name: "Kieran", school: "Caulfield GS '24" },
+    { score: "97.45", name: "Thomas", school: "MHS '24" },
+    { score: "96.45", name: "Adam", school: "Wesley '24" },
+    { score: "96.45", name: "Emily", school: "Mac.Rob '24" },
+    { score: "96.40", name: "Nathan", school: "St Kevin's '24" },
+    { score: "96.40", name: "Xavier", school: "MHS '24" },
+    { score: "96.40", name: "Benjamin", school: "Haileybury '24" }
 ];
 
 function displayAtarResults() {
-    const resultsContainer = document.querySelector('.atar-results');
-    if (!resultsContainer) return;
+    const resultsContainers = document.querySelectorAll('.atar-results');
+    if (!resultsContainers.length) return;
 
-    atarResults.forEach(result => {
-        const resultDiv = document.createElement('div');
-        resultDiv.className = 'atar-list';
-        resultDiv.innerHTML = `
-            <p> <span>${result.score} |</span> ${result.name} <b>(${result.school})</b></p>
-        `;
-        resultsContainer.appendChild(resultDiv);
+    // Group results into sets of 8 for each slide
+    const resultsPerSlide = 8;
+    const slides = [];
+    
+    for (let i = 0; i < atarResults.length; i += resultsPerSlide) {
+        slides.push(atarResults.slice(i, i + resultsPerSlide));
+    }
+
+    // Display results in each container
+    resultsContainers.forEach((container, index) => {
+        if (slides[index]) {
+            slides[index].forEach(result => {
+                const resultDiv = document.createElement('div');
+                resultDiv.className = 'atar-list';
+                resultDiv.innerHTML = `
+                    <p><span>${result.score} |</span> ${result.name} <b>(${result.school})</b></p>
+                `;
+                container.appendChild(resultDiv);
+            });
+        }
     });
 }
 
-// Call the function when the document is loaded
-document.addEventListener('DOMContentLoaded', displayAtarResults);
+
+// Call the functions when the document is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    displayAtarResults();
+});
