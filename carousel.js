@@ -30,20 +30,20 @@ $(document).ready(function(){
     ]
   });
   $('.reviews-items').slick({
-    centerMode: true,
-    centerPadding: '80px',
     dots: true,
     infinite: true,
     speed: 300,
+    initialSlide: 5,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
+    autoplay: false,
+    autoplaySpeed: 2500,
     arrows: false,
     responsive: [
       {
         breakpoint: 1200,
         settings: {
+          initialSlide: 0,
           slidesToShow: 3,
           slidesToScroll: 1
         }
@@ -51,6 +51,7 @@ $(document).ready(function(){
       {
         breakpoint: 900,
         settings: {
+          initialSlide: 0,
           slidesToShow: 1,
           slidesToScroll: 1
         }
