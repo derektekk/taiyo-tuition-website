@@ -1,5 +1,5 @@
 const atarResults = [
-    { score: "99.95", name: "Emma", school: "Haileybury '24" },
+    { score: "98.95", name: "Emma", school: "Haileybury '24" },
     { score: "99.75", name: "Oliver", school: "Scotch '24" },
     { score: "99.75", name: "Serena", school: "Mac.Rob '24" },
     { score: "99.75", name: "Daniel", school: "PEGs '22" },

@@ -23,6 +23,7 @@
   margin-bottom: 20px; /* Adjust the spacing between rows */
   display: flex;
   justify-content: center; /* Center items horizontally */
+  text-align: center;
 }
 
 .footer-items ul {

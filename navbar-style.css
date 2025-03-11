@@ -240,9 +240,12 @@ ul, .nav-menu{
   .floating-navbar-item{
     padding: 0;
   }
+  .floating-nav-link{
+  margin: 0 0.2rem;
+}
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 490px) {
   .scrolled {
     width: 85%;
     gap: 1rem;

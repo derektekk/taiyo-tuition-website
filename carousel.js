@@ -36,7 +36,7 @@ $(document).ready(function(){
     initialSlide: 5,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 2500,
     arrows: false,
     responsive: [
@@ -62,14 +62,14 @@ $(document).ready(function(){
     dots: false,
     infinite: false,
     speed: 300,
-    slidesToShow: 3,
+    slidesToShow: 2,
     slidesToScroll: 1,
     arrows: false,
       responsive: [
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
           slidesToScroll: 1,
           dots: false
         }
