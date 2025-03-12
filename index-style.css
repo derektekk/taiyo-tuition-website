@@ -209,9 +209,10 @@ margin-top: 56px;
 }
 
 #gradient-text {
-    background: linear-gradient(-40deg, #9bd7ff, hsl(229, 100%, 54%));
-    -webkit-background-clip: text;
-    filter: drop-shadow(1px 1px rgba(0, 0, 0, 0.3));
+    background: linear-gradient(165deg, #0ad6ff, #2448ff);
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    filter: drop-shadow(1.5px 1.5px rgba(0, 0, 0, 0.3));
     background-clip: text;
     color: transparent;
     font-style: normal;
