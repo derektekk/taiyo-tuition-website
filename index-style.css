@@ -212,7 +212,7 @@ margin-top: 56px;
     background: linear-gradient(165deg, #0ad6ff, #2448ff);
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
-    filter: drop-shadow(1.5px 1.5px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(2px 2px rgba(0, 0, 0, 0.3));
     background-clip: text;
     color: transparent;
     font-style: normal;
