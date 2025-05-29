@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'motion/react'
 
 // Custom hook for counting animation
 const useCountUp = (end, duration = 500, delay = 0) => {

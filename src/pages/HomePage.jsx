@@ -46,6 +46,16 @@ const HomePage = () => {
         <Reviews />
       </section>
 
+      {/* Location */}
+      <section aria-label="Location">
+        <Location />
+      </section>
+
+      {/* Scrolling Text */}
+      <section aria-label="Key features and benefits">
+        <ScrollingText />
+      </section>
+
       {/* Frequently Asked Questions */}
       <section aria-label="Frequently asked questions">
         <FAQ />

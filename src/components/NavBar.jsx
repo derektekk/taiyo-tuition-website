@@ -98,6 +98,16 @@ const NavBar = () => {
             </li>
             <li>
               <Link 
+                to='/tutors' 
+                className={`hover:text-primary cursor-pointer transition-colors duration-300 ${
+                  isActiveLink('/tutors') ? 'text-primary font-semibold' : ''
+                }`}
+              >
+                Our Tutors
+              </Link>
+            </li>
+            <li>
+              <Link 
                 to='/contact' 
                 className={`hover:text-primary cursor-pointer transition-colors duration-300 ${
                   isActiveLink('/contact') ? 'text-primary font-semibold' : ''
@@ -174,6 +184,21 @@ const NavBar = () => {
                 onClick={handleCloseMenu}
               >
                 Subjects
+              </Link>
+            </li>
+            <li 
+              className='border-b border-gray-200 p-6 cursor-pointer transition-all duration-300 text-center'
+              onMouseEnter={(e) => handleMenuItemHover(e, true)}
+              onMouseLeave={(e) => handleMenuItemHover(e, false)}
+            >
+              <Link 
+                className={`text-lg font-medium block w-full h-full ${
+                  isActiveLink('/tutors') ? 'text-primary font-semibold' : ''
+                }`} 
+                to='/tutors'
+                onClick={handleCloseMenu}
+              >
+                Our Tutors
               </Link>
             </li>
             <li 

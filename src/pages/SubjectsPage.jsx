@@ -69,7 +69,7 @@ const SubjectsPage = () => {
   }
 
   return (
-    <main className="min-h-screen bg-gray-50 py-20 mt-[80px]" role="main">
+    <main className="min-h-screen bg-biege-primary py-20 mt-[80px]" role="main">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <header className="text-center mb-16">
@@ -88,9 +88,9 @@ const SubjectsPage = () => {
               <button
                 key={category.id}
                 onClick={() => handleCategoryChange(category.id)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer ${
                   selectedCategory === category.id
-                    ? 'bg-blue-600 text-white shadow-md'
+                    ? 'bg-primary text-white shadow-md'
                     : 'text-gray-600 hover:bg-gray-100'
                 }`}
                 aria-label={`Filter by ${category.name}`}
@@ -124,7 +124,7 @@ const SubjectsPage = () => {
                     href='https://pdu2aawxpdr.typeform.com/to/o6rQPFyz'
                     target='_blank'
                     rel='noopener noreferrer'
-                    className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-300 text-center block"
+                    className="w-full bg-primary text-white py-3 rounded-full font-medium hover:bg-primary/70 transition-colors duration-300 text-center block"
                     aria-label={`Learn more about ${subject.name} tutoring and enroll`}
                   >
                     Learn More
@@ -148,7 +148,7 @@ const SubjectsPage = () => {
               href='https://pdu2aawxpdr.typeform.com/to/o6rQPFyz'
               target='_blank'
               rel='noopener noreferrer'
-              className="bg-blue-600 text-white px-8 py-4 rounded-lg font-medium text-lg hover:bg-blue-700 transition-colors duration-300"
+              className="bg-primary text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-primary/70 transition-colors duration-300 cursor-pointer"
               aria-label="Get started with Taiyo Tuition - opens enrollment form in new window"
             >
               Get Started Today
