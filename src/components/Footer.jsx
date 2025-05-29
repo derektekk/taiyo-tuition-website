@@ -18,6 +18,7 @@ const Footer = () => {
                     <h3 className='mb-2 uppercase text-black'>Navigation</h3>
                     <Link to='/' className='hover:text-primary transition-colors duration-300'>Home</Link>
                     <Link to='/subjects' className='hover:text-primary transition-colors duration-300'>Subjects</Link>
+                    <Link to='/tutors' className='hover:text-primary transition-colors duration-300'>Our Tutors</Link>
                     <Link to='/contact' className='hover:text-primary transition-colors duration-300'>Contact</Link>
                     <Link to='/privacy' className='hover:text-primary transition-colors duration-300'>Privacy Policy</Link>
                     <Link to='/legal' className='hover:text-primary transition-colors duration-300'>Legal Terms</Link>

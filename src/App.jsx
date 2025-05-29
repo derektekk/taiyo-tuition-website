@@ -8,6 +8,7 @@ import SubjectsPage from './pages/SubjectsPage'
 import ContactPage from './pages/ContactPage'
 import PrivacyPage from './pages/PrivacyPage'
 import LegalPage from './pages/LegalPage'
+import TutorsPage from './pages/TutorsPage'
 import { useState, useEffect } from 'react'
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/subjects" element={<SubjectsPage />} />
+        <Route path="/tutors" element={<TutorsPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/legal" element={<LegalPage />} />
