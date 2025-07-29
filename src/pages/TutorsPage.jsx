@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'motion/react'
+import ScrollAnimateText from '../components/ScrollAnimateText'
 
 const TutorsPage = () => {
   const tutors = [
@@ -100,12 +101,12 @@ const TutorsPage = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <header className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+          <ScrollAnimateText as="h1" className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
             Our Tutors
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          </ScrollAnimateText>
+          <ScrollAnimateText as="p" className="text-xl text-gray-600 max-w-3xl mx-auto">
             Meet our team of expert educators who bring years of experience and passion for helping students achieve their academic goals
-          </p>
+          </ScrollAnimateText>
         </header>
 
         {/* Tutors Grid */}
@@ -114,7 +115,7 @@ const TutorsPage = () => {
             {tutors.map((tutor, index) => (
               <motion.article
                 key={tutor.id}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 h-[550px]"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -137,7 +138,7 @@ const TutorsPage = () => {
                 </div>
                 
                 {/* Content Section */}
-                <div className="p-6">
+                <div className="m-6 flex flex-col justify-between">
                   <header className="flex justify-between items-start mb-3">
                     <h2 className="text-xl font-bold text-gray-900">{tutor.name}</h2>
                     <span className="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">
@@ -172,7 +173,7 @@ const TutorsPage = () => {
                     href='https://pdu2aawxpdr.typeform.com/to/o6rQPFyz'
                     target='_blank'
                     rel='noopener noreferrer'
-                    className="w-full bg-primary text-white py-3 rounded-full font-medium hover:bg-primary/70 transition-colors duration-300 text-center block"
+                    className="w-full bg-primary text-white py-3 rounded-full font-medium hover:bg-[#3482FF] hover:scale-105 transition-all ease-in-out duration-300 text-center block"
                     aria-label={`Learn more about ${tutor.name} and book a session`}
                   >
                     Learn More
@@ -186,21 +187,23 @@ const TutorsPage = () => {
         {/* Call to Action */}
         <section className="text-center mt-16" aria-labelledby="cta-heading">
           <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
-            <h2 id="cta-heading" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <ScrollAnimateText as="h2" id="cta-heading" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Ready to Start Your Journey?
-            </h2>
-            <p className="text-xl text-gray-600 mb-8">
+            </ScrollAnimateText>
+            <ScrollAnimateText as="p" className="text-xl text-gray-600 mb-8">
               Contact us today to discuss your academic goals and create a personalized study plan
-            </p>
-            <a
-              href='https://pdu2aawxpdr.typeform.com/to/o6rQPFyz'
-              target='_blank'
-              rel='noopener noreferrer'
-              className="bg-primary text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-primary/70 transition-colors duration-300 cursor-pointer"
-              aria-label="Get started with Taiyo Tuition - opens enrollment form in new window"
-            >
-              Get Started Today
-            </a>
+            </ScrollAnimateText>
+            <ScrollAnimateText delay={0.4}>
+              <a
+                href='https://pdu2aawxpdr.typeform.com/to/o6rQPFyz'
+                target='_blank'
+                rel='noopener noreferrer'
+                className="bg-primary text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-primary/70 transition-colors duration-300 cursor-pointer"
+                aria-label="Get started with Taiyo Tuition - opens enrollment form in new window"
+              >
+                Get Started Today
+              </a>
+            </ScrollAnimateText>
           </div>
         </section>
       </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion, AnimatePresence } from 'motion/react'
+import ScrollAnimateText from './ScrollAnimateText'
 
 const FAQ = () => {
   const [openItems, setOpenItems] = React.useState(new Set())
@@ -67,7 +68,9 @@ const FAQ = () => {
   return (
     <section className='h-auto w-full bg-linear-0 to-gradient-secondary from-gradient-primary section-card'>
       <div className='mx-auto flex flex-col flex-wrap items-center justify-center container-responsive'>
-        <h1 className='text-4xl uppercase font-bold mb-12 text-center'>Frequently Asked Questions</h1>
+        <ScrollAnimateText as="h1" className='text-4xl uppercase font-bold mb-12 text-center'>
+          Frequently Asked Questions
+        </ScrollAnimateText>
         <div className='w-full max-w-4xl'>
           {faqData.map((faq, index) => (
             <motion.div
