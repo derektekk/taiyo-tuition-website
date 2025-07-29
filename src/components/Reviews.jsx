@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion, AnimatePresence } from 'motion/react'
+import ScrollAnimateText from './ScrollAnimateText'
 
 const Reviews = () => {
   const reviewsData = [
@@ -172,14 +173,16 @@ const Reviews = () => {
   return (
     <section className='h-auto w-full bg-biege-primary section-card'>
       <div className='mx-auto flex flex-col flex-wrap items-center justify-center container-responsive'>
-        <h1 className='text-4xl uppercase font-bold mb-12 text-center'>What Our Students Say</h1>
+        <ScrollAnimateText as="h1" className='text-4xl uppercase font-bold mb-12 text-center'>
+          What Our Students Say
+        </ScrollAnimateText>
         
         {/* Carousel Container with Navigation */}
         <div className='flex items-center justify-center w-full gap-4'>
           {/* Previous Button */}
           <button
             onClick={handlePrevious}
-            className='flex-shrink-0 bg-primary text-white rounded-full p-3 shadow-lg hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed max-sm:hidden cursor-pointer'
+            className='flex-shrink-0 bg-primary text-white rounded-full p-3 shadow-lg hover:bg-[#3482FF] transition-colors disabled:opacity-50 disabled:cursor-not-allowed max-sm:hidden cursor-pointer'
             aria-label="Previous reviews"
             disabled={currentIndex === 0}
           >
@@ -231,7 +234,7 @@ const Reviews = () => {
           {/* Next Button */}
           <button
             onClick={handleNext}
-            className='flex-shrink-0 bg-primary text-white rounded-full p-3 shadow-lg hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed max-sm:hidden cursor-pointer'
+            className='flex-shrink-0 bg-primary text-white rounded-full p-3 shadow-lg hover:bg-[#3482FF] transition-colors disabled:opacity-50 disabled:cursor-not-allowed max-sm:hidden cursor-pointer'
             aria-label="Next reviews"
             disabled={currentIndex + reviewsPerPage >= reviewsData.length}
           >

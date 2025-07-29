@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion, AnimatePresence } from 'motion/react'
+import ScrollAnimateText from './ScrollAnimateText'
 
 // Custom hook for counting animation
 const useCountUp = (end, duration = 500, delay = 0) => {
@@ -181,13 +182,17 @@ const Atar = () => {
     }
   }
   return (
-      <section className='h-auto w-full bg-gradient-secondary py-16'>
+      <section className='h-auto w-full bg-primary py-16'>
           <div className='container-responsive mx-auto'>
               <div className='flex flex-col items-center justify-center h-full max-md:flex-col'>
                   <div className='flex flex-col items-center justify-center bg-white rounded-lg p-12 max-w-6xl mx-auto'>
                       <div className='mb-8'>
-                        <h1 className='text-4xl font-bold text-center text-black'>Our Students' Outstanding ATAR Results</h1>
-                        <p className='text-lg text-center text-black mt-2'>Exceptional ATAR achievements from our dedicated students</p>
+                        <ScrollAnimateText as="h1" className='text-4xl font-bold text-center text-black'>
+                          Our Students' Outstanding ATAR Results
+                        </ScrollAnimateText>
+                        <ScrollAnimateText as="p" className='text-lg text-center text-black mt-2'>
+                          Exceptional ATAR achievements from our dedicated students
+                        </ScrollAnimateText>
                       </div>
                       
                       {/* Carousel Container with Navigation */}
