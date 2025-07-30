@@ -8,7 +8,7 @@ const About = () => {
             <div className="mx-auto flex flex-col flex-wrap items-center justify-center container-responsive">
                 <ScrollAnimateText
                     as="h1"
-                    className="text-5xl uppercase font-bold mb-12"
+                    className="text-4xl uppercase font-bold mb-12 max-md:text-3xl"
                 >
                     Who Are We
                 </ScrollAnimateText>
@@ -21,7 +21,7 @@ const About = () => {
                             👨‍🏫
                         </ScrollAnimateText>
                         <ScrollAnimateText as="p" className="text-pretty">
-                            <span className="font-bold text-3xl/10">
+                            <span className="font-bold text-3xl/10 max-md:text-2xl">
                                 Our Team
                             </span>{" "}
                             <br />
@@ -32,7 +32,7 @@ const About = () => {
                             from Years 5 to 12. <br />
                         </ScrollAnimateText>
                     </div>
-                    <div className="bg-white rounded-lg pt-6 pr-6 pl-24 pb-16 w-full min-h-[300px] flex items-end justify-start text-right max-md:pl-16 section-card-content shadow-md flex-col">
+                    <div className="bg-white rounded-lg pt-6 pr-6 pl-28 pb-16 w-full min-h-[300px] flex items-end justify-start text-right max-md:pl-16 section-card-content shadow-md flex-col">
                         <ScrollAnimateText
                             as="h1"
                             className="text-4xl font-bold mb-2"
@@ -40,7 +40,7 @@ const About = () => {
                             👩‍🎓
                         </ScrollAnimateText>
                         <ScrollAnimateText as="p" className="text-pretty">
-                            <span className="font-bold text-3xl/10">
+                            <span className="font-bold text-3xl/10 max-md:text-2xl">
                                 Personalised Learning for Every Student!
                             </span>{" "}
                             <br />
@@ -59,7 +59,7 @@ const About = () => {
                             💯
                         </ScrollAnimateText>
                         <ScrollAnimateText as="p" className="text-pretty">
-                            <span className="font-bold text-3xl/10">
+                            <span className="font-bold text-3xl/10 max-md:text-2xl">
                                 More Than Just Tutors—Mentors for Success!
                             </span>{" "}
                             <br />
@@ -77,7 +77,7 @@ const About = () => {
                             📚
                         </ScrollAnimateText>
                         <ScrollAnimateText as="p" className="text-pretty">
-                            <span className="font-bold text-3xl/10">
+                            <span className="font-bold text-3xl/10 max-md:text-2xl">
                                 With Dedicated Support and Personalised Guidance
                             </span>{" "}
                             <br /> we create an environment where students can
@@ -90,7 +90,7 @@ const About = () => {
                         <img
                             src={aboutImage}
                             alt="About"
-                            className="w-full h-full object-cover rounded-full shadow-md border-1 border-gray-400 max-md:hidden"
+                            className="w-full h-full object-cover rounded-4xl shadow-md border-1 border-gray-400 max-md:hidden"
                         />
                     </div>
                 </div>

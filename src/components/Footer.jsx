@@ -13,9 +13,9 @@ const Footer = () => {
         >
             <div className="fixed bottom-0 h-[500px] w-full">
                 <div className="bg-biege-primary py-8 px-12 h-full w-full flex flex-col justify-between">
-                    <div className="flex shrink-0 gap-20">
+                    <div className="flex shrink-0 gap-20 max-sm:flex-row max-sm:gap-6">
                         <div className="flex flex-col gap-2">
-                            <h3 className="mb-2 uppercase font-medium">
+                            <h3 className="mb-2 uppercase font-medium max-sm:mb-0">
                                 Navigation
                             </h3>
                             <Link
@@ -50,7 +50,7 @@ const Footer = () => {
                                 Legal Terms
                             </Link>
                         </div>
-                        <div className="flex flex-col gap-2">
+                        <div className="flex flex-col gap-2 max-sm:hidden">
                             <h3 className="mb-2 uppercase font-medium">
                                 Socials
                             </h3>
