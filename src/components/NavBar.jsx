@@ -78,19 +78,19 @@ const NavBar = () => {
                 }`}
             >
                 <div className="flex items-center gap-6">
-                    <Link
-                        to="/"
-                        className="text-3xl font-bold text-[#1b1b1b] uppercase flex items-center gap-1"
+                    <a
+                        href="/"
+                        className="text-3xl font-bold text-[#1b1b1b] uppercase flex items-center gap-1 hover:text-primary cursor-pointer transition-colors duration-300 max-sm:text-2xl"
                     >
                         <img
                             src={logo}
                             alt="logo"
                             className="w-10 h-10 rounded-lg shadow-sm"
                         />
-                        <a className="hover:text-primary cursor-pointer transition-colors duration-300 max-sm:text-2xl">
+                        <h1 className="text-3xl font-bold text-[#1b1b1b] uppercase flex items-center gap-1 hover:text-primary cursor-pointer transition-colors duration-300 max-sm:text-2xl">
                             Taiyo Tuition
-                        </a>
-                    </Link>
+                        </h1>
+                    </a>
                     <ul className="flex items-center gap-4 max-md:hidden">
                         <li>
                             <Link

@@ -149,7 +149,7 @@ const Aim = () => {
                                 journey.
                             </ScrollAnimateText>
                         </div>
-                        <div className="absolute w-72 h-72 top-[50%] left-[50%] transform max-md:relative -translate-x-1/2 -translate-y-1/2 z-10 ">
+                        <div className="absolute w-72 h-72 top-[50%] left-[50%] transform max-md:relative -translate-x-1/2 -translate-y-1/2 z-10 my-1">
                             <div
                                 className="w-full h-full bg-primary shadow-md rounded-full cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center justify-center max-md:rounded-2xl max-md:w-full max-md:h-full"
                                 onClick={openModal}
@@ -191,7 +191,7 @@ const Aim = () => {
                         {/* Close Button */}
                         <button
                             onClick={closeModal}
-                            className="absolute -top-8 -right-8 z-10 bg-black bg-opacity-50 text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-opacity-75 transition-all duration-200"
+                            className="absolute -top-8 -right-8 z-10 bg-black bg-opacity-50 text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-opacity-75 transition-all duration-200 max-sm:hidden"
                         >
                             ✕
                         </button>
