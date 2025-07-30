@@ -147,9 +147,9 @@ const About = () => {
                             learning style.
                         </ScrollAnimateText>
                     </div>
-                    <div className="absolute w-72 h-72 top-[50%] left-[50%] transform max-md:relative -translate-x-1/2 -translate-y-1/2 z-10 my-1">
+                    <div className="absolute top-[50%] left-[50%] transform  -translate-x-1/2 -translate-y-1/2 z-10 my-1 max-md:relative">
                         <div
-                            className="w-full h-full bg-primary shadow-md rounded-full cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center justify-center max-md:rounded-2xl max-md:w-full max-md:h-full"
+                            className="w-72 h-72 bg-primary shadow-md mx-auto rounded-full cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center justify-center max-md:rounded-2xl  "
                             onClick={openModal}
                         >
                             <div className="flex flex-col items-center justify-center gap-4">
