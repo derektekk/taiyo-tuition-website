@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import ScrollAnimateText from "./ScrollAnimateText";
 import aboutImage from "../assets/teaching-team.jpg";
 
