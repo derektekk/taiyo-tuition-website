@@ -87,7 +87,7 @@ const NavBar = () => {
                             alt="logo"
                             className="w-10 h-10 rounded-lg shadow-sm"
                         />
-                        <a className="hover:text-primary cursor-pointer transition-colors duration-300">
+                        <a className="hover:text-primary cursor-pointer transition-colors duration-300 max-sm:text-2xl">
                             Taiyo Tuition
                         </a>
                     </Link>

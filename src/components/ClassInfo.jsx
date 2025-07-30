@@ -15,14 +15,14 @@ const ClassInfo = () => {
                     Our Learning Methods
                 </ScrollAnimateText>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 overflow-hidden">
-                    <div className="col-span-2 bg-white rounded-lg w-full min-h-[300px] flex items-start justify-start shadow-md flex-col max-md:col-span-1">
+                    <div className="col-span-2 bg-white rounded-lg w-full min-h-[300px] flex items-start justify-start shadow-md flex-col max-md:col-span-1 ">
                         <img
                             src={classPhoto4}
                             alt="classImgWide"
                             className="w-full h-[350px] object-cover rounded-lg"
                         />
-                        <div className="grid grid-cols-2 w-full p-4 max-sm:grid-cols-1">
-                            <div className="col-span-1 mb-4">
+                        <div className="w-full p-4 flex flex-col flex-auto justify-between h-full">
+                            <div className="h-full flex flex-col justify-between max-sm:justify-center">
                                 <ScrollAnimateText
                                     as="h2"
                                     className="text-2xl font-bold mb-2"
@@ -33,8 +33,11 @@ const ClassInfo = () => {
                                     as="p"
                                     className="text-pretty mb-4"
                                 >
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Quisquam, quos.
+                                    From VCE subjects like English, Maths
+                                    Methods, and Sciences to foundational Year
+                                    5-10 programs, we provide comprehensive
+                                    academic support tailored to every student's
+                                    needs.
                                 </ScrollAnimateText>
                                 <ScrollAnimateText>
                                     <Link
@@ -64,8 +67,9 @@ const ClassInfo = () => {
                                 as="p"
                                 className="text-pretty mb-4"
                             >
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Quisquam, quos.
+                                Our expert tutors provide personalized guidance
+                                to help every student reach their full academic
+                                potential.
                             </ScrollAnimateText>
                             <ScrollAnimateText>
                                 <Link
