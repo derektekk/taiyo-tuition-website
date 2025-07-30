@@ -172,8 +172,8 @@ const NavBar = () => {
             {/* Mobile Menu Overlay */}
             <div
                 id="mobile-menu"
-                className={`fixed top-0 left-0 right-0 h-screen w-full bg-white transform transition-transform duration-400 ease-in-out md:hidden z-40 ${
-                    isMenuOpen ? "translate-y-0" : "-translate-y-full"
+                className={`fixed -top-50 left-0 right-0 h-screen w-full bg-white transform transition-transform duration-400 ease-in-out md:hidden z-40 ${
+                    isMenuOpen ? "translate-y-50" : "-translate-y-full"
                 }`}
             >
                 <div className="flex flex-col mt-20 h-full ">
