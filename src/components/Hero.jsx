@@ -28,8 +28,8 @@ const Hero = () => {
 
     return (
         <main className="overflow-hidden">
-            <section className="flex items-center justify-center h-[60vh] bg-linear-180 to-gradient-secondary from-gradient-primary mt-[80px] max-md:h-[70vh]">
-                <div className="flex flex-row items-center justify-center z-10 gap-6 max-md:flex-col max-w-[1280px] mx-auto px-6 py-20">
+            <section className="flex items-center justify-center h-[60vh] bg-linear-180 to-gradient-secondary from-gradient-primary mt-[80px] max-md:h-full">
+                <div className="flex flex-row items-center justify-center z-10 gap-6 max-md:flex-col max-w-[1280px] mx-auto px-6">
                     <div className="flex flex-col">
                         <ScrollAnimateText
                             as="h1"
@@ -44,7 +44,7 @@ const Hero = () => {
                             </span>{" "}
                             TUTORING
                         </ScrollAnimateText>
-                        <div className="bg-white p-6 rounded-lg z-50 shadow-md ">
+                        <div className="bg-white p-6 rounded-lg z-50 shadow-md max-md:my-6  max-md:mx-6 ">
                             <ScrollAnimateText
                                 as="h1"
                                 className="text-4xl mb-4 z-50 md:hidden max-sm:text-2xl"

@@ -148,7 +148,7 @@ const About = () => {
                         </ScrollAnimateText>
                     </div>
                     <div
-                        className="w-72 h-72 bg-primary shadow-md rounded-full cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center justify-center max-md:rounded-2xl absolute top-[50%] left-[50%] transform  -translate-x-1/2 -translate-y-1/2 z-10 my-1 max-md:relative"
+                        className="w-72 h-72 bg-primary shadow-md rounded-full cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center justify-center max-md:rounded-2xl absolute top-[50%] left-[50%] transform  -translate-x-1/2 -translate-y-1/2 z-10 max-md:relative max-md:top-auto max-md:left-auto max-md:translate-x-0 max-md:translate-y-0 max-md:mx-auto"
                         onClick={openModal}
                     >
                         <div className="flex flex-col items-center justify-center gap-4">
