@@ -147,32 +147,30 @@ const About = () => {
                             learning style.
                         </ScrollAnimateText>
                     </div>
-                    <div className="absolute top-[50%] left-[50%] transform  -translate-x-1/2 -translate-y-1/2 z-10 my-1 max-md:relative">
-                        <div
-                            className="w-72 h-72 bg-primary shadow-md mx-auto rounded-full cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center justify-center max-md:rounded-2xl  "
-                            onClick={openModal}
-                        >
-                            <div className="flex flex-col items-center justify-center gap-4">
-                                <div className="bg-gradient-secondary rounded-4xl w-32 h-32 flex items-center justify-center shadow-md">
-                                    <div>
-                                        <svg
-                                            width="43"
-                                            height="50"
-                                            viewBox="0 0 43 50"
-                                            fill="white"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path
-                                                d="M40.5 20.6699C43.8333 22.5944 43.8333 27.4056 40.5 29.3301L7.5 48.3827C4.16666 50.3072 1.41487e-06 47.9016 1.58312e-06 44.0526L3.24875e-06 5.94744C3.41699e-06 2.09843 4.16667 -0.307188 7.5 1.61731L40.5 20.6699Z"
-                                                fill="#ffffff"
-                                            />
-                                        </svg>
-                                    </div>
+                    <div
+                        className="w-72 h-72 bg-primary shadow-md rounded-full cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center justify-center max-md:rounded-2xl absolute top-[50%] left-[50%] transform  -translate-x-1/2 -translate-y-1/2 z-10 my-1 max-md:relative"
+                        onClick={openModal}
+                    >
+                        <div className="flex flex-col items-center justify-center gap-4">
+                            <div className="bg-gradient-secondary rounded-4xl w-32 h-32 flex items-center justify-center shadow-md">
+                                <div>
+                                    <svg
+                                        width="43"
+                                        height="50"
+                                        viewBox="0 0 43 50"
+                                        fill="white"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M40.5 20.6699C43.8333 22.5944 43.8333 27.4056 40.5 29.3301L7.5 48.3827C4.16666 50.3072 1.41487e-06 47.9016 1.58312e-06 44.0526L3.24875e-06 5.94744C3.41699e-06 2.09843 4.16667 -0.307188 7.5 1.61731L40.5 20.6699Z"
+                                            fill="#ffffff"
+                                        />
+                                    </svg>
                                 </div>
-                                <h1 className="text-3xl font-medium text-white">
-                                    Why Taiyo?
-                                </h1>
                             </div>
+                            <h1 className="text-3xl font-medium text-white">
+                                Why Taiyo?
+                            </h1>
                         </div>
                     </div>
                 </div>
