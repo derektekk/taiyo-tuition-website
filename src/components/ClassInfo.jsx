@@ -6,11 +6,11 @@ import classPhoto4 from "../assets/taiyoImages/classPhotos/classPhoto4.jpg";
 
 const ClassInfo = () => {
     return (
-        <section className="h-auto w-full bg-biege-primary py-12 max-md:py-6">
+        <section className="h-auto w-full bg-biege-primary ">
             <div className="mx-auto flex flex-col flex-wrap items-center justify-center container-responsive">
                 <ScrollAnimateText
                     as="h1"
-                    className="text-4xl uppercase font-bold mb-12 text-center max-md:mb-6"
+                    className="text-4xl uppercase font-bold mb-12 text-center"
                 >
                     Our Learning Methods
                 </ScrollAnimateText>
@@ -21,7 +21,7 @@ const ClassInfo = () => {
                             alt="classImgWide"
                             className="w-full h-[350px] object-cover rounded-lg"
                         />
-                        <div className="w-full p-4 flex flex-col flex-auto justify-between h-full">
+                        <div className="w-full p-4 flex flex-col flex-auto justify-between">
                             <div className="h-full flex flex-col justify-between max-sm:justify-center">
                                 <ScrollAnimateText
                                     as="h2"
