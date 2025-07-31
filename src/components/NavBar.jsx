@@ -145,22 +145,22 @@ const NavBar = () => {
                     >
                         <div className="w-6 h-5 relative flex flex-col justify-evenly gap-1">
                             <span
-                                className={`w-full h-0.5 bg-black transform transition-all duration-100 origin-center ${
+                                className={`w-full h-0.5 bg-black transform transition-all duration-300 origin-center ${
                                     isMenuOpen ? "opacity-0" : ""
                                 }`}
                             />
                             <span
-                                className={`absolute w-full h-0.5 bg-black transform transition-all duration-300 origin-center ${
+                                className={`absolute w-full h-0.5 bg-black transform transition-all duration-600 origin-center ${
                                     isMenuOpen ? "-rotate-45" : ""
                                 }`}
                             />
                             <span
-                                className={`absolute w-full h-0.5 bg-black transform transition-all duration-300 origin-center ${
+                                className={`absolute w-full h-0.5 bg-black transform transition-all duration-600 origin-center ${
                                     isMenuOpen ? "-rotate-[-45deg]" : ""
                                 }`}
                             />
                             <span
-                                className={`w-full h-0.5 bg-black transform transition-all duration-100 origin-center ${
+                                className={`w-full h-0.5 bg-black transform transition-all duration-300 origin-center ${
                                     isMenuOpen ? "opacity-0" : ""
                                 }`}
                             />
@@ -172,7 +172,7 @@ const NavBar = () => {
             {/* Mobile Menu Overlay */}
             <div
                 id="mobile-menu"
-                className={`fixed -top-200 left-0 right-0 h-screen w-full bg-white transform transition-transform duration-400 ease-in-out md:hidden z-40 ${
+                className={`fixed -top-200 left-0 right-0 h-screen w-full bg-white transform transition-transform duration-600 ease-in-out md:hidden z-40 ${
                     isMenuOpen ? "translate-y-200" : "-translate-y-full"
                 }`}
             >

@@ -44,7 +44,7 @@ const Hero = () => {
                             </span>{" "}
                             TUTORING
                         </ScrollAnimateText>
-                        <div className="bg-white p-6 rounded-lg z-50 shadow-md max-md:my-6  max-md:mx-6 ">
+                        <div className="bg-white p-6 rounded-lg z-50 shadow-md max-md:my-6 ">
                             <ScrollAnimateText
                                 as="h1"
                                 className="text-4xl mb-4 z-50 md:hidden max-sm:text-2xl"
