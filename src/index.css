@@ -123,7 +123,7 @@
 
     @media screen and (max-width: 768px) {
         .section-card-content {
-            padding: 2rem !important;
+            padding: 2rem 1.5rem !important;
             justify-content: center !important;
             align-items: start !important;
             text-align: start !important;
