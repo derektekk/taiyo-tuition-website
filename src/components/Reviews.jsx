@@ -56,7 +56,7 @@ const Reviews = () => {
     const getReviewsPerPage = () => {
         switch (screenSize) {
             case "sm":
-                return 2;
+                return 1;
             case "md":
                 return 2;
             default:
@@ -234,7 +234,7 @@ const Reviews = () => {
                                 }}
                                 className={`grid gap-6 w-full cursor-grab active:cursor-grabbing ${
                                     screenSize === "sm"
-                                        ? "grid-cols-2"
+                                        ? "grid-cols-1"
                                         : screenSize === "md"
                                         ? "grid-cols-2"
                                         : "grid-cols-3"
