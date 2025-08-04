@@ -5,7 +5,7 @@ const ContactPage = () => {
         {
             icon: "📧",
             title: "Email",
-            details: "contact@taiyotuition.com",
+            details: "admin@taiyotuition.com",
             description: "Send us an email anytime",
         },
         {
@@ -23,7 +23,7 @@ const ContactPage = () => {
         {
             icon: "⏰",
             title: "Hours",
-            details: "Mon - Fri: 8am - 6pm",
+            details: "Mon - Fri: 4pm - 9pm\nSat - Sun: 12pm - 6:30pm",
             description: "Weekend sessions available",
         },
     ];
@@ -49,7 +49,7 @@ const ContactPage = () => {
                 </header>
 
                 {/* 2-Column Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     {/* Left Column: Get in Touch + Call to Action */}
                     <div className="space-y-12">
                         {/* Contact Information */}
@@ -105,7 +105,7 @@ const ContactPage = () => {
                                             ) : (
                                                 <ScrollAnimateText
                                                     as="p"
-                                                    className="text-blue-600 font-medium text-lg"
+                                                    className="text-blue-600 font-medium text-lg whitespace-pre-line"
                                                 >
                                                     {info.details}
                                                 </ScrollAnimateText>
@@ -204,18 +204,6 @@ const ContactPage = () => {
                                         Yes! We offer both in-person and online
                                         tutoring sessions to accommodate your
                                         preferences and schedule.
-                                    </ScrollAnimateText>
-                                </div>
-                                <div className="border-b border-gray-200 pb-6">
-                                    <ScrollAnimateText className="font-semibold text-gray-900 mb-3 text-lg">
-                                        What is your guarantee policy?
-                                    </ScrollAnimateText>
-                                    <ScrollAnimateText className="text-gray-600">
-                                        Taiyo Tuition guarantees a 45+ Study
-                                        Score, or your money back. With a cap of
-                                        10 students per tutorial, we provide
-                                        personalized attention for optimal
-                                        results.
                                     </ScrollAnimateText>
                                 </div>
                                 <div>

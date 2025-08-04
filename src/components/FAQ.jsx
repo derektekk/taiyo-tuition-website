@@ -13,14 +13,14 @@ const FAQ = () => {
                 <div>
                     <p className="mb-3">
                         We offer tutoring across{" "}
-                        <span className="font-bold underline decoration-2">
+                        <span className="font-bold underline decoration-2 decoration-primary">
                             Primary,
                         </span>{" "}
-                        <span className="font-bold underline decoration-2">
+                        <span className="font-bold underline decoration-2 decoration-primary">
                             Secondary,
                         </span>{" "}
                         and{" "}
-                        <span className="font-bold underline decoration-2">
+                        <span className="font-bold underline decoration-2 decoration-primary">
                             VCE
                         </span>{" "}
                         levels. Our VCE subjects include:
@@ -44,7 +44,7 @@ const FAQ = () => {
             answer: (
                 <p>
                     Our classes are strictly capped at{" "}
-                    <span className="font-bold underline decoration-2">
+                    <span className="font-bold underline decoration-2 decoration-primary">
                         10 students
                     </span>{" "}
                     to ensure each student receives focused attention, support,
@@ -58,7 +58,7 @@ const FAQ = () => {
             answer: (
                 <p>
                     Yes! We offer both{" "}
-                    <span className="font-bold underline decoration-2">
+                    <span className="font-bold underline decoration-2 decoration-primary">
                         in-person and online classes
                     </span>{" "}
                     to suit your schedule and learning preferences. Online
@@ -105,7 +105,7 @@ const FAQ = () => {
                         accessible — without the hefty price tag.
                     </p>
 
-                    <p className="mb-3 font-semibold underline decoration-2">
+                    <p className="mb-3 font-semibold underline decoration-2 decoration-primary">
                         Here's a breakdown of our current weekly fees:
                     </p>
 
@@ -128,7 +128,7 @@ const FAQ = () => {
                         </li>
                     </ul>
 
-                    <p className="mb-3 font-semibold underline decoration-2">
+                    <p className="mb-3 font-semibold underline decoration-2 decoration-primary">
                         Each enrolment includes:
                     </p>
 

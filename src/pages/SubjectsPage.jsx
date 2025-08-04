@@ -27,7 +27,7 @@ const SubjectsPage = () => {
                 <div>
                     <p className="mb-3">
                         Based on the{" "}
-                        <span className="font-semibold underline">
+                        <span className="font-semibold underline decoration-primary">
                             VCAA English Study Design
                         </span>
                         , <span className="font-semibold">Units 3 & 4</span>{" "}
@@ -49,7 +49,7 @@ const SubjectsPage = () => {
                         </span>
                         , and develop informed argument responses. Students
                         receive scaffolded practice using{" "}
-                        <span className="font-semibold underline">
+                        <span className="font-semibold underline decoration-primary">
                             command terms
                         </span>{" "}
                         such as "analyse", "evaluate", and "compare" in
@@ -82,7 +82,7 @@ const SubjectsPage = () => {
                 <div>
                     <p className="mb-3">
                         Aligned with the{" "}
-                        <span className="font-semibold underline">
+                        <span className="font-semibold underline decoration-primary">
                             VCAA Mathematics Study Design
                         </span>
                         , Methods{" "}
@@ -95,7 +95,7 @@ const SubjectsPage = () => {
                     </p>
                     <p className="mb-3">
                         Our program emphasises{" "}
-                        <span className="font-semibold underline">
+                        <span className="font-semibold underline decoration-primary">
                             mathematical fluency and exam technique
                         </span>
                         . Students regularly practise VCAA-style questions,
@@ -103,7 +103,7 @@ const SubjectsPage = () => {
                         multi-step problems efficiently.
                     </p>
                     <p>
-                        <span className="font-semibold underline">
+                        <span className="font-semibold underline decoration-primary">
                             Small classes
                         </span>{" "}
                         allow tutors to monitor working methods closely, correct
@@ -129,7 +129,7 @@ const SubjectsPage = () => {
                 <div>
                     <p className="mb-3">
                         Following the{" "}
-                        <span className="font-semibold underline">
+                        <span className="font-semibold underline decoration-primary">
                             VCAA Chemistry Study Design
                         </span>
                         , <span className="font-semibold">Units 1/2</span> focus
@@ -141,7 +141,7 @@ const SubjectsPage = () => {
                     </p>
                     <p className="mb-3">
                         Our lessons emphasise{" "}
-                        <span className="font-semibold underline">
+                        <span className="font-semibold underline decoration-primary">
                             scientific literacy
                         </span>
                         , including precision in formula use, data
@@ -153,7 +153,7 @@ const SubjectsPage = () => {
                         .
                     </p>
                     <p>
-                        <span className="font-semibold underline">
+                        <span className="font-semibold underline decoration-primary">
                             Classes capped at 10
                         </span>{" "}
                         ensure active participation in practical-style questions
@@ -183,7 +183,7 @@ const SubjectsPage = () => {
                         motion, energy, electricity, and heat—while{" "}
                         <span className="font-semibold">Units 3/4</span> delve
                         into fields, relativity, and wave-particle duality. The{" "}
-                        <span className="font-semibold underline">
+                        <span className="font-semibold underline decoration-primary">
                             VCAA Physics Study Design
                         </span>{" "}
                         emphasises student investigation, mathematical
@@ -194,7 +194,7 @@ const SubjectsPage = () => {
                         We break down complex topics into digestible lessons,
                         using visual models and inquiry tasks. Students complete
                         structured practice into{" "}
-                        <span className="font-semibold underline">
+                        <span className="font-semibold underline decoration-primary">
                             VCAA command terms
                         </span>{" "}
                         such as "predict", "justify", and "evaluate", aligned
@@ -202,7 +202,7 @@ const SubjectsPage = () => {
                     </p>
                     <p>
                         In{" "}
-                        <span className="font-semibold underline">
+                        <span className="font-semibold underline decoration-primary">
                             small groups
                         </span>
                         , tutors closely monitor working methods, guide on graph
@@ -233,7 +233,7 @@ const SubjectsPage = () => {
                         <span className="font-semibold">Units 3/4</span> advance
                         to molecular biology, DNA technology, immune systems,
                         and evolution. The{" "}
-                        <span className="font-semibold underline">
+                        <span className="font-semibold underline decoration-primary">
                             VCAA Biology Study Design
                         </span>
                         emphasises scientific inquiry, data analysis, and
@@ -245,14 +245,14 @@ const SubjectsPage = () => {
                         data, and using accurate scientific terminology. We
                         align teaching to{" "}
                         <span className="font-semibold">SAC criteria</span> and{" "}
-                        <span className="font-semibold underline">
+                        <span className="font-semibold underline decoration-primary">
                             command term requirements
                         </span>{" "}
                         like "compare", "explain", and "design investigation."
                     </p>
                     <p>
                         With{" "}
-                        <span className="font-semibold underline">
+                        <span className="font-semibold underline decoration-primary">
                             capped classes
                         </span>
                         , each student receives personalised annotation coaching
@@ -278,7 +278,7 @@ const SubjectsPage = () => {
                             Specialist Mathematics Units 3 & 4
                         </span>
                         , as outlined in the{" "}
-                        <span className="font-semibold underline">
+                        <span className="font-semibold underline decoration-primary">
                             VCAA Study Design
                         </span>
                         , include topics such as proof techniques, vectors in
@@ -294,7 +294,7 @@ const SubjectsPage = () => {
                         </span>
                         , selecting appropriate strategies for unfamiliar
                         scenarios, and building strong conceptual reasoning. In{" "}
-                        <span className="font-semibold underline">
+                        <span className="font-semibold underline decoration-primary">
                             capped classes
                         </span>
                         , tutors can provide one-on-one questioning and ensure
@@ -327,7 +327,7 @@ const SubjectsPage = () => {
                 <div>
                     <p className="mb-3">
                         Aligned with the{" "}
-                        <span className="font-semibold underline">
+                        <span className="font-semibold underline decoration-primary">
                             Victorian Curriculum
                         </span>
                         , our{" "}
@@ -341,7 +341,7 @@ const SubjectsPage = () => {
                         expression.
                     </p>
                     <p className="mb-3">
-                        <span className="font-semibold underline">
+                        <span className="font-semibold underline decoration-primary">
                             Small class sizes
                         </span>{" "}
                         ensure each child receives personalised correction and
@@ -355,7 +355,7 @@ const SubjectsPage = () => {
                             NAPLAN-style tasks
                         </span>
                         , and{" "}
-                        <span className="font-semibold underline">
+                        <span className="font-semibold underline decoration-primary">
                             high school English success
                         </span>{" "}
                         by fostering critical thinking, organising ideas
@@ -375,7 +375,7 @@ const SubjectsPage = () => {
                 <div>
                     <p className="mb-3">
                         Our{" "}
-                        <span className="font-semibold underline">
+                        <span className="font-semibold underline decoration-primary">
                             curriculum-aligned Year 5–10 Maths classes
                         </span>{" "}
                         cover number operations, algebra, geometry, measurement,
@@ -385,7 +385,7 @@ const SubjectsPage = () => {
                     </p>
                     <p className="mb-3">
                         In{" "}
-                        <span className="font-semibold underline">
+                        <span className="font-semibold underline decoration-primary">
                             groups of up to 10
                         </span>
                         , tutors identify learning gaps early and customise
@@ -396,7 +396,7 @@ const SubjectsPage = () => {
                     <p>
                         Regular assessments, feedback on method, and practice
                         with applied problem contexts ensure{" "}
-                        <span className="font-semibold underline">
+                        <span className="font-semibold underline decoration-primary">
                             steady progress and improved confidence
                         </span>{" "}
                         across all year levels.

@@ -104,7 +104,7 @@ const Footer = () => {
                                         href="mailto:contact@taiyotuition.com"
                                         className="hover:text-primary transition-colors duration-300"
                                     >
-                                        contact@taiyotuition.com
+                                        admin@taiyotuition.com
                                     </a>
                                 </li>
                                 <li className="mb-2">
@@ -112,7 +112,7 @@ const Footer = () => {
                                         href="tel:+61123456789"
                                         className="hover:text-primary transition-colors duration-300"
                                     >
-                                        +61 123 456 789
+                                        +61 422 283 789
                                     </a>
                                 </li>
                                 <li className="mb-2">
@@ -121,9 +121,12 @@ const Footer = () => {
                                         3149
                                     </a>
                                 </li>
-                                <li className="mb-2">
+                                <li className="mb-2 flex flex-col gap-2">
                                     <a className="hover:text-primary transition-colors duration-300 cursor-pointer">
-                                        Mon - Fri: 8am - 6pm
+                                        Mon - Fri: 4pm - 9pm
+                                    </a>
+                                    <a className="hover:text-primary transition-colors duration-300 cursor-pointer">
+                                        Sat - Sun: 12pm - 6:30pm
                                     </a>
                                 </li>
                             </ul>

@@ -66,7 +66,7 @@ const About = () => {
                     {aboutCards.map((card) => (
                         <div
                             key={card.id}
-                            className={`bg-white rounded-lg w-full min-h-[300px] section-card-content shadow-md flex-col ${card.cardClasses} ${card.responsiveClasses}`}
+                            className={`bg-white rounded-lg w-full min-h-[300px]  shadow-md section-card-content flex-col ${card.cardClasses} ${card.responsiveClasses}`}
                         >
                             <ScrollAnimateText
                                 as="h1"
@@ -74,12 +74,14 @@ const About = () => {
                             >
                                 {card.emoji}
                             </ScrollAnimateText>
-                            <ScrollAnimateText as="p" className="text-pretty">
+                            <ScrollAnimateText
+                                as="article"
+                                className="text-pretty"
+                            >
                                 <span className="font-bold text-3xl/10 max-md:text-2xl">
                                     {card.title}
-                                </span>{" "}
-                                <br />
-                                {card.content}
+                                </span>
+                                <p className="mt-2">{card.content}</p>
                             </ScrollAnimateText>
                         </div>
                     ))}

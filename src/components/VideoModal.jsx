@@ -70,7 +70,7 @@ const VideoModal = ({ isOpen, onClose }) => {
                 {/* Close Button */}
                 <button
                     onClick={onClose}
-                    className="absolute -top-8 -right-8 z-10 bg-black bg-opacity-50 text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-opacity-75 transition-all duration-200 max-sm:hidden"
+                    className="absolute -top-8 -right-8 z-10 bg-gradient-secondary bg-opacity-50 text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-opacity-75 transition-all duration-200 max-sm:-top-2 max-sm:-right-2"
                 >
                     ✕
                 </button>
