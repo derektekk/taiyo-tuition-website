@@ -87,7 +87,7 @@ const NavBar = () => {
                             alt="logo"
                             className="w-10 h-10 rounded-lg shadow-sm"
                         />
-                        <h1 className="text-3xl font-bold text-[#1b1b1b] uppercase flex items-center gap-1 hover:text-primary cursor-pointer transition-colors duration-300 max-sm:text-2xl">
+                        <h1 className="text-3xl font-bold text-[#1b1b1b] uppercase flex items-center gap-1 hover:text-primary cursor-pointer transition-colors duration-300 max-sm:text-xl">
                             Taiyo Tuition
                         </h1>
                     </a>
@@ -131,11 +131,14 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="flex items-center gap-4 max-sm:gap-0">
-                    <AnimatedButton text="Enrol Now" />
+                    <AnimatedButton
+                        text="Enrol Now"
+                        className="max-sm:text-sm"
+                    />
 
                     {/* Hamburger Button */}
                     <button
-                        className="md:hidden p-2 z-50 relative"
+                        className="md:hidden py-2 pl-2 z-50 relative"
                         onClick={handleToggleMenu}
                         onKeyDown={handleKeyDown}
                         aria-label="Toggle menu"
