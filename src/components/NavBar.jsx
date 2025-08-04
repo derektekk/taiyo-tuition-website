@@ -104,7 +104,7 @@ const NavBar = () => {
                                 Subjects
                             </Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link
                                 to="/tutors"
                                 className={`hover:text-primary cursor-pointer transition-colors duration-300 ${
@@ -115,7 +115,7 @@ const NavBar = () => {
                             >
                                 Our Tutors
                             </Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link
                                 to="/contact"
@@ -211,7 +211,7 @@ const NavBar = () => {
                                 Subjects
                             </Link>
                         </li>
-                        <li
+                        {/* <li
                             className="border-b border-gray-200 p-6 cursor-pointer transition-all duration-300 text-center"
                             onMouseEnter={(e) => handleMenuItemHover(e, true)}
                             onMouseLeave={(e) => handleMenuItemHover(e, false)}
@@ -227,7 +227,7 @@ const NavBar = () => {
                             >
                                 Our Tutors
                             </Link>
-                        </li>
+                        </li> */}
                         <li
                             className="border-b border-gray-200 p-6 cursor-pointer transition-all duration-300 text-center"
                             onMouseEnter={(e) => handleMenuItemHover(e, true)}
