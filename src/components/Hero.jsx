@@ -35,11 +35,17 @@ const Hero = () => {
                             as="h1"
                             className="text-4xl mb-4 z-50 max-md:hidden"
                         >
-                            <span className="font-bold bg-linear-180 from-primary to-blue-600 bg-clip-text text-transparent">
+                            <span className="font-bold bg-linear-180 from-primary to-blue-500 bg-clip-text text-transparent relative">
+                                <span className="absolute top-[4px] left-[1px] text-shadow-md text-shadow-gradient-secondary opacity-40 -z-20">
+                                    PRIVATE
+                                </span>
                                 PRIVATE
                             </span>{" "}
                             GROUP AND{" "}
-                            <span className="font-bold bg-linear-180 from-primary to-blue-600 bg-clip-text text-transparent">
+                            <span className="font-bold bg-linear-180 from-primary to-blue-500 bg-clip-text text-transparent relative">
+                                <span className="absolute top-[4px] left-[1px] text-shadow-md text-shadow-gradient-secondary opacity-40 -z-20">
+                                    ONLINE
+                                </span>
                                 ONLINE
                             </span>{" "}
                             TUTORING
@@ -47,13 +53,19 @@ const Hero = () => {
                         <div className="bg-white p-6 rounded-lg z-50 shadow-md max-md:my-6 ">
                             <ScrollAnimateText
                                 as="h1"
-                                className="text-4xl mb-4 z-50 md:hidden max-sm:text-2xl"
+                                className="text-4xl mb-4 z-50 md:hidden max-sm:text-3xl"
                             >
-                                <span className="font-bold bg-linear-180 from-primary to-blue-600 bg-clip-text text-transparent">
+                                <span className="font-bold bg-linear-180 from-primary to-blue-500 bg-clip-text text-transparent relative">
+                                    <span className="absolute top-[4px] left-[1px] text-shadow-md text-shadow-primary opacity-40 -z-20">
+                                        PRIVATE
+                                    </span>
                                     PRIVATE
                                 </span>{" "}
                                 GROUP AND{" "}
-                                <span className="font-bold bg-linear-180 from-primary to-blue-600 bg-clip-text text-transparent">
+                                <span className="font-bold bg-linear-180 from-primary to-blue-500 bg-clip-text text-transparent relative">
+                                    <span className="absolute top-[4px] left-[1px] text-shadow-md text-shadow-primary opacity-40 -z-20">
+                                        ONLINE
+                                    </span>
                                     ONLINE
                                 </span>{" "}
                                 TUTORING

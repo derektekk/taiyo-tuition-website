@@ -104,16 +104,18 @@ const NavBar = () => {
                                 Subjects
                             </Link>
                         </li>
-                        {/* <li>
-              <Link 
-                to='/tutors' 
-                className={`hover:text-primary cursor-pointer transition-colors duration-300 ${
-                  isActiveLink('/tutors') ? 'text-primary font-semibold' : ''
-                }`}
-              >
-                Our Tutors
-              </Link>
-            </li> */}
+                        <li>
+                            <Link
+                                to="/tutors"
+                                className={`hover:text-primary cursor-pointer transition-colors duration-300 ${
+                                    isActiveLink("/tutors")
+                                        ? "text-primary font-semibold"
+                                        : ""
+                                }`}
+                            >
+                                Our Tutors
+                            </Link>
+                        </li>
                         <li>
                             <Link
                                 to="/contact"
@@ -128,11 +130,8 @@ const NavBar = () => {
                         </li>
                     </ul>
                 </div>
-                <div className="flex items-center gap-4">
-                    <AnimatedButton
-                        text="Enrol Now"
-                        className="max-md:hidden"
-                    />
+                <div className="flex items-center gap-4 max-sm:gap-0">
+                    <AnimatedButton text="Enrol Now" />
 
                     {/* Hamburger Button */}
                     <button
@@ -212,7 +211,7 @@ const NavBar = () => {
                                 Subjects
                             </Link>
                         </li>
-                        {/* <li
+                        <li
                             className="border-b border-gray-200 p-6 cursor-pointer transition-all duration-300 text-center"
                             onMouseEnter={(e) => handleMenuItemHover(e, true)}
                             onMouseLeave={(e) => handleMenuItemHover(e, false)}
@@ -228,7 +227,7 @@ const NavBar = () => {
                             >
                                 Our Tutors
                             </Link>
-                        </li> */}
+                        </li>
                         <li
                             className="border-b border-gray-200 p-6 cursor-pointer transition-all duration-300 text-center"
                             onMouseEnter={(e) => handleMenuItemHover(e, true)}
@@ -246,7 +245,7 @@ const NavBar = () => {
                                 Contact
                             </Link>
                         </li>
-                        <li
+                        {/* <li
                             className="border-b border-gray-200 p-6 cursor-pointer transition-all duration-300 text-center"
                             onMouseEnter={(e) => handleMenuItemHover(e, true)}
                             onMouseLeave={(e) => handleMenuItemHover(e, false)}
@@ -279,10 +278,10 @@ const NavBar = () => {
                             >
                                 Legal Terms
                             </Link>
-                        </li>
-                        <li className="p-6 text-center">
+                        </li> */}
+                        {/* <li className="p-6 text-center">
                             <AnimatedButton text="Enrol Now" />
-                        </li>
+                        </li> */}
                         <li className="p-6 text-center">
                             <div className="flex items-center justify-center gap-2">
                                 <a

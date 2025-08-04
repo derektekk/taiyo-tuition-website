@@ -27,7 +27,7 @@ const aimCards = [
         emoji: "📝",
         title: "Personalised Support for Every Student:",
         content:
-            "Through one-on-one tutoring and carefully designed online courses, we focus on unlocking each student's unique strengths. Our goal is to create an environment where academic challenges are met with enthusiasm and resilience.",
+            "Through group tutoring and carefully designed courses, we focus on unlocking each student's unique strengths. Our goal is to create an environment where academic challenges are met with enthusiasm and resilience.",
         cardClasses: "pt-16 pr-28 pl-6 pb-6 flex items-start justify-center",
         responsiveClasses: "max-md:pl-16",
     },
@@ -61,14 +61,13 @@ const Aim = () => {
                                     {card.emoji}
                                 </ScrollAnimateText>
                                 <ScrollAnimateText
-                                    as="p"
+                                    as="article"
                                     className="text-pretty"
                                 >
                                     <span className="font-bold text-3xl/10 max-md:text-2xl">
                                         {card.title}
-                                    </span>{" "}
-                                    <br />
-                                    {card.content}
+                                    </span>
+                                    <p className="mt-2">{card.content}</p>
                                 </ScrollAnimateText>
                             </div>
                         ))}
