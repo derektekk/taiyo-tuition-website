@@ -257,7 +257,7 @@ const FAQ = () => {
                                 <button
                                     onClick={() => toggleItem(faq.id)}
                                     onKeyDown={(e) => handleKeyDown(e, faq.id)}
-                                    className="w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-primary focus:ring-inset cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+                                    className="w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none cursor-pointer hover:bg-gray-50 transition-colors duration-200"
                                     aria-expanded={openItems.has(faq.id)}
                                     aria-controls={`faq-answer-${faq.id}`}
                                     tabIndex="0"
