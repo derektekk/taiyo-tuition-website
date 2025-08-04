@@ -73,26 +73,54 @@ const FAQ = () => {
             answer: (
                 <p>
                     We believe our mentoring is built around{" "}
-                    <span className="font-bold">
+                    <span className="font-bold underline decoration-2 decoration-primary">
                         clarity, structure and personal connection
                     </span>
                     . With a maximum of{" "}
-                    <span className="font-bold">10 students</span> per class,
-                    tutors are able to provide individualised guidance while
-                    maintaining an engaging group dynamic. Lessons are designed
-                    to break down complex concepts step-by-step, designed to
-                    break down complex concepts step-by-step, reinforce key
-                    skills, and prepare students for real exam conditions. Our
-                    approach blends curriculum alignment with strategy-focused
-                    teaching — so students don't just learn content, they learn
-                    how to apply it confidently.
+                    <span className="font-bold underline decoration-2 decoration-primary">
+                        10 students
+                    </span>{" "}
+                    per class, tutors are able to provide individualised
+                    guidance while maintaining an engaging group dynamic.
+                    Lessons are designed to break down complex concepts
+                    step-by-step, designed to break down complex concepts
+                    step-by-step, reinforce key skills, and prepare students for
+                    real exam conditions. Our approach blends curriculum
+                    alignment with strategy-focused teaching — so students don't
+                    just learn content, they learn how to apply it confidently.
                 </p>
             ),
         },
         {
             id: 5,
             question: "How do I enroll my child?",
-            answer: "Enrolling is easy! Just click the ‘Enrol Now’ button or contact us via phone, email, or our website form. We’ll help you arrange a free trial lesson or consultation to assess your child’s needs and recommend the most suitable class.",
+            answer: (
+                <p>
+                    Enrolling is easy! Just{" "}
+                    <span className="font-bold underline decoration-2 decoration-primary">
+                        click the{" "}
+                        <a
+                            href="https://pdu2aawxpdr.typeform.com/to/o6rQPFyz"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            'Enrol Now'
+                        </a>{" "}
+                        button
+                    </span>{" "}
+                    or
+                    <span className="font-bold underline decoration-2 decoration-primary">
+                        contact us via phone, email,
+                    </span>{" "}
+                    or{" "}
+                    <span className="font-bold underline decoration-2 decoration-primary">
+                        our website form
+                    </span>
+                    . We’ll help you arrange a free trial lesson or consultation
+                    to assess your child’s needs and recommend the most suitable
+                    class.
+                </p>
+            ),
         },
         {
             id: 6,
@@ -179,7 +207,7 @@ const FAQ = () => {
             answer: (
                 <p>
                     Yes — all students receive{" "}
-                    <span className="font-bold">
+                    <span className="font-bold underline decoration-2 decoration-primary">
                         custom notes, worksheets, and practice exams
                     </span>{" "}
                     tailored to their subject and year level. These are updated

@@ -13,10 +13,10 @@ const Reviews = () => {
         },
         {
             id: 2,
-            name: "George",
-            author: "Parent",
+            name: "Daniel",
+            author: "Year 11 Student",
             rating: 5,
-            review: "Highly recommend Taiyo tuition for any students wanting additional help in VCE.",
+            review: "I'm so grateful for my tutor's patience and dedication. They made even the most challenging topics feel manageable, and I couldn't have achieved my results without their help.",
         },
         {
             id: 3,
@@ -41,10 +41,10 @@ const Reviews = () => {
         },
         {
             id: 6,
-            name: "Daniel",
-            author: "Year 11 Student",
+            name: "George",
+            author: "Parent",
             rating: 5,
-            review: "I'm so grateful for my tutor's patience and dedication. They made even the most challenging topics feel manageable, and I couldn't have achieved my results without their help.",
+            review: "Highly recommend Taiyo tuition for any students wanting additional help in VCE.",
         },
     ];
 
@@ -56,7 +56,7 @@ const Reviews = () => {
     const getReviewsPerPage = () => {
         switch (screenSize) {
             case "sm":
-                return 1;
+                return 2;
             case "md":
                 return 2;
             default:
@@ -234,11 +234,18 @@ const Reviews = () => {
                                 }}
                                 className={`grid gap-6 w-full cursor-grab active:cursor-grabbing ${
                                     screenSize === "sm"
-                                        ? "grid-cols-1"
+                                        ? "grid-cols-2"
                                         : screenSize === "md"
                                         ? "grid-cols-2"
                                         : "grid-cols-3"
                                 }`}
+                                style={{
+                                    minHeight:
+                                        screenSize === "sm" ||
+                                        screenSize === "md"
+                                            ? "280px"
+                                            : "320px",
+                                }}
                                 drag="x"
                                 dragConstraints={{ left: 0, right: 0 }}
                                 dragElastic={0.2}
@@ -255,12 +262,19 @@ const Reviews = () => {
                                             duration: 0.3,
                                         }}
                                         className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow h-full flex flex-col"
+                                        style={{
+                                            minHeight:
+                                                screenSize === "sm" ||
+                                                screenSize === "md"
+                                                    ? "280px"
+                                                    : "320px",
+                                        }}
                                     >
                                         <StarRating rating={review.rating} />
-                                        <p className="text-gray-700 mb-4 flex-1 italic">
+                                        <p className="text-gray-700 mb-4 flex-1 italic leading-relaxed">
                                             "{review.review}"
                                         </p>
-                                        <div className="border-t pt-4">
+                                        <div className="border-t pt-4 mt-auto">
                                             <p className="font-semibold text-primary text-lg">
                                                 {review.name}
                                             </p>

@@ -7,8 +7,19 @@ const aboutCards = [
         id: 1,
         emoji: "👨‍🏫",
         title: "Our Team",
-        content:
-            "At Taiyo Tuition, we bring together some of Australia's finest private tutors, ranked among the Top 2% in the country. Our team is passionate about guiding students through their academic journey, from Years 5 to 12.",
+        content: (
+            <>
+                <p>
+                    At Taiyo Tuition, we bring together some of Australia's
+                    finest private tutors, ranked among the{" "}
+                    <span className="underline decoration-primary decoration-2 font-medium">
+                        Top 2% in the country
+                    </span>{" "}
+                    . Our team is passionate about guiding students through
+                    their academic journey, from Years 5 to 12.
+                </p>
+            </>
+        ),
         cardClasses: "pt-6 pr-24 pl-6 pb-16 flex items-start justify-start",
         responsiveClasses: "",
     },
@@ -16,8 +27,19 @@ const aboutCards = [
         id: 2,
         emoji: "👩‍🎓",
         title: "Personalised Learning for Every Student!",
-        content:
-            "Our tutors go beyond simply teaching—they tailor learning experiences to suit each student's unique needs. With a combination of expertise and empathy, they help unlock potential and build confidence in every learner.",
+        content: (
+            <>
+                <p>
+                    <span className="font-medium underline decoration-primary decoration-2">
+                        Our tutors go beyond simply teaching
+                    </span>
+                    —they tailor learning experiences to suit each student's
+                    unique needs. With a combination of expertise and empathy,
+                    they help unlock potential and build confidence in every
+                    learner.
+                </p>
+            </>
+        ),
         cardClasses:
             "pt-6 pr-6 pl-28 pb-16 flex items-end justify-start text-right",
         responsiveClasses: "max-md:pl-16",
@@ -26,8 +48,18 @@ const aboutCards = [
         id: 3,
         emoji: "💯",
         title: "More Than Just Tutors—Mentors for Success!",
-        content:
-            "At Taiyo Tuition, we believe in fostering long-term academic growth. Our tutors don't just focus on grades—they inspire, mentor, and empower students to excel.",
+        content: (
+            <>
+                <p>
+                    At Taiyo Tuition,{" "}
+                    <span className="font-medium underline decoration-primary decoration-2">
+                        we believe in fostering long-term academic growth
+                    </span>
+                    . Our tutors don't just focus on grades—they inspire,
+                    mentor, and empower students to excel.
+                </p>
+            </>
+        ),
         cardClasses: "pt-16 pr-24 pl-6 pb-6 flex items-start justify-center",
         responsiveClasses: "max-md:pl-16",
     },
@@ -35,8 +67,18 @@ const aboutCards = [
         id: 4,
         emoji: "📚",
         title: "With Dedicated Support and Personalised Guidance",
-        content:
-            "we create an environment where students can achieve their best! Our tutors provide structured learning plans tailored to each student's goals and learning style.",
+        content: (
+            <>
+                <p>
+                    We create an{" "}
+                    <span className="font-medium underline decoration-primary decoration-2">
+                        environment where students can achieve their best!
+                    </span>{" "}
+                    Our tutors provide structured learning plans tailored to
+                    each student's goals and learning style.
+                </p>
+            </>
+        ),
         cardClasses:
             "pt-16 pr-6 pl-24 pb-6 flex items-end justify-center text-right",
         responsiveClasses: "max-md:pr-16",

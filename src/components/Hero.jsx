@@ -75,11 +75,16 @@ const Hero = () => {
                                     as="p"
                                     className="text-md mb-4"
                                 >
-                                    Inspiring a love for learning. While
-                                    delivering excellence in every subject. With
-                                    a capacity of 10 students per tutorial, this
-                                    is the most impactful private tuition in
-                                    Melbourne.
+                                    <span className="decoration-primary underline decoration-2">
+                                        Inspiring a love for learning.
+                                    </span>{" "}
+                                    While delivering excellence in every
+                                    subject. With a capacity of{" "}
+                                    <span className="decoration-primary underline decoration-2">
+                                        10 students per tutorial
+                                    </span>{" "}
+                                    , this is the most impactful private tuition
+                                    in Melbourne.
                                 </ScrollAnimateText>
                             </div>
                             <div className="flex flex-row">
