@@ -9,7 +9,7 @@ const aboutCards = [
         title: "Our Team",
         content: (
             <>
-                <p>
+                <p className="mt-2">
                     At Taiyo Tuition, we bring together some of Australia's
                     finest private tutors, ranked among the{" "}
                     <span className="underline decoration-primary decoration-2 font-medium">
@@ -29,7 +29,7 @@ const aboutCards = [
         title: "Personalised Learning for Every Student!",
         content: (
             <>
-                <p>
+                <p className="mt-2">
                     <span className="font-medium underline decoration-primary decoration-2">
                         Our tutors go beyond simply teaching
                     </span>
@@ -50,7 +50,7 @@ const aboutCards = [
         title: "More Than Just Tutors—Mentors for Success!",
         content: (
             <>
-                <p>
+                <p className="mt-2">
                     At Taiyo Tuition,{" "}
                     <span className="font-medium underline decoration-primary decoration-2">
                         we believe in fostering long-term academic growth
@@ -69,7 +69,7 @@ const aboutCards = [
         title: "With Dedicated Support and Personalised Guidance",
         content: (
             <>
-                <p>
+                <p className="mt-2">
                     We create an{" "}
                     <span className="font-medium underline decoration-primary decoration-2">
                         environment where students can achieve their best!
@@ -123,7 +123,7 @@ const About = () => {
                                 <span className="font-bold text-3xl/10 max-md:text-2xl">
                                     {card.title}
                                 </span>
-                                <p className="mt-2">{card.content}</p>
+                                <a className="mt-4">{card.content}</a>
                             </ScrollAnimateText>
                         </div>
                     ))}

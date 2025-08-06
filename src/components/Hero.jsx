@@ -1,35 +1,16 @@
 import React from "react";
-import classPhoto1 from "../assets/taiyoImages/classPhotos/classPhoto1.jpg";
-import classPhoto2 from "../assets/taiyoImages/classPhotos/classPhoto2.jpg";
-import entrance from "../assets/taiyoImages/entrance.jpg";
-import taiyoClassroom from "../assets/taiyoImages/taiyoClassroom.jpg";
-import classPhoto5 from "../assets/taiyoImages/classPhotos/classPhoto5.jpg";
-import classPhoto6 from "../assets/taiyoImages/classPhotos/classPhoto6.jpg";
-
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 import ScrollAnimateText from "./ScrollAnimateText";
 import AnimatedButton from "./AnimatedButton";
+import DesktopCarousel from "./DesktopCarousel";
+import MobileCarousel from "./MobileCarousel";
+
+// todo: edit hero section responsiveness and change carousel item sizing
 
 const Hero = () => {
-    const splideOptions = {
-        type: "loop",
-        direction: "ttb",
-        height: "600px",
-        autoScroll: {
-            speed: 0.5,
-        },
-        arrows: false,
-        pagination: false,
-        drag: false,
-        wheel: false,
-        releaseWheel: false,
-    };
-
     return (
         <main className="overflow-hidden">
-            <section className="flex items-center justify-center h-[60vh] bg-linear-180 to-gradient-secondary from-gradient-primary mt-[80px] max-md:h-full">
-                <div className="flex flex-row items-center justify-center z-10 gap-6 max-md:flex-col max-w-[1280px] mx-auto px-6">
+            <section className="flex items-center justify-center h-[60vh] bg-linear-180 to-gradient-secondary from-gradient-primary mt-[80px] max-md:h-full w-full ">
+                <div className="flex flex-row items-center justify-center z-10 gap-6 max-md:flex-col  mx-auto px-6 container-responsive overflow-hidden">
                     <div className="flex flex-col">
                         <ScrollAnimateText
                             as="h1"
@@ -50,7 +31,7 @@ const Hero = () => {
                             </span>{" "}
                             TUTORING
                         </ScrollAnimateText>
-                        <div className="bg-white p-6 rounded-lg z-50 shadow-md max-md:my-6 ">
+                        <div className="bg-white p-6 rounded-lg z-50 shadow-md max-md:mt-6 ">
                             <ScrollAnimateText
                                 as="h1"
                                 className="text-4xl mb-4 z-50 md:hidden max-sm:text-3xl"
@@ -117,167 +98,8 @@ const Hero = () => {
                             </ScrollAnimateText>
                         </div>
                     </div>
-                    <div className="container cursor-pointer max-md:hidden">
-                        <Splide
-                            key="desktop-carousel"
-                            options={splideOptions}
-                            extensions={{ AutoScroll }}
-                            className="w-full"
-                        >
-                            <SplideSlide>
-                                <div className="grid grid-cols-2 gap-4 my-4">
-                                    <div className="row-span-2">
-                                        <img
-                                            src={classPhoto1}
-                                            alt="hero"
-                                            className="object-cover rounded-lg w-full h-full"
-                                        />
-                                    </div>
-                                    <div className="row-span-1 min-h-16 bg-primary rounded-lg p-4 flex items-center justify-center">
-                                        <p className="text-white text-sm text-center">
-                                            📖 Learn at Your Pace
-                                        </p>
-                                    </div>
-                                    <div className="row-span-2">
-                                        <img
-                                            src={classPhoto2}
-                                            alt="hero"
-                                            className="object-cover rounded-lg w-full h-full"
-                                        />
-                                    </div>
-                                    <div className="row-span-1 min-h-16 bg-primary rounded-lg p-4 flex items-center justify-center">
-                                        <p className="text-white text-sm text-center">
-                                            👩‍🏫 Expert Tutors Available
-                                        </p>
-                                    </div>
-                                    <div className="row-span-2">
-                                        <img
-                                            src={entrance}
-                                            alt="hero"
-                                            className="object-cover rounded-lg w-full h-full"
-                                        />
-                                    </div>
-                                    <div className="row-span-1 min-h-16 bg-primary rounded-lg p-4 flex items-center justify-center">
-                                        <p className="text-white text-sm text-center">
-                                            ✅ Exceptional Results
-                                        </p>
-                                    </div>
-                                    <div className="row-span-2">
-                                        <img
-                                            src={taiyoClassroom}
-                                            alt="hero"
-                                            className="object-cover rounded-lg w-full h-full"
-                                        />
-                                    </div>
-                                    <div className="row-span-1 min-h-16 bg-primary rounded-lg p-4 flex items-center justify-center">
-                                        <p className="text-white text-sm text-center">
-                                            💻 Online & In-Person
-                                        </p>
-                                    </div>
-                                    <div className="row-span-2">
-                                        <img
-                                            src={classPhoto5}
-                                            alt="hero"
-                                            className="object-cover rounded-lg w-full h-full"
-                                        />
-                                    </div>
-                                    <div className="row-span-1 min-h-16 bg-primary rounded-lg p-4 flex items-center justify-center">
-                                        <p className="text-white text-sm text-center">
-                                            🎯 Personalized Learning
-                                        </p>
-                                    </div>
-                                    <div className="row-span-2">
-                                        <img
-                                            src={classPhoto6}
-                                            alt="hero"
-                                            className="object-cover rounded-lg w-full h-full"
-                                        />
-                                    </div>
-                                    <div className="row-span-1 min-h-16 bg-primary rounded-lg p-4 flex items-center justify-center">
-                                        <p className="text-white text-sm text-center">
-                                            📈 ATAR Excellence Focus
-                                        </p>
-                                    </div>
-                                </div>
-                            </SplideSlide>
-                            <SplideSlide>
-                                <div className="grid grid-cols-2 gap-4 my-4">
-                                    <div className="row-span-2">
-                                        <img
-                                            src={classPhoto1}
-                                            alt="hero"
-                                            className="object-cover rounded-lg w-full h-full"
-                                        />
-                                    </div>
-                                    <div className="row-span-1 min-h-16 bg-primary rounded-lg p-4 flex items-center justify-center">
-                                        <p className="text-white text-sm text-center">
-                                            📖 Learn at Your Pace
-                                        </p>
-                                    </div>
-                                    <div className="row-span-2">
-                                        <img
-                                            src={classPhoto2}
-                                            alt="hero"
-                                            className="object-cover rounded-lg w-full h-full"
-                                        />
-                                    </div>
-                                    <div className="row-span-1 min-h-16 bg-primary rounded-lg p-4 flex items-center justify-center">
-                                        <p className="text-white text-sm text-center">
-                                            👩‍🏫 Expert Tutors Available
-                                        </p>
-                                    </div>
-                                    <div className="row-span-2">
-                                        <img
-                                            src={entrance}
-                                            alt="hero"
-                                            className="object-cover rounded-lg w-full h-full"
-                                        />
-                                    </div>
-                                    <div className="row-span-1 min-h-16 bg-primary rounded-lg p-4 flex items-center justify-center">
-                                        <p className="text-white text-sm text-center">
-                                            ✅ Exceptional Results
-                                        </p>
-                                    </div>
-                                    <div className="row-span-2">
-                                        <img
-                                            src={taiyoClassroom}
-                                            alt="hero"
-                                            className="object-cover rounded-lg w-full h-full"
-                                        />
-                                    </div>
-                                    <div className="row-span-1 min-h-16 bg-primary rounded-lg p-4 flex items-center justify-center">
-                                        <p className="text-white text-sm text-center">
-                                            💻 Online & In-Person
-                                        </p>
-                                    </div>
-                                    <div className="row-span-2">
-                                        <img
-                                            src={classPhoto5}
-                                            alt="hero"
-                                            className="object-cover rounded-lg w-full h-full"
-                                        />
-                                    </div>
-                                    <div className="row-span-1 min-h-16 bg-primary rounded-lg p-4 flex items-center justify-center">
-                                        <p className="text-white text-sm text-center">
-                                            🎯 Personalized Learning
-                                        </p>
-                                    </div>
-                                    <div className="row-span-2">
-                                        <img
-                                            src={classPhoto6}
-                                            alt="hero"
-                                            className="object-cover rounded-lg w-full h-full"
-                                        />
-                                    </div>
-                                    <div className="row-span-1 min-h-16 bg-primary rounded-lg p-4 flex items-center justify-center">
-                                        <p className="text-white text-sm text-center">
-                                            📈 ATAR Excellence Focus
-                                        </p>
-                                    </div>
-                                </div>
-                            </SplideSlide>
-                        </Splide>
-                    </div>
+                    <MobileCarousel />
+                    <DesktopCarousel />
                 </div>
             </section>
         </main>
