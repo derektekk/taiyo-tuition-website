@@ -98,7 +98,7 @@ const MobileCarousel = () => {
         if (!scrollContainer) return;
 
         let animationId;
-        const scrollSpeed = 0.5; // pixels per frame
+        const scrollSpeed = 0.75; // pixels per frame
         const containerWidth = scrollContainer.scrollWidth / 2; // Half because we duplicate content
 
         const animate = () => {
