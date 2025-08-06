@@ -1,0 +1,38 @@
+/* Minimal Splide CSS for DesktopCarousel only */
+.desktop-carousel-container {
+    height: 100%;
+}
+
+.desktop-carousel-container .splide {
+    height: 100%;
+}
+
+.desktop-carousel-container .splide__track {
+    overflow: hidden;
+    height: 100%;
+}
+
+.desktop-carousel-container .splide__list {
+    display: flex;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.desktop-carousel-container .splide__slide {
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+/* AutoScroll specific styles */
+.desktop-carousel-container .splide--ttb .splide__list {
+    flex-direction: column;
+}
+
+.desktop-carousel-container .splide--ttb .splide__slide {
+    width: 100%;
+    height: 100%;
+}
