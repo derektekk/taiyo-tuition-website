@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ScrollAnimateText from "./ScrollAnimateText";
 import VideoModal from "./VideoModal";
+import taiyoThumbnail from "../assets/taiyo-thumbnail.jpg";
 
 const aboutCards = [
     {
@@ -128,18 +129,24 @@ const About = () => {
                         </div>
                     ))}
                     <div
-                        className="w-72 h-72 bg-primary shadow-md rounded-full cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center justify-center max-md:rounded-2xl absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 z-10 max-md:relative max-md:top-auto max-md:left-auto max-md:translate-x-0 max-md:translate-y-0 max-md:mx-auto"
+                        className="w-full min-h-[300px] bg-gradient-secondary shadow-md md:rounded-full cursor-pointer hover:shadow-lg transition-all duration-300 md:hover:scale-105 flex items-center justify-center rounded-2xl md:absolute md:top-[50%] md:left-[50%] md:transform md:-translate-x-1/2 md:-translate-y-1/2 md:z-10 relative md:w-78 md:h-78 row-start-3 md:row-start-1"
                         onClick={handleOpenModal}
                     >
-                        <div className="flex flex-col items-center justify-center gap-4">
-                            <div className="bg-gradient-secondary rounded-4xl w-32 h-32 flex items-center justify-center shadow-md">
-                                <div>
+                        <div className="flex items-center justify-center gap-4 relative w-full h-full md:border-[16px] md:rounded-full md:border-gradient-secondary">
+                            <img
+                                src={taiyoThumbnail}
+                                alt="About"
+                                className="w-full h-full aspect-[1/1] md:rounded-full object-cover absolute top-0 left-0 p-6 md:p-0 p"
+                            />
+                            <div className=" w-32 h-32 flex flex-col items-center justify-center  z-10">
+                                <div className="">
                                     <svg
                                         width="43"
                                         height="50"
                                         viewBox="0 0 43 50"
                                         fill="white"
                                         xmlns="http://www.w3.org/2000/svg"
+                                        className="drop-shadow-md shadow-black"
                                     >
                                         <path
                                             d="M40.5 20.6699C43.8333 22.5944 43.8333 27.4056 40.5 29.3301L7.5 48.3827C4.16666 50.3072 1.41487e-06 47.9016 1.58312e-06 44.0526L3.24875e-06 5.94744C3.41699e-06 2.09843 4.16667 -0.307188 7.5 1.61731L40.5 20.6699Z"
@@ -148,9 +155,6 @@ const About = () => {
                                     </svg>
                                 </div>
                             </div>
-                            <h1 className="text-3xl font-medium text-white">
-                                Why Taiyo?
-                            </h1>
                         </div>
                     </div>
                 </div>
