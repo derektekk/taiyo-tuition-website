@@ -144,7 +144,7 @@ const Footer = () => {
                             </h1> */}
                         </div>
                         <p className="text-right">
-                            © 2025 Taiyo Tuition. All rights reserved |{" "}
+                            © 2026 Taiyo Tuition. All rights reserved |{" "}
                             <Link
                                 to="/privacy"
                                 className="hover:text-primary transition-colors duration-300"

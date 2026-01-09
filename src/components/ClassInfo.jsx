@@ -67,7 +67,7 @@ const ClassInfo = () => {
                                 as="p"
                                 className="text-pretty mb-4"
                             >
-                                Our expert tutors provide personalized guidance
+                                Our expert tutors provide personalised guidance
                                 to help every student reach their full academic
                                 potential.
                             </ScrollAnimateText>

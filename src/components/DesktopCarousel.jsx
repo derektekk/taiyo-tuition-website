@@ -99,7 +99,7 @@ const DesktopCarousel = () => {
                         </div>
                         <div className="row-span-1 min-h-16 bg-primary rounded-lg p-4 flex items-center justify-center">
                             <p className="text-white text-sm text-center">
-                                🎯 Personalized Learning
+                                🎯 Personalised Learning
                             </p>
                         </div>
                         <div className="row-span-2">
@@ -175,7 +175,7 @@ const DesktopCarousel = () => {
                         </div>
                         <div className="row-span-1 min-h-16 bg-primary rounded-lg p-4 flex items-center justify-center">
                             <p className="text-white text-sm text-center">
-                                🎯 Personalized Learning
+                                🎯 Personalised Learning
                             </p>
                         </div>
                         <div className="row-span-2">
@@ -251,7 +251,7 @@ const DesktopCarousel = () => {
                         </div>
                         <div className="row-span-1 min-h-16 bg-primary rounded-lg p-4 flex items-center justify-center">
                             <p className="text-white text-sm text-center">
-                                🎯 Personalized Learning
+                                🎯 Personalised Learning
                             </p>
                         </div>
                         <div className="row-span-2">

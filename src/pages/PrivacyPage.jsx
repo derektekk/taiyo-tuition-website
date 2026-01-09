@@ -5,14 +5,14 @@ const PrivacyPage = () => {
       content: [
         "Personal information such as name, email address, phone number, and academic details when you register for our services.",
         "Usage data including how you interact with our website and educational platform.",
-        "Academic progress data to help track your learning journey and provide personalized tutoring.",
+        "Academic progress data to help track your learning journey and provide personalised tutoring.",
         "Communication records for quality assurance and customer service purposes."
       ]
     },
     {
       title: "How We Use Your Information",
       content: [
-        "To provide personalized tutoring services and educational support.",
+        "To provide personalised tutoring services and educational support.",
         "To communicate with you about your academic progress and upcoming sessions.",
         "To improve our services and develop new educational programs.",
         "To process payments and manage your account.",

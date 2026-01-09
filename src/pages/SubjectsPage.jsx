@@ -318,6 +318,56 @@ const SubjectsPage = () => {
         },
         {
             id: 7,
+            name: "📊 General Maths Units 1/2 & 3/4",
+            category: "stem",
+            image: mathMethodsImg,
+            shortDescription:
+                "Build practical mathematical skills through real-world applications in data, finance, and networks.",
+            detailedDescription: (
+                <div>
+                    <p className="mb-3">
+                        Following the{" "}
+                        <span className="font-semibold underline decoration-primary">
+                            VCAA Mathematics Study Design
+                        </span>
+                        , <span className="font-semibold">Units 1/2</span>{" "}
+                        introduce practical mathematics through data analysis,
+                        recursion, financial modelling, and geometry.{" "}
+                        <span className="font-semibold">Units 3/4</span> extend
+                        into statistical inference, networks, decision
+                        mathematics, and matrices with an emphasis on real-world
+                        problem-solving.
+                    </p>
+                    <p className="mb-3">
+                        Our program emphasises{" "}
+                        <span className="font-semibold underline decoration-primary">
+                            mathematical reasoning and application
+                        </span>
+                        . Students practise interpreting data displays,
+                        constructing statistical arguments, and using technology
+                        effectively. Lessons include{" "}
+                        <span className="font-semibold">
+                            VCAA-style questions
+                        </span>{" "}
+                        and training on CAS calculator functionality.
+                    </p>
+                    <p>
+                        In{" "}
+                        <span className="font-semibold underline decoration-primary">
+                            small classes
+                        </span>
+                        , tutors guide students through problem-solving
+                        strategies, helping them develop clear working methods
+                        and communicate mathematical reasoning effectively.{" "}
+                        <span className="font-semibold">SAC preparation</span>{" "}
+                        and regular feedback build exam confidence and ensure
+                        mastery of key concepts.
+                    </p>
+                </div>
+            ),
+        },
+        {
+            id: 8,
             name: "📖 Year 5–10 English",
             category: "humanities",
             image: english510Img,
@@ -365,7 +415,7 @@ const SubjectsPage = () => {
             ),
         },
         {
-            id: 8,
+            id: 9,
             name: "➕ Year 5–10 Maths",
             category: "stem",
             image: maths510Img,
@@ -555,7 +605,7 @@ const SubjectsPage = () => {
                             delay={0.2}
                         >
                             Contact us today to discuss your academic goals and
-                            create a personalized study plan
+                            create a personalised study plan
                         </ScrollAnimateText>
                         <ScrollAnimateText delay={0.4}>
                             <a

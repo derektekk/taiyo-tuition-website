@@ -63,7 +63,7 @@ const Hero = () => {
                                     subject. With a capacity of{" "}
                                     <span className="decoration-primary underline decoration-2">
                                         10 students per tutorial
-                                    </span>{" "}
+                                    </span>
                                     , this is the most impactful private tuition
                                     in Melbourne.
                                 </ScrollAnimateText>

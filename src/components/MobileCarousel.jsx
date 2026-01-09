@@ -71,7 +71,7 @@ const MobileCarousel = () => {
             id: 10,
             type: "text",
             emoji: "🎯",
-            content: "Personalized Learning",
+            content: "Personalised Learning",
         },
         {
             id: 11,
