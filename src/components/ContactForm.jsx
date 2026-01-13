@@ -1,20 +1,22 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import ScrollAnimateText from "./ScrollAnimateText";
 import SuccessModal from "./SuccessModal";
 
 const ContactForm = () => {
     const formRef = useRef(null);
+    const subjectDropdownRef = useRef(null);
     const [isLoading, setIsLoading] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
     const [error, setError] = useState("");
+    const [isSubjectDropdownOpen, setIsSubjectDropdownOpen] = useState(false);
     const [formData, setFormData] = useState({
         from_name: "",
         from_email: "",
         phone: "",
         student_name: "",
         year_level: "",
-        subject: "",
+        subjects: [],
         study_method: "",
     });
 
@@ -41,6 +43,23 @@ const ContactForm = () => {
         "Year 5-10 Maths",
     ];
 
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (
+                subjectDropdownRef.current &&
+                !subjectDropdownRef.current.contains(event.target)
+            ) {
+                setIsSubjectDropdownOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({
@@ -49,6 +68,40 @@ const ContactForm = () => {
         }));
         // Clear error when user starts typing
         if (error) setError("");
+    };
+
+    const handleSubjectToggle = (subject) => {
+        setFormData((prev) => {
+            const isSelected = prev.subjects.includes(subject);
+            const newSubjects = isSelected
+                ? prev.subjects.filter((s) => s !== subject)
+                : [...prev.subjects, subject];
+            return {
+                ...prev,
+                subjects: newSubjects,
+            };
+        });
+        if (error) setError("");
+    };
+
+    const handleRemoveSubject = (subject) => {
+        setFormData((prev) => ({
+            ...prev,
+            subjects: prev.subjects.filter((s) => s !== subject),
+        }));
+    };
+
+    const handleSubjectDropdownToggle = () => {
+        setIsSubjectDropdownOpen((prev) => !prev);
+    };
+
+    const handleSubjectDropdownKeyDown = (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            handleSubjectDropdownToggle();
+        } else if (e.key === "Escape") {
+            setIsSubjectDropdownOpen(false);
+        }
     };
 
     const validateForm = () => {
@@ -73,8 +126,8 @@ const ContactForm = () => {
             setError("Please select a year level");
             return false;
         }
-        if (!formData.subject) {
-            setError("Please select a subject");
+        if (formData.subjects.length === 0) {
+            setError("Please select at least one subject");
             return false;
         }
         if (!formData.study_method) {
@@ -108,7 +161,7 @@ const ContactForm = () => {
                 phone: "",
                 student_name: "",
                 year_level: "",
-                subject: "",
+                subjects: [],
                 study_method: "",
             });
         } catch (err) {
@@ -151,13 +204,13 @@ const ContactForm = () => {
     return (
         <>
             <section
-                className="bg-white rounded-2xl shadow-lg p-8"
+                className="bg-white rounded-2xl shadow-lg px-8 py-16"
                 aria-labelledby="contact-form-heading"
             >
                 <ScrollAnimateText
                     as="h2"
                     id="contact-form-heading"
-                    className="text-3xl font-bold text-gray-900 mb-4 text-center"
+                    className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 text-center"
                 >
                     Ready to Get Started?
                 </ScrollAnimateText>
@@ -249,11 +302,11 @@ const ContactForm = () => {
                             value={formData.student_name}
                             onChange={handleChange}
                             className={inputClasses}
-                            placeholder="Enter the student's name (if parent/guardian)"
+                            placeholder="Enter the student's name"
                         />
                     </div>
 
-                    {/* Year Level & Subject - Side by Side on larger screens */}
+                    {/* Year Level & Preferred Study Method - Side by Side on larger screens */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         {/* Year Level */}
                         <div>
@@ -284,55 +337,202 @@ const ContactForm = () => {
                             </div>
                         </div>
 
-                        {/* Subject */}
+                        {/* Preferred Study Method */}
                         <div>
-                            <label htmlFor="subject" className={labelClasses}>
-                                Subject Interested In{" "}
+                            <label
+                                htmlFor="study_method"
+                                className={labelClasses}
+                            >
+                                Preferred Study Method{" "}
                                 <span className="text-red-500">*</span>
                             </label>
                             <div className="relative">
                                 <select
-                                    id="subject"
-                                    name="subject"
-                                    value={formData.subject}
+                                    id="study_method"
+                                    name="study_method"
+                                    value={formData.study_method}
                                     onChange={handleChange}
                                     className={selectClasses}
                                     aria-required="true"
                                 >
-                                    <option value="">Select a subject</option>
-                                    {subjects.map((subj) => (
-                                        <option key={subj} value={subj}>
-                                            {subj}
-                                        </option>
-                                    ))}
+                                    <option value="">
+                                        Select study method
+                                    </option>
+                                    <option value="Online">Online</option>
+                                    <option value="In Person">
+                                        In Person (Mount Waverly Branch)
+                                    </option>
                                 </select>
                                 <SelectArrow />
                             </div>
                         </div>
                     </div>
 
-                    {/* Preferred Study Method */}
-                    <div>
-                        <label htmlFor="study_method" className={labelClasses}>
-                            Preferred Study Method{" "}
+                    {/* Subject Multi-Select */}
+                    <div className="relative" ref={subjectDropdownRef}>
+                        <label id="subjects-label" className={labelClasses}>
+                            Subjects Interested In{" "}
                             <span className="text-red-500">*</span>
                         </label>
-                        <div className="relative">
-                            <select
-                                id="study_method"
-                                name="study_method"
-                                value={formData.study_method}
-                                onChange={handleChange}
-                                className={selectClasses}
-                                aria-required="true"
+                        {/* Hidden input for emailjs */}
+                        <input
+                            type="hidden"
+                            name="subject"
+                            value={formData.subjects.join(", ")}
+                        />
+                        <div
+                            role="combobox"
+                            aria-expanded={isSubjectDropdownOpen}
+                            aria-haspopup="listbox"
+                            aria-labelledby="subjects-label"
+                            aria-controls="subjects-listbox"
+                            tabIndex={0}
+                            onClick={handleSubjectDropdownToggle}
+                            onKeyDown={handleSubjectDropdownKeyDown}
+                            className={`${inputClasses} cursor-pointer min-h-[48px] flex items-center justify-between gap-2 pr-10`}
+                        >
+                            <span
+                                className={
+                                    formData.subjects.length === 0
+                                        ? "text-gray-400"
+                                        : "text-gray-700"
+                                }
                             >
-                                <option value="">Select study method</option>
-                                <option value="Online">Online</option>
-                                <option value="In Person">In Person</option>
-                            </select>
-                            <SelectArrow />
+                                {formData.subjects.length === 0
+                                    ? "Select subjects"
+                                    : `${formData.subjects.length} subject${
+                                          formData.subjects.length > 1
+                                              ? "s"
+                                              : ""
+                                      } selected`}
+                            </span>
+                            <div className="pointer-events-none absolute  right-0 flex items-center pr-3">
+                                <svg
+                                    className={`h-5 w-5 text-gray-400 transition-transform duration-200 ${
+                                        isSubjectDropdownOpen
+                                            ? "rotate-180"
+                                            : ""
+                                    }`}
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        fillRule="evenodd"
+                                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                        clipRule="evenodd"
+                                    />
+                                </svg>
+                            </div>
                         </div>
+
+                        {/* Dropdown Options */}
+                        {isSubjectDropdownOpen && (
+                            <ul
+                                id="subjects-listbox"
+                                role="listbox"
+                                aria-multiselectable="true"
+                                aria-labelledby="subjects-label"
+                                className="absolute z-50 mt-1 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-auto"
+                            >
+                                {subjects.map((subj) => {
+                                    const isSelected =
+                                        formData.subjects.includes(subj);
+                                    return (
+                                        <li
+                                            key={subj}
+                                            role="option"
+                                            aria-selected={isSelected}
+                                            onClick={() =>
+                                                handleSubjectToggle(subj)
+                                            }
+                                            onKeyDown={(e) => {
+                                                if (
+                                                    e.key === "Enter" ||
+                                                    e.key === " "
+                                                ) {
+                                                    e.preventDefault();
+                                                    handleSubjectToggle(subj);
+                                                }
+                                            }}
+                                            tabIndex={0}
+                                            className={`flex items-center gap-3 px-4 py-3 cursor-pointer transition-colors duration-150 ${
+                                                isSelected
+                                                    ? "bg-primary/10 text-primary"
+                                                    : "hover:bg-gray-100 text-gray-700"
+                                            }`}
+                                        >
+                                            <div
+                                                className={`w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 transition-colors duration-150 ${
+                                                    isSelected
+                                                        ? "bg-primary border-primary"
+                                                        : "border-gray-300"
+                                                }`}
+                                            >
+                                                {isSelected && (
+                                                    <svg
+                                                        className="w-3 h-3 text-white"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        viewBox="0 0 24 24"
+                                                        aria-hidden="true"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            strokeWidth={3}
+                                                            d="M5 13l4 4L19 7"
+                                                        />
+                                                    </svg>
+                                                )}
+                                            </div>
+                                            <span className="text-sm">
+                                                {subj}
+                                            </span>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        )}
                     </div>
+
+                    {/* Selected Subjects Tags */}
+                    {formData.subjects.length > 0 && (
+                        <div className="flex flex-wrap gap-2">
+                            {formData.subjects.map((subj) => (
+                                <span
+                                    key={subj}
+                                    className="inline-flex items-center gap-1 px-3 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium"
+                                >
+                                    {subj}
+                                    <button
+                                        type="button"
+                                        onClick={() =>
+                                            handleRemoveSubject(subj)
+                                        }
+                                        className="ml-1 hover:bg-primary/20 rounded-full p-0.5 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1"
+                                        aria-label={`Remove ${subj}`}
+                                    >
+                                        <svg
+                                            className="w-4 h-4"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                            aria-hidden="true"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={2}
+                                                d="M6 18L18 6M6 6l12 12"
+                                            />
+                                        </svg>
+                                    </button>
+                                </span>
+                            ))}
+                        </div>
+                    )}
 
                     {/* Error Message */}
                     {error && (
@@ -350,7 +550,7 @@ const ContactForm = () => {
                     <button
                         type="submit"
                         disabled={isLoading}
-                        className="w-full bg-primary text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-[#3482FF] hover:scale-[1.02] transition-all ease-in-out duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        className="w-full bg-primary text-white px-8 py-4 rounded-2xl -medium text-lg hover:bg-[#3482FF] hover:scale-[1.02] transition-all ease-in-out duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                         aria-busy={isLoading}
                     >
                         {isLoading ? (

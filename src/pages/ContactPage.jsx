@@ -32,23 +32,6 @@ const ContactPage = () => {
     return (
         <main className="min-h-screen bg-gray-50 py-20 mt-[80px]" role="main">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Header */}
-                <header className="text-center mb-16">
-                    <ScrollAnimateText
-                        as="h1"
-                        className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
-                    >
-                        Contact Us
-                    </ScrollAnimateText>
-                    <ScrollAnimateText
-                        as="p"
-                        className="text-xl text-gray-600 max-w-3xl mx-auto"
-                    >
-                        Ready to start your academic journey? Get in touch with
-                        our expert tutors today
-                    </ScrollAnimateText>
-                </header>
-
                 {/* Contact Form - Full Width */}
                 <div className="mb-12">
                     <ContactForm />
@@ -158,8 +141,8 @@ const ContactPage = () => {
                                     <ScrollAnimateText className="text-gray-700">
                                         We offer tutoring in Mathematics,
                                         Physics, Chemistry, English, Biology,
-                                        and History for VCE students. Visit our
-                                        subjects page to learn more.
+                                        and many more subjects for VCE students.
+                                        Visit our subjects page to learn more.
                                     </ScrollAnimateText>
                                 </div>
                                 <div className="border-b border-gray-200 pb-6">
