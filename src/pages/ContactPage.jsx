@@ -1,4 +1,5 @@
 import ScrollAnimateText from "../components/ScrollAnimateText";
+import ContactForm from "../components/ContactForm";
 
 const ContactPage = () => {
     const contactInfo = [
@@ -48,117 +49,82 @@ const ContactPage = () => {
                     </ScrollAnimateText>
                 </header>
 
-                {/* 2-Column Grid */}
+                {/* Contact Form - Full Width */}
+                <div className="mb-12">
+                    <ContactForm />
+                </div>
+
+                {/* 2-Column Grid: Get in Touch + Quick Questions */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    {/* Left Column: Get in Touch + Call to Action */}
-                    <div className="space-y-12">
-                        {/* Contact Information */}
-                        <section
-                            className="bg-white rounded-2xl shadow-lg p-8"
-                            aria-labelledby="contact-info-heading"
+                    {/* Left Column: Get in Touch */}
+                    <section
+                        className="bg-white rounded-2xl shadow-lg p-8"
+                        aria-labelledby="contact-info-heading"
+                    >
+                        <ScrollAnimateText
+                            as="h2"
+                            id="contact-info-heading"
+                            className="text-3xl font-bold text-gray-900 mb-8 text-center"
                         >
-                            <ScrollAnimateText
-                                as="h2"
-                                id="contact-info-heading"
-                                className="text-3xl font-bold text-gray-900 mb-8 text-center"
-                            >
-                                Get in Touch
-                            </ScrollAnimateText>
-                            <address className="space-y-6 not-italic">
-                                {contactInfo.map((info, index) => (
+                            Get in Touch
+                        </ScrollAnimateText>
+                        <address className="space-y-6 not-italic">
+                            {contactInfo.map((info, index) => (
+                                <div
+                                    key={index}
+                                    className="flex items-start space-x-4"
+                                >
                                     <div
-                                        key={index}
-                                        className="flex items-start space-x-4"
+                                        className="text-3xl mr-4 text-white"
+                                        role="img"
+                                        aria-label={info.title}
                                     >
-                                        <div
-                                            className="text-3xl mr-4 text-white"
-                                            role="img"
-                                            aria-label={info.title}
+                                        {info.icon}
+                                    </div>
+                                    <div>
+                                        <ScrollAnimateText
+                                            as="h3"
+                                            className="font-semibold text-gray-900 text-lg"
                                         >
-                                            {info.icon}
-                                        </div>
-                                        <div>
-                                            <ScrollAnimateText
-                                                as="h3"
-                                                className="font-semibold text-gray-900 text-lg"
-                                            >
-                                                {info.title}
-                                            </ScrollAnimateText>
-                                            {info.title === "Email" ? (
-                                                <ScrollAnimateText>
-                                                    <a
-                                                        href={`mailto:${info.details}`}
-                                                        className="text-blue-600 font-medium text-lg hover:underline"
-                                                    >
-                                                        {info.details}
-                                                    </a>
-                                                </ScrollAnimateText>
-                                            ) : info.title === "Phone" ? (
-                                                <ScrollAnimateText>
-                                                    <a
-                                                        href={`tel:${info.details}`}
-                                                        className="text-blue-600 font-medium text-lg hover:underline"
-                                                    >
-                                                        {info.details}
-                                                    </a>
-                                                </ScrollAnimateText>
-                                            ) : (
-                                                <ScrollAnimateText
-                                                    as="p"
-                                                    className="text-blue-600 font-medium text-lg whitespace-pre-line"
+                                            {info.title}
+                                        </ScrollAnimateText>
+                                        {info.title === "Email" ? (
+                                            <ScrollAnimateText>
+                                                <a
+                                                    href={`mailto:${info.details}`}
+                                                    className="text-blue-600 font-medium text-lg hover:underline"
                                                 >
                                                     {info.details}
-                                                </ScrollAnimateText>
-                                            )}
+                                                </a>
+                                            </ScrollAnimateText>
+                                        ) : info.title === "Phone" ? (
+                                            <ScrollAnimateText>
+                                                <a
+                                                    href={`tel:${info.details}`}
+                                                    className="text-blue-600 font-medium text-lg hover:underline"
+                                                >
+                                                    {info.details}
+                                                </a>
+                                            </ScrollAnimateText>
+                                        ) : (
                                             <ScrollAnimateText
                                                 as="p"
-                                                className="text-gray-600"
+                                                className="text-blue-600 font-medium text-lg whitespace-pre-line"
                                             >
-                                                {info.description}
+                                                {info.details}
                                             </ScrollAnimateText>
-                                        </div>
+                                        )}
+                                        <ScrollAnimateText
+                                            as="p"
+                                            className="text-gray-600"
+                                        >
+                                            {info.description}
+                                        </ScrollAnimateText>
                                     </div>
-                                ))}
-                            </address>
-                        </section>
-
-                        {/* Call to Action */}
-                        <section
-                            className="bg-blue-50 rounded-2xl shadow-lg p-8"
-                            aria-labelledby="cta-heading"
-                        >
-                            <ScrollAnimateText
-                                as="h2"
-                                id="cta-heading"
-                                className="text-3xl font-bold text-gray-900 mb-4 text-center"
-                            >
-                                Ready to Get Started?
-                            </ScrollAnimateText>
-                            <ScrollAnimateText
-                                as="p"
-                                className="text-xl text-gray-600 mb-8 text-center"
-                            >
-                                Contact us today to discuss your academic goals
-                                and book your free trial lesson
-                            </ScrollAnimateText>
-                            <nav
-                                className="flex flex-col gap-4 justify-center items-center"
-                                aria-label="Contact actions"
-                            >
-                                <ScrollAnimateText>
-                                    <a
-                                        href="https://pdu2aawxpdr.typeform.com/to/o6rQPFyz"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="bg-primary text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-[#3482FF] hover:scale-105 transition-all ease-in-out duration-300 text-center"
-                                        aria-label="Enroll now - opens in new window"
-                                    >
-                                        Enroll Now
-                                    </a>
-                                </ScrollAnimateText>
-                            </nav>
-                        </section>
-                    </div>
+                                </div>
+                            ))}
+                        </address>
+                    </section>
 
                     {/* Right Column: FAQ Section */}
                     <aside>

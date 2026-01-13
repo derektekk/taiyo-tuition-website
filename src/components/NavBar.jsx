@@ -80,7 +80,7 @@ const NavBar = () => {
                 <div className="flex items-center gap-6">
                     <a
                         href="/"
-                        className="text-3xl font-bold text-[#1b1b1b] uppercase flex items-center gap-1 hover:text-primary cursor-pointer transition-colors duration-300 max-sm:text-2xl"
+                        className="text-3xl font-bold text-[#1b1b1b] uppercase flex items-center gap-3 hover:text-primary cursor-pointer transition-colors duration-300 max-sm:text-2xl"
                     >
                         <img
                             src={logo}
