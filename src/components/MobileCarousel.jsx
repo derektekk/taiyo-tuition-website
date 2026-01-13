@@ -5,13 +5,20 @@ import entrance from "../assets/taiyoImages/entrance.jpg";
 import taiyoClassroom from "../assets/taiyoImages/taiyoClassroom.jpg";
 import classPhoto5 from "../assets/taiyoImages/classPhotos/classPhoto5.jpg";
 import classPhoto6 from "../assets/taiyoImages/classPhotos/classPhoto6.jpg";
+import classPhoto2026_1 from "../assets/taiyoImages/classPhotos2026/2026-class-photo-1.webp";
+import classPhoto2026_2 from "../assets/taiyoImages/classPhotos2026/2026-class-photo-2.webp";
+import classPhoto2026_3 from "../assets/taiyoImages/classPhotos2026/2026-class-photo-3.webp";
+import classPhoto2026_4 from "../assets/taiyoImages/classPhotos2026/2026-class-photo-4.webp";
+import classPhoto2026_5 from "../assets/taiyoImages/classPhotos2026/2026-class-photo-5.webp";
+import classPhoto2026_6 from "../assets/taiyoImages/classPhotos2026/2026-class-photo-6.webp";
+import classPhoto2026_7 from "../assets/taiyoImages/classPhotos2026/2026-class-photo-7.webp";
 
 const MobileCarousel = () => {
     const slides = [
         {
             id: 1,
             type: "image",
-            src: classPhoto1,
+            src: classPhoto2026_1,
             alt: "hero",
             className: "object-cover rounded-lg",
         },
@@ -24,7 +31,7 @@ const MobileCarousel = () => {
         {
             id: 3,
             type: "image",
-            src: classPhoto2,
+            src: classPhoto2026_2,
             alt: "hero",
             className: "object-cover rounded-lg",
         },
@@ -37,7 +44,7 @@ const MobileCarousel = () => {
         {
             id: 5,
             type: "image",
-            src: entrance,
+            src: classPhoto2026_3,
             alt: "hero",
             className: "object-cover rounded-lg",
         },
@@ -50,7 +57,7 @@ const MobileCarousel = () => {
         {
             id: 7,
             type: "image",
-            src: taiyoClassroom,
+            src: classPhoto2026_4,
             alt: "hero",
             className: "object-cover rounded-lg",
         },
@@ -63,7 +70,7 @@ const MobileCarousel = () => {
         {
             id: 9,
             type: "image",
-            src: classPhoto5,
+            src: classPhoto2026_5,
             alt: "hero",
             className: "object-cover rounded-lg",
         },
@@ -76,7 +83,7 @@ const MobileCarousel = () => {
         {
             id: 11,
             type: "image",
-            src: classPhoto6,
+            src: classPhoto2026_6,
             alt: "hero",
             className: "object-cover rounded-lg",
         },
@@ -85,6 +92,55 @@ const MobileCarousel = () => {
             type: "text",
             emoji: "📈",
             content: "ATAR Excellence Focus",
+        },
+        {
+            id: 13,
+            type: "image",
+            src: classPhoto2026_7,
+            alt: "hero",
+            className: "object-cover rounded-lg",
+        },
+        {
+            id: 14,
+            type: "image",
+            src: classPhoto1,
+            alt: "hero",
+            className: "object-cover rounded-lg",
+        },
+        {
+            id: 15,
+            type: "image",
+            src: classPhoto2,
+            alt: "hero",
+            className: "object-cover rounded-lg",
+        },
+        {
+            id: 16,
+            type: "image",
+            src: entrance,
+            alt: "hero",
+            className: "object-cover rounded-lg",
+        },
+        {
+            id: 17,
+            type: "image",
+            src: taiyoClassroom,
+            alt: "hero",
+            className: "object-cover rounded-lg",
+        },
+        {
+            id: 18,
+            type: "image",
+            src: classPhoto5,
+            alt: "hero",
+            className: "object-cover rounded-lg",
+        },
+        {
+            id: 19,
+            type: "image",
+            src: classPhoto6,
+            alt: "hero",
+            className: "object-cover rounded-lg",
         },
     ];
 

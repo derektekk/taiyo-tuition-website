@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ScrollAnimateText from "./ScrollAnimateText";
-import classPhoto3 from "../assets/taiyoImages/classPhotos/classPhoto3.jpg";
 import classPhoto4 from "../assets/taiyoImages/classPhotos/classPhoto4.jpg";
+import classPhoto5 from "../assets/taiyoImages/classPhotos2026/2026-class-photo-2.webp";
 
 const ClassInfo = () => {
     return (
@@ -52,7 +52,7 @@ const ClassInfo = () => {
                     </div>
                     <div className="bg-white rounded-lg w-full min-h-[300px] flex items-start justify-start shadow-md flex-col">
                         <img
-                            src={classPhoto3}
+                            src={classPhoto5}
                             alt="classImgNarrow"
                             className="w-full h-[350px] object-cover rounded-lg max-md:w-full"
                         />

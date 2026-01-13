@@ -15,7 +15,7 @@ const ContactForm = () => {
         student_name: "",
         year_level: "",
         subject: "",
-        message: "",
+        study_method: "",
     });
 
     const yearLevels = [
@@ -65,6 +65,22 @@ const ContactForm = () => {
             setError("Please enter a valid email address");
             return false;
         }
+        if (!formData.phone.trim()) {
+            setError("Please enter your phone number");
+            return false;
+        }
+        if (!formData.year_level) {
+            setError("Please select a year level");
+            return false;
+        }
+        if (!formData.subject) {
+            setError("Please select a subject");
+            return false;
+        }
+        if (!formData.study_method) {
+            setError("Please select a preferred study method");
+            return false;
+        }
         return true;
     };
 
@@ -93,7 +109,7 @@ const ContactForm = () => {
                 student_name: "",
                 year_level: "",
                 subject: "",
-                message: "",
+                study_method: "",
             });
         } catch (err) {
             console.error("EmailJS Error:", err);
@@ -207,7 +223,7 @@ const ContactForm = () => {
                     {/* Phone */}
                     <div>
                         <label htmlFor="phone" className={labelClasses}>
-                            Phone Number
+                            Phone Number <span className="text-red-500">*</span>
                         </label>
                         <input
                             type="tel"
@@ -217,6 +233,7 @@ const ContactForm = () => {
                             onChange={handleChange}
                             className={inputClasses}
                             placeholder="Enter your phone number"
+                            aria-required="true"
                         />
                     </div>
 
@@ -232,7 +249,7 @@ const ContactForm = () => {
                             value={formData.student_name}
                             onChange={handleChange}
                             className={inputClasses}
-                            placeholder="Enter the student's name (if different)"
+                            placeholder="Enter the student's name (if parent/guardian)"
                         />
                     </div>
 
@@ -244,7 +261,8 @@ const ContactForm = () => {
                                 htmlFor="year_level"
                                 className={labelClasses}
                             >
-                                Year Level
+                                Year Level{" "}
+                                <span className="text-red-500">*</span>
                             </label>
                             <div className="relative">
                                 <select
@@ -253,6 +271,7 @@ const ContactForm = () => {
                                     value={formData.year_level}
                                     onChange={handleChange}
                                     className={selectClasses}
+                                    aria-required="true"
                                 >
                                     <option value="">Select year level</option>
                                     {yearLevels.map((year) => (
@@ -268,7 +287,8 @@ const ContactForm = () => {
                         {/* Subject */}
                         <div>
                             <label htmlFor="subject" className={labelClasses}>
-                                Subject Interested In
+                                Subject Interested In{" "}
+                                <span className="text-red-500">*</span>
                             </label>
                             <div className="relative">
                                 <select
@@ -277,6 +297,7 @@ const ContactForm = () => {
                                     value={formData.subject}
                                     onChange={handleChange}
                                     className={selectClasses}
+                                    aria-required="true"
                                 >
                                     <option value="">Select a subject</option>
                                     {subjects.map((subj) => (
@@ -290,20 +311,27 @@ const ContactForm = () => {
                         </div>
                     </div>
 
-                    {/* Message */}
+                    {/* Preferred Study Method */}
                     <div>
-                        <label htmlFor="message" className={labelClasses}>
-                            Message
+                        <label htmlFor="study_method" className={labelClasses}>
+                            Preferred Study Method{" "}
+                            <span className="text-red-500">*</span>
                         </label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            value={formData.message}
-                            onChange={handleChange}
-                            rows={4}
-                            className={`${inputClasses} resize-none`}
-                            placeholder="Tell us about your tutoring needs, questions, or anything else you'd like us to know"
-                        />
+                        <div className="relative">
+                            <select
+                                id="study_method"
+                                name="study_method"
+                                value={formData.study_method}
+                                onChange={handleChange}
+                                className={selectClasses}
+                                aria-required="true"
+                            >
+                                <option value="">Select study method</option>
+                                <option value="Online">Online</option>
+                                <option value="In Person">In Person</option>
+                            </select>
+                            <SelectArrow />
+                        </div>
                     </div>
 
                     {/* Error Message */}
