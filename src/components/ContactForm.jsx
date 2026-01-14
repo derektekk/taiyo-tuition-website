@@ -43,6 +43,8 @@ const ContactForm = () => {
         "Year 5-10 Maths",
     ];
 
+    const public_key = "7-LqSOcZKhS3c7raS";
+
     // Close dropdown when clicking outside
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -151,7 +153,7 @@ const ContactForm = () => {
                 import.meta.env.VITE_EMAILJS_SERVICE_ID,
                 import.meta.env.VITE_EMAILJS_TEMPLATE_ID_ADMIN,
                 formRef.current,
-                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+                public_key
             );
 
             setShowSuccess(true);
