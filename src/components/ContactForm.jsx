@@ -33,12 +33,12 @@ const ContactForm = () => {
 
     const subjects = [
         "English Units 3 & 4",
-        "Maths Methods Units 1/2 & 3/4",
-        "Chemistry Units 1/2 & 3/4",
-        "Physics Units 1/2 & 3/4",
-        "Biology Units 1/2 & 3/4",
+        "Maths Methods Units 1/2 or 3/4",
+        "Chemistry Units 1/2 or 3/4",
+        "Physics Units 1/2 or 3/4",
+        "Biology Units 1/2 or 3/4",
         "Specialist Maths Units 3 & 4",
-        "General Maths Units 1/2 & 3/4",
+        "General Maths Units 1/2 or 3/4",
         "Year 5-10 English",
         "Year 5-10 Maths",
     ];
