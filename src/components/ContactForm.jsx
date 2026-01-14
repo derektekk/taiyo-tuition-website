@@ -43,7 +43,9 @@ const ContactForm = () => {
         "Year 5-10 Maths",
     ];
 
-    const public_key = "7-LqSOcZKhS3c7raS";
+    const VITE_EMAILJS_SERVICE_ID = "service_3as7qlv";
+    const VITE_EMAILJS_TEMPLATE_ID_ADMIN = "template_e7d04dg";
+    const VITE_EMAILJS_PUBLIC_KEY = "7-LqSOcZKhS3c7raS";
 
     // Close dropdown when clicking outside
     useEffect(() => {
@@ -150,10 +152,10 @@ const ContactForm = () => {
         try {
             // Send notification email to admin
             await emailjs.sendForm(
-                import.meta.env.VITE_EMAILJS_SERVICE_ID,
-                import.meta.env.VITE_EMAILJS_TEMPLATE_ID_ADMIN,
+                VITE_EMAILJS_SERVICE_ID,
+                VITE_EMAILJS_TEMPLATE_ID_ADMIN,
                 formRef.current,
-                public_key
+                VITE_EMAILJS_PUBLIC_KEY
             );
 
             setShowSuccess(true);
