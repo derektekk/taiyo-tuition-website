@@ -5,11 +5,10 @@ import SuccessModal from "./SuccessModal";
 
 const ContactForm = () => {
     const formRef = useRef(null);
-    const subjectDropdownRef = useRef(null);
     const [isLoading, setIsLoading] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
     const [error, setError] = useState("");
-    const [isSubjectDropdownOpen, setIsSubjectDropdownOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     const [formData, setFormData] = useState({
         from_name: "",
         from_email: "",
@@ -39,28 +38,32 @@ const ContactForm = () => {
         "Biology Units 1/2 or 3/4",
         "Specialist Maths Units 3 & 4",
         "General Maths Units 1/2 or 3/4",
-        "Year 5-10 English",
-        "Year 5-10 Maths",
+        "Year 5 English",
+        "Year 6 English",
+        "Year 7 English",
+        "Year 8 English",
+        "Year 9 English",
+        "Year 10 English",
+        "Year 5 Maths",
+        "Year 6 Maths",
+        "Year 7 Maths",
+        "Year 8 Maths",
+        "Year 9 Maths",
+        "Year 10 Maths",
     ];
 
     const VITE_EMAILJS_SERVICE_ID = "service_3as7qlv";
     const VITE_EMAILJS_TEMPLATE_ID_ADMIN = "template_e7d04dg";
     const VITE_EMAILJS_PUBLIC_KEY = "7-LqSOcZKhS3c7raS";
 
-    // Close dropdown when clicking outside
     useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (
-                subjectDropdownRef.current &&
-                !subjectDropdownRef.current.contains(event.target)
-            ) {
-                setIsSubjectDropdownOpen(false);
-            }
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
         };
 
-        document.addEventListener("mousedown", handleClickOutside);
+        window.addEventListener("resize", handleResize);
         return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
+            window.removeEventListener("resize", handleResize);
         };
     }, []);
 
@@ -86,26 +89,6 @@ const ContactForm = () => {
             };
         });
         if (error) setError("");
-    };
-
-    const handleRemoveSubject = (subject) => {
-        setFormData((prev) => ({
-            ...prev,
-            subjects: prev.subjects.filter((s) => s !== subject),
-        }));
-    };
-
-    const handleSubjectDropdownToggle = () => {
-        setIsSubjectDropdownOpen((prev) => !prev);
-    };
-
-    const handleSubjectDropdownKeyDown = (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            handleSubjectDropdownToggle();
-        } else if (e.key === "Escape") {
-            setIsSubjectDropdownOpen(false);
-        }
     };
 
     const validateForm = () => {
@@ -184,7 +167,7 @@ const ContactForm = () => {
 
     const inputClasses =
         "w-full bg-white text-gray-700 px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all duration-200 placeholder:text-gray-400";
-    const labelClasses = "block text-sm font-medium text-gray-700 mb-2";
+    const labelClasses = "block text-sm font-medium text-gray-700 mb-3";
     const selectClasses = `${inputClasses} appearance-none cursor-pointer pr-10`;
 
     const SelectArrow = () => (
@@ -372,8 +355,8 @@ const ContactForm = () => {
                         </div>
                     </div>
 
-                    {/* Subject Multi-Select */}
-                    <div className="relative" ref={subjectDropdownRef}>
+                    {/* Subjects Grid */}
+                    <div>
                         <label id="subjects-label" className={labelClasses}>
                             Subjects Interested In{" "}
                             <span className="text-red-500">*</span>
@@ -384,159 +367,61 @@ const ContactForm = () => {
                             name="subject"
                             value={formData.subjects.join(", ")}
                         />
-                        <div
-                            role="combobox"
-                            aria-expanded={isSubjectDropdownOpen}
-                            aria-haspopup="listbox"
-                            aria-labelledby="subjects-label"
-                            aria-controls="subjects-listbox"
-                            tabIndex={0}
-                            onClick={handleSubjectDropdownToggle}
-                            onKeyDown={handleSubjectDropdownKeyDown}
-                            className={`${inputClasses} cursor-pointer min-h-[48px] flex items-center justify-between gap-2 pr-10`}
+                        <div 
+                            className="gap-3"
+                            style={{ 
+                                display: 'grid',
+                                gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
+                                gridAutoFlow: isMobile ? 'row' : 'column',
+                                gridTemplateRows: isMobile ? 'auto' : `repeat(${Math.ceil(subjects.length / 2)}, auto)`
+                            }}
                         >
-                            <span
-                                className={
-                                    formData.subjects.length === 0
-                                        ? "text-gray-400"
-                                        : "text-gray-700"
-                                }
-                            >
-                                {formData.subjects.length === 0
-                                    ? "Select subjects"
-                                    : `${formData.subjects.length} subject${
-                                          formData.subjects.length > 1
-                                              ? "s"
-                                              : ""
-                                      } selected`}
-                            </span>
-                            <div className="pointer-events-none absolute  right-0 flex items-center pr-3">
-                                <svg
-                                    className={`h-5 w-5 text-gray-400 transition-transform duration-200 ${
-                                        isSubjectDropdownOpen
-                                            ? "rotate-180"
-                                            : ""
-                                    }`}
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 20 20"
-                                    fill="currentColor"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        fillRule="evenodd"
-                                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                                        clipRule="evenodd"
-                                    />
-                                </svg>
-                            </div>
-                        </div>
-
-                        {/* Dropdown Options */}
-                        {isSubjectDropdownOpen && (
-                            <ul
-                                id="subjects-listbox"
-                                role="listbox"
-                                aria-multiselectable="true"
-                                aria-labelledby="subjects-label"
-                                className="absolute z-50 mt-1 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-auto"
-                            >
-                                {subjects.map((subj) => {
-                                    const isSelected =
-                                        formData.subjects.includes(subj);
-                                    return (
-                                        <li
-                                            key={subj}
-                                            role="option"
-                                            aria-selected={isSelected}
-                                            onClick={() =>
-                                                handleSubjectToggle(subj)
-                                            }
-                                            onKeyDown={(e) => {
-                                                if (
-                                                    e.key === "Enter" ||
-                                                    e.key === " "
-                                                ) {
-                                                    e.preventDefault();
-                                                    handleSubjectToggle(subj);
-                                                }
-                                            }}
-                                            tabIndex={0}
-                                            className={`flex items-center gap-3 px-4 py-3 cursor-pointer transition-colors duration-150 ${
+                            {subjects.map((subj) => {
+                                const isSelected = formData.subjects.includes(subj);
+                                return (
+                                    <label
+                                        key={subj}
+                                        className="flex items-start gap-3 py-2 cursor-pointer transition-all duration-200"
+                                    >
+                                        <input
+                                            type="checkbox"
+                                            checked={isSelected}
+                                            onChange={() => handleSubjectToggle(subj)}
+                                            className="sr-only"
+                                            aria-label={subj}
+                                        />
+                                        <div
+                                            className={`w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 transition-all duration-200 ${
                                                 isSelected
-                                                    ? "bg-primary/10 text-primary"
-                                                    : "hover:bg-gray-100 text-gray-700"
+                                                    ? "bg-primary border-primary scale-110"
+                                                    : "border-gray-400 hover:border-gray-500"
                                             }`}
                                         >
-                                            <div
-                                                className={`w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 transition-colors duration-150 ${
-                                                    isSelected
-                                                        ? "bg-primary border-primary"
-                                                        : "border-gray-300"
-                                                }`}
-                                            >
-                                                {isSelected && (
-                                                    <svg
-                                                        className="w-3 h-3 text-white"
-                                                        fill="none"
-                                                        stroke="currentColor"
-                                                        viewBox="0 0 24 24"
-                                                        aria-hidden="true"
-                                                    >
-                                                        <path
-                                                            strokeLinecap="round"
-                                                            strokeLinejoin="round"
-                                                            strokeWidth={3}
-                                                            d="M5 13l4 4L19 7"
-                                                        />
-                                                    </svg>
-                                                )}
-                                            </div>
-                                            <span className="text-sm">
-                                                {subj}
-                                            </span>
-                                        </li>
-                                    );
-                                })}
-                            </ul>
-                        )}
-                    </div>
-
-                    {/* Selected Subjects Tags */}
-                    {formData.subjects.length > 0 && (
-                        <div className="flex flex-wrap gap-2">
-                            {formData.subjects.map((subj) => (
-                                <span
-                                    key={subj}
-                                    className="inline-flex items-center gap-1 px-3 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium"
-                                >
-                                    {subj}
-                                    <button
-                                        type="button"
-                                        onClick={() =>
-                                            handleRemoveSubject(subj)
-                                        }
-                                        className="ml-1 hover:bg-primary/20 rounded-full p-0.5 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1"
-                                        aria-label={`Remove ${subj}`}
-                                    >
-                                        <svg
-                                            className="w-4 h-4"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                            aria-hidden="true"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                d="M6 18L18 6M6 6l12 12"
-                                            />
-                                        </svg>
-                                    </button>
-                                </span>
-                            ))}
+                                            {isSelected && (
+                                                <svg
+                                                    className="w-3 h-3 text-white"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    viewBox="0 0 24 24"
+                                                    aria-hidden="true"
+                                                >
+                                                    <path
+                                                        strokeLinecap="round"
+                                                        strokeLinejoin="round"
+                                                        strokeWidth={3}
+                                                        d="M5 13l4 4L19 7"
+                                                    />
+                                                </svg>
+                                            )}
+                                        </div>
+                                        <span className="text-sm text-gray-700 leading-tight flex-1">
+                                            {subj}
+                                        </span>
+                                    </label>
+                                );
+                            })}
                         </div>
-                    )}
+                    </div>
 
                     {/* Error Message */}
                     {error && (
