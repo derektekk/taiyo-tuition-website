@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ScrollAnimateText from "../components/ScrollAnimateText";
 
 const ContactPage = () => {
@@ -35,7 +36,7 @@ const ContactPage = () => {
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* 2-Column Grid: Get in Touch + Quick Questions */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
                     {/* Left Column: Get in Touch */}
                     <section
                         className="bg-white rounded-2xl shadow-lg p-8"
@@ -167,6 +168,38 @@ const ContactPage = () => {
                         </section>
                     </aside>
                 </div>
+                {/* CTA Section */}
+                <section
+                    className="text-center mb-12 md:mb-16"
+                    aria-labelledby="cta-heading"
+                >
+                    <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+                        <ScrollAnimateText
+                            as="h2"
+                            id="cta-heading"
+                            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+                        >
+                            Ready to Get Started?
+                        </ScrollAnimateText>
+                        <ScrollAnimateText
+                            as="p"
+                            className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto"
+                        >
+                            Fill out our enrollment form to book a free trial
+                            lesson and take the first step toward academic
+                            success.
+                        </ScrollAnimateText>
+                        <ScrollAnimateText>
+                            <Link
+                                to="/enroll"
+                                className="inline-block bg-primary text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-[#3482FF] hover:scale-105 transition-all ease-in-out duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                                aria-label="Go to enrollment form"
+                            >
+                                Enrol Now
+                            </Link>
+                        </ScrollAnimateText>
+                    </div>
+                </section>
             </div>
         </main>
     );
