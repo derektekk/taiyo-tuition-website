@@ -30,7 +30,12 @@ const Footer = () => {
                             >
                                 Subjects
                             </Link>
-                            {/* <Link to='/tutors' className='hover:text-primary transition-colors duration-300'>Our Tutors</Link> */}
+                            <Link
+                                to="/enroll"
+                                className="hover:text-primary transition-colors duration-300"
+                            >
+                                Enroll Now
+                            </Link>
                             <Link
                                 to="/contact"
                                 className="hover:text-primary transition-colors duration-300"
@@ -109,7 +114,7 @@ const Footer = () => {
                                 </li>
                                 <li className="mb-2">
                                     <a
-                                        href="tel:+61123456789"
+                                        href="tel:+61422283789"
                                         className="hover:text-primary transition-colors duration-300"
                                     >
                                         +61 422 283 789

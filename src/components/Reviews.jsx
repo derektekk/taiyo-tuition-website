@@ -102,7 +102,7 @@ const Reviews = () => {
             setCurrentIndex((prevIndex) =>
                 prevIndex + reviewsPerPage >= reviewsData.length
                     ? 0
-                    : prevIndex + reviewsPerPage
+                    : prevIndex + reviewsPerPage,
             );
         }, 8000); // Slightly longer for reviews since they have more content
 
@@ -125,7 +125,7 @@ const Reviews = () => {
         setCurrentIndex((prevIndex) =>
             prevIndex === 0
                 ? Math.max(0, reviewsData.length - reviewsPerPage)
-                : Math.max(0, prevIndex - reviewsPerPage)
+                : Math.max(0, prevIndex - reviewsPerPage),
         );
     };
 
@@ -134,7 +134,7 @@ const Reviews = () => {
         setCurrentIndex((prevIndex) =>
             prevIndex + reviewsPerPage >= reviewsData.length
                 ? 0
-                : prevIndex + reviewsPerPage
+                : prevIndex + reviewsPerPage,
         );
     };
 
@@ -146,7 +146,7 @@ const Reviews = () => {
 
     const currentReviews = reviewsData.slice(
         currentIndex,
-        currentIndex + reviewsPerPage
+        currentIndex + reviewsPerPage,
     );
 
     // Swipe handling for mobile
@@ -191,7 +191,7 @@ const Reviews = () => {
             <div className="mx-auto flex flex-col flex-wrap items-center justify-center container-responsive">
                 <ScrollAnimateText
                     as="h1"
-                    className="text-4xl uppercase font-bold mb-12 text-center max-md:mb-6"
+                    className="text-4xl uppercase font-bold mb-3 md:mb-6 text-center max-md:text-3xl"
                 >
                     What Our Students Say
                 </ScrollAnimateText>
@@ -236,8 +236,8 @@ const Reviews = () => {
                                     screenSize === "sm"
                                         ? "grid-cols-1"
                                         : screenSize === "md"
-                                        ? "grid-cols-2"
-                                        : "grid-cols-3"
+                                          ? "grid-cols-2"
+                                          : "grid-cols-3"
                                 }`}
                                 style={{
                                     minHeight:
@@ -318,7 +318,7 @@ const Reviews = () => {
                     {Array.from(
                         {
                             length: Math.ceil(
-                                reviewsData.length / reviewsPerPage
+                                reviewsData.length / reviewsPerPage,
                             ),
                         },
                         (_, i) => (
@@ -327,14 +327,14 @@ const Reviews = () => {
                                 onClick={() => handlePaginationClick(i)}
                                 className={`w-3 h-3 rounded-full transition-colors cursor-pointer ${
                                     Math.floor(
-                                        currentIndex / reviewsPerPage
+                                        currentIndex / reviewsPerPage,
                                     ) === i
                                         ? "bg-primary"
                                         : "bg-gray-300 hover:bg-gray-400"
                                 }`}
                                 aria-label={`Go to page ${i + 1}`}
                             />
-                        )
+                        ),
                     )}
                 </div>
             </div>

@@ -6,11 +6,11 @@ import classPhoto5 from "../assets/taiyoImages/classPhotos2026/2026-class-photo-
 
 const ClassInfo = () => {
     return (
-        <section className="h-auto w-full bg-biege-primary ">
+        <section className="h-auto w-full bg-biege-primary pt-12">
             <div className="mx-auto flex flex-col flex-wrap items-center justify-center container-responsive">
                 <ScrollAnimateText
                     as="h1"
-                    className="text-4xl uppercase font-bold mb-12 text-center"
+                    className="text-4xl uppercase font-bold mb-3 md:mb-6 text-center max-md:text-3xl"
                 >
                     Our Learning Methods
                 </ScrollAnimateText>
@@ -73,7 +73,7 @@ const ClassInfo = () => {
                             </ScrollAnimateText>
                             <ScrollAnimateText>
                                 <Link
-                                    to="/subjects"
+                                    to="/enroll"
                                     className="bg-primary text-white px-4 py-2 rounded-full hover:bg-[#3482FF] hover:scale-105 transition-all ease-in-out duration-300 cursor-pointer inline-block"
                                 >
                                     Learn More

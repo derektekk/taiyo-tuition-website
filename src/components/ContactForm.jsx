@@ -13,7 +13,6 @@ const ContactForm = () => {
         from_name: "",
         from_email: "",
         phone: "",
-        student_name: "",
         year_level: "",
         subjects: [],
         study_method: "",
@@ -67,13 +66,32 @@ const ContactForm = () => {
         };
     }, []);
 
+    const getFilteredSubjects = (yearLevel) => {
+        if (!yearLevel) return [];
+
+        if (yearLevel === "Year 11" || yearLevel === "Year 12") {
+            return subjects.filter((subj) => subj.includes("Units"));
+        }
+
+        return subjects.filter((subj) => subj.startsWith(yearLevel));
+    };
+
+    const filteredSubjects = getFilteredSubjects(formData.year_level);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData((prev) => ({
-            ...prev,
-            [name]: value,
-        }));
-        // Clear error when user starts typing
+        if (name === "year_level") {
+            setFormData((prev) => ({
+                ...prev,
+                year_level: value,
+                subjects: [],
+            }));
+        } else {
+            setFormData((prev) => ({
+                ...prev,
+                [name]: value,
+            }));
+        }
         if (error) setError("");
     };
 
@@ -138,15 +156,21 @@ const ContactForm = () => {
                 VITE_EMAILJS_SERVICE_ID,
                 VITE_EMAILJS_TEMPLATE_ID_ADMIN,
                 formRef.current,
-                VITE_EMAILJS_PUBLIC_KEY
+                VITE_EMAILJS_PUBLIC_KEY,
             );
+
+            // Track Google Ads conversion
+            if (typeof window.gtag === "function") {
+                window.gtag("event", "conversion", {
+                    send_to: "AW-16463192719/CONVERSION_LABEL_HERE",
+                });
+            }
 
             setShowSuccess(true);
             setFormData({
                 from_name: "",
                 from_email: "",
                 phone: "",
-                student_name: "",
                 year_level: "",
                 subjects: [],
                 study_method: "",
@@ -154,7 +178,7 @@ const ContactForm = () => {
         } catch (err) {
             console.error("EmailJS Error:", err);
             setError(
-                "Sorry, there was an error sending your message. Please try again or contact us directly via email."
+                "Sorry, there was an error sending your message. Please try again or contact us directly via email.",
             );
         } finally {
             setIsLoading(false);
@@ -191,7 +215,7 @@ const ContactForm = () => {
     return (
         <>
             <section
-                className="bg-white rounded-2xl shadow-lg px-8 py-16"
+                className="bg-white rounded-2xl shadow-lg px-8 py-8 md:py-16"
                 aria-labelledby="contact-form-heading"
             >
                 <ScrollAnimateText
@@ -206,7 +230,7 @@ const ContactForm = () => {
                     className="text-lg text-gray-600 mb-8 text-center"
                 >
                     Fill out the form below and we&apos;ll get back to you
-                    within 24-48 hours
+                    within a few hours
                 </ScrollAnimateText>
 
                 <form
@@ -274,22 +298,6 @@ const ContactForm = () => {
                             className={inputClasses}
                             placeholder="Enter your phone number"
                             aria-required="true"
-                        />
-                    </div>
-
-                    {/* Student Name */}
-                    <div>
-                        <label htmlFor="student_name" className={labelClasses}>
-                            Student Name
-                        </label>
-                        <input
-                            type="text"
-                            id="student_name"
-                            name="student_name"
-                            value={formData.student_name}
-                            onChange={handleChange}
-                            className={inputClasses}
-                            placeholder="Enter the student's name"
                         />
                     </div>
 
@@ -367,60 +375,74 @@ const ContactForm = () => {
                             name="subject"
                             value={formData.subjects.join(", ")}
                         />
-                        <div 
-                            className="gap-3"
-                            style={{ 
-                                display: 'grid',
-                                gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
-                                gridAutoFlow: isMobile ? 'row' : 'column',
-                                gridTemplateRows: isMobile ? 'auto' : `repeat(${Math.ceil(subjects.length / 2)}, auto)`
-                            }}
-                        >
-                            {subjects.map((subj) => {
-                                const isSelected = formData.subjects.includes(subj);
-                                return (
-                                    <label
-                                        key={subj}
-                                        className="flex items-start gap-3 py-2 cursor-pointer transition-all duration-200"
-                                    >
-                                        <input
-                                            type="checkbox"
-                                            checked={isSelected}
-                                            onChange={() => handleSubjectToggle(subj)}
-                                            className="sr-only"
-                                            aria-label={subj}
-                                        />
-                                        <div
-                                            className={`w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 transition-all duration-200 ${
-                                                isSelected
-                                                    ? "bg-primary border-primary scale-110"
-                                                    : "border-gray-400 hover:border-gray-500"
-                                            }`}
+                        {!formData.year_level ? (
+                            <p className="text-sm text-gray-400 italic py-2">
+                                Please select a year level first to see
+                                available subjects.
+                            </p>
+                        ) : (
+                            <div
+                                className="gap-3"
+                                style={{
+                                    display: "grid",
+                                    gridTemplateColumns: isMobile
+                                        ? "1fr"
+                                        : "repeat(2, 1fr)",
+                                    gridAutoFlow: isMobile ? "row" : "column",
+                                    gridTemplateRows: isMobile
+                                        ? "auto"
+                                        : `repeat(${Math.ceil(filteredSubjects.length / 2)}, auto)`,
+                                }}
+                            >
+                                {filteredSubjects.map((subj) => {
+                                    const isSelected =
+                                        formData.subjects.includes(subj);
+                                    return (
+                                        <label
+                                            key={subj}
+                                            className="flex items-start gap-3 py-2 cursor-pointer transition-all duration-200"
                                         >
-                                            {isSelected && (
-                                                <svg
-                                                    className="w-3 h-3 text-white"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    viewBox="0 0 24 24"
-                                                    aria-hidden="true"
-                                                >
-                                                    <path
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        strokeWidth={3}
-                                                        d="M5 13l4 4L19 7"
-                                                    />
-                                                </svg>
-                                            )}
-                                        </div>
-                                        <span className="text-sm text-gray-700 leading-tight flex-1">
-                                            {subj}
-                                        </span>
-                                    </label>
-                                );
-                            })}
-                        </div>
+                                            <input
+                                                type="checkbox"
+                                                checked={isSelected}
+                                                onChange={() =>
+                                                    handleSubjectToggle(subj)
+                                                }
+                                                className="sr-only"
+                                                aria-label={subj}
+                                            />
+                                            <div
+                                                className={`w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 transition-all duration-200 ${
+                                                    isSelected
+                                                        ? "bg-primary border-primary scale-110"
+                                                        : "border-gray-400 hover:border-gray-500"
+                                                }`}
+                                            >
+                                                {isSelected && (
+                                                    <svg
+                                                        className="w-3 h-3 text-white"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        viewBox="0 0 24 24"
+                                                        aria-hidden="true"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            strokeWidth={3}
+                                                            d="M5 13l4 4L19 7"
+                                                        />
+                                                    </svg>
+                                                )}
+                                            </div>
+                                            <span className="text-sm text-gray-700 leading-tight flex-1">
+                                                {subj}
+                                            </span>
+                                        </label>
+                                    );
+                                })}
+                            </div>
+                        )}
                     </div>
 
                     {/* Error Message */}
@@ -439,7 +461,7 @@ const ContactForm = () => {
                     <button
                         type="submit"
                         disabled={isLoading}
-                        className="w-full bg-primary text-white px-8 py-4 rounded-2xl -medium text-lg hover:bg-[#3482FF] hover:scale-[1.02] transition-all ease-in-out duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        className="w-full bg-primary text-white px-8 py-4 rounded-2xl -medium text-lg hover:bg-[#3482FF] hover:scale-[1.02] transition-all ease-in-out duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer"
                         aria-busy={isLoading}
                     >
                         {isLoading ? (
@@ -468,7 +490,7 @@ const ContactForm = () => {
                                 Sending...
                             </span>
                         ) : (
-                            "Send Message"
+                            "Submit"
                         )}
                     </button>
                 </form>

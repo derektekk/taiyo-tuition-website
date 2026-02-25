@@ -6,6 +6,7 @@ import ScrollingText from "../components/ScrollingText";
 import Reviews from "../components/Reviews";
 import FAQ from "../components/FAQ";
 import ClassInfo from "../components/ClassInfo";
+import ContactForm from "../components/ContactForm";
 import Location from "../components/Location";
 
 const HomePage = () => {
@@ -44,6 +45,13 @@ const HomePage = () => {
             {/* Scrolling Text */}
             <section aria-label="Key features and benefits">
                 <ScrollingText />
+            </section>
+
+            {/* Enrollment Form */}
+            <section aria-label="Enrollment form">
+                <div className="py-12 md:py-16 bg-biege-primary container-responsive">
+                    <ContactForm />
+                </div>
             </section>
 
             {/* Location */}

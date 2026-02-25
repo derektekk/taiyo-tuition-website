@@ -1,5 +1,4 @@
 import ScrollAnimateText from "../components/ScrollAnimateText";
-import ContactForm from "../components/ContactForm";
 
 const ContactPage = () => {
     const contactInfo = [
@@ -16,7 +15,7 @@ const ContactPage = () => {
             description: "Mon to Fri from 8am to 6pm",
         },
         {
-            icon: "📍;",
+            icon: "📍",
             title: "Address",
             details: "9-11 Hamilton Place, Mount Waverly VIC 3149",
             description: "Visit our learning center",
@@ -30,13 +29,11 @@ const ContactPage = () => {
     ];
 
     return (
-        <main className="min-h-screen bg-gray-50 py-20 mt-[80px]" role="main">
+        <main
+            className="min-h-screen bg-biege-primary py-5 md:py-10 lg:py-20 mt-[80px]"
+            role="main"
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Contact Form - Full Width */}
-                <div className="mb-12">
-                    <ContactForm />
-                </div>
-
                 {/* 2-Column Grid: Get in Touch + Quick Questions */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     {/* Left Column: Get in Touch */}
@@ -128,10 +125,10 @@ const ContactPage = () => {
                                         How do I book a trial lesson?
                                     </ScrollAnimateText>
                                     <ScrollAnimateText className="text-gray-600">
-                                        Simply contact us directly via phone or
-                                        email. We'll arrange a free trial lesson
-                                        at your convenience and discuss your
-                                        academic goals.
+                                        Visit our Enroll Now page and fill out
+                                        the form to arrange your free trial
+                                        lesson at your convenience and discuss
+                                        your academic goals.
                                     </ScrollAnimateText>
                                 </div>
                                 <div className="border-b border-gray-200 pb-6">

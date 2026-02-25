@@ -101,7 +101,7 @@ const About = () => {
             <div className="mx-auto flex flex-col flex-wrap items-center justify-center container-responsive">
                 <ScrollAnimateText
                     as="h1"
-                    className="text-4xl uppercase font-bold mb-12 max-md:text-3xl max-md:mb-6"
+                    className="text-4xl uppercase font-bold mb-3 md:mb-6 max-md:text-3xl "
                 >
                     Who Are We
                 </ScrollAnimateText>

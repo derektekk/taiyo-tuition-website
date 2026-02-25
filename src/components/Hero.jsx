@@ -94,7 +94,7 @@ const Hero = () => {
                                 </ScrollAnimateText>
                             </div>
                             <ScrollAnimateText>
-                                <AnimatedButton text="Free Trial" />
+                                <AnimatedButton text="Enrol Now" />
                             </ScrollAnimateText>
                         </div>
                     </div>

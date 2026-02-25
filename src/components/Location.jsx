@@ -8,7 +8,7 @@ const Location = () => {
             <div className="mx-auto flex flex-col flex-wrap items-center justify-center container-responsive">
                 <ScrollAnimateText
                     as="h1"
-                    className="text-4xl uppercase font-bold mb-12 text-center max-md:mb-6"
+                    className="text-4xl uppercase font-bold mb-3 md:mb-6 text-center max-md:text-3xl"
                 >
                     Our Location
                 </ScrollAnimateText>

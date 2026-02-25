@@ -64,8 +64,7 @@ const ScrollingText = () => {
       >
           {Array.from({ length: repeatCount }, (_, index) => (
             <a 
-              href="https://pdu2aawxpdr.typeform.com/to/o6rQPFyz"
-              target="_blank"
+              href="/enroll"
               rel="noopener noreferrer"
               key={index}
               className={`text-4xl uppercase px-2 transition-all duration-150 ${

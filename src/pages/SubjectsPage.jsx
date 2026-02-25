@@ -572,7 +572,7 @@ const SubjectsPage = () => {
                                         </button>
 
                                         <Link
-                                            to="/contact"
+                                            to="/enroll"
                                             className="w-full bg-primary text-white py-3 rounded-full font-medium hover:bg-[#3482FF] hover:scale-105 transition-all ease-in-out duration-300 text-center block"
                                             aria-label={`Learn more about ${subject.name} tutoring and enroll`}
                                         >
@@ -608,7 +608,7 @@ const SubjectsPage = () => {
                         </ScrollAnimateText>
                         <ScrollAnimateText delay={0.4}>
                             <Link
-                                to="/contact"
+                                to="/enroll"
                                 className="bg-primary text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-[#3482FF] hover:scale-105 transition-all ease-in-out duration-300 cursor-pointer"
                                 aria-label="Get started with Taiyo Tuition - go to contact page"
                             >

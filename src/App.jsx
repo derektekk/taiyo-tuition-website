@@ -6,6 +6,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import HomePage from "./pages/HomePage";
 import SubjectsPage from "./pages/SubjectsPage";
 import ContactPage from "./pages/ContactPage";
+import EnrollNowPage from "./pages/EnrollNowPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import LegalPage from "./pages/LegalPage";
 import TutorsPage from "./pages/TutorsPage";
@@ -33,6 +34,7 @@ function App() {
                 <Route path="/subjects" element={<SubjectsPage />} />
                 <Route path="/tutors" element={<TutorsPage />} />
                 <Route path="/contact" element={<ContactPage />} />
+                <Route path="/enroll" element={<EnrollNowPage />} />
                 <Route path="/privacy" element={<PrivacyPage />} />
                 <Route path="/legal" element={<LegalPage />} />
             </Routes>

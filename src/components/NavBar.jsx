@@ -238,6 +238,23 @@ const NavBar = () => {
                         >
                             <Link
                                 className={`text-lg font-medium block w-full h-full ${
+                                    isActiveLink("/enroll")
+                                        ? "text-primary font-semibold"
+                                        : ""
+                                }`}
+                                to="/enroll"
+                                onClick={handleCloseMenu}
+                            >
+                                Enroll Now
+                            </Link>
+                        </li>
+                        <li
+                            className="border-b border-gray-200 p-6 cursor-pointer transition-all duration-300 text-center"
+                            onMouseEnter={(e) => handleMenuItemHover(e, true)}
+                            onMouseLeave={(e) => handleMenuItemHover(e, false)}
+                        >
+                            <Link
+                                className={`text-lg font-medium block w-full h-full ${
                                     isActiveLink("/contact")
                                         ? "text-primary font-semibold"
                                         : ""
