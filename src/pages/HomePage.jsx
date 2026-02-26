@@ -10,61 +10,61 @@ import ContactForm from "../components/ContactForm";
 import Location from "../components/Location";
 
 const HomePage = () => {
-    return (
-        <main role="main">
-            {/* Hero Section */}
-            <section aria-label="Hero section with main tutoring information">
-                <Hero />
-            </section>
+  return (
+    <main role="main">
+      {/* Hero Section */}
+      <section aria-label="Hero section with main tutoring information">
+        <Hero />
+      </section>
 
-            {/* About Section */}
-            <section aria-label="About Taiyo Tuition">
-                <About />
-            </section>
+      {/* About Section */}
+      <section aria-label="About Taiyo Tuition">
+        <About />
+      </section>
 
-            {/* ATAR Information */}
-            <section aria-label="ATAR score improvement information">
-                <Atar />
-            </section>
+      {/* ATAR Information */}
+      <section aria-label="ATAR score improvement information">
+        <Atar />
+      </section>
 
-            {/* Mission and Aims */}
-            <section aria-label="Our mission and aims">
-                <Aim />
-            </section>
+      {/* Mission and Aims */}
+      <section aria-label="Our mission and aims">
+        <Aim />
+      </section>
 
-            {/* Class Information */}
-            <section aria-label="Our learning methods and class types">
-                <ClassInfo />
-            </section>
+      {/* Class Information */}
+      <section aria-label="Our learning methods and class types">
+        <ClassInfo />
+      </section>
 
-            {/* Student Reviews */}
-            <section aria-label="Student reviews and testimonials">
-                <Reviews />
-            </section>
+      {/* Student Reviews */}
+      <section aria-label="Student reviews and testimonials">
+        <Reviews />
+      </section>
 
-            {/* Scrolling Text */}
-            <section aria-label="Key features and benefits">
-                <ScrollingText />
-            </section>
+      {/* Scrolling Text */}
+      <section aria-label="Key features and benefits">
+        <ScrollingText />
+      </section>
 
-            {/* Enrollment Form */}
-            <section aria-label="Enrollment form">
-                <div className="py-12 md:py-16 bg-biege-primary container-responsive">
-                    <ContactForm />
-                </div>
-            </section>
+      {/* Enrollment Form */}
+      <section aria-label="Enrollment form" className="bg-biege-primary">
+        <div className="py-12 md:py-16 bg-biege-primary container-responsive mx-auto">
+          <ContactForm />
+        </div>
+      </section>
 
-            {/* Location */}
-            <section aria-label="Location">
-                <Location />
-            </section>
+      {/* Location */}
+      <section aria-label="Location">
+        <Location />
+      </section>
 
-            {/* Frequently Asked Questions */}
-            <section aria-label="Frequently asked questions">
-                <FAQ />
-            </section>
-        </main>
-    );
+      {/* Frequently Asked Questions */}
+      <section aria-label="Frequently asked questions">
+        <FAQ />
+      </section>
+    </main>
+  );
 };
 
 export default HomePage;
