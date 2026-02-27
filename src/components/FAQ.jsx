@@ -26,12 +26,13 @@ const FAQ = () => {
                         levels. Our VCE subjects include:
                     </p>
                     <ul className="list-disc list-inside space-y-1 text-gray-700 ml-4 font-semibold">
-                        <li>English 3/4</li>
-                        <li>Maths Methods 1/2 + 3/4</li>
-                        <li>Chemistry 1/2 + 3/4</li>
-                        <li>Physics 1/2 + 3/4</li>
-                        <li>Biology 1/2 + 3/4</li>
-                        <li>Specialist Maths 3/4</li>
+                        <li>English Units 3/4</li>
+                        <li>Maths Methods Units 1/2 + 3/4</li>
+                        <li>Chemistry Units 1/2 + 3/4</li>
+                        <li>Physics Units 1/2 + 3/4</li>
+                        <li>Biology Units 1/2 + 3/4</li>
+                        <li>Specialist Maths Units 3/4</li>
+                        <li>General Maths Units 1/2 + 3/4</li>
                         <li>Year 5 - 10 English</li>
                         <li>Year 5 - 10 Maths</li>
                     </ul>
@@ -140,19 +141,19 @@ const FAQ = () => {
                     <ul className="list-disc list-inside space-y-1 text-gray-700 ml-4 mb-4">
                         <li>
                             <span className="font-bold">VCE Units 3/4:</span>{" "}
-                            $80 per subject
+                            $85 per subject
                         </li>
                         <li>
                             <span className="font-bold">VCE Units 1/2:</span>{" "}
-                            $75 per subject
+                            $80 per subject
                         </li>
                         <li>
                             <span className="font-bold">Year 7-10 Maths:</span>{" "}
-                            $70 per subject
+                            $75 per subject
                         </li>
                         <li>
                             <span className="font-bold">Year 5–6 Maths:</span>{" "}
-                            $65 per subject
+                            $70 per subject
                         </li>
                     </ul>
 
