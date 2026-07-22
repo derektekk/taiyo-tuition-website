@@ -44,6 +44,9 @@ jobs:
                   VITE_EMAILJS_TEMPLATE_ID_ADMIN: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID_ADMIN }}
                   VITE_EMAILJS_TEMPLATE_ID_USER: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID_USER }}
 
+            # SPA route entrypoints (/contact, /enroll, etc.) are created by
+            # npm postbuild so Google Ads destination checks get HTTP 200.
+
             - name: Deploy to gh-pages
               uses: peaceiris/actions-gh-pages@v3
               with:
