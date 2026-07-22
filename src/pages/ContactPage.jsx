@@ -1,7 +1,13 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import ScrollAnimateText from "../components/ScrollAnimateText";
 
 const ContactPage = () => {
+    useEffect(() => {
+        document.title =
+            "Contact Us | Taiyo Tuition - VCE Tutoring Melbourne";
+    }, []);
+
     const contactInfo = [
         {
             icon: "📧",

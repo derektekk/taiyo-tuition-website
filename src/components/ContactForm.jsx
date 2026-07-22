@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import ScrollAnimateText from "./ScrollAnimateText";
-import SuccessModal from "./SuccessModal";
 
 const ContactForm = () => {
   const formRef = useRef(null);
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
   const [error, setError] = useState("");
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [formData, setFormData] = useState({
@@ -159,34 +159,15 @@ const ContactForm = () => {
         VITE_EMAILJS_PUBLIC_KEY,
       );
 
-      // Track Google Ads conversion
-      if (typeof window.gtag === "function") {
-        window.gtag("event", "conversion", {
-          send_to: "AW-16463192719/CONVERSION_LABEL_HERE",
-        });
-      }
-
-      setShowSuccess(true);
-      setFormData({
-        from_name: "",
-        from_email: "",
-        phone: "",
-        year_level: "",
-        subjects: [],
-        study_method: "",
-      });
+      // Redirect to thank-you page so Google Ads can measure the conversion on page load
+      navigate("/enroll/thank-you");
     } catch (err) {
       console.error("EmailJS Error:", err);
       setError(
         "Sorry, there was an error sending your message. Please try again or contact us directly via email.",
       );
-    } finally {
       setIsLoading(false);
     }
-  };
-
-  const handleCloseModal = () => {
-    setShowSuccess(false);
   };
 
   const inputClasses =
@@ -473,8 +454,6 @@ const ContactForm = () => {
           </button>
         </form>
       </section>
-
-      <SuccessModal isOpen={showSuccess} onClose={handleCloseModal} />
     </>
   );
 };

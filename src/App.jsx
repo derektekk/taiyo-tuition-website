@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import SubjectsPage from "./pages/SubjectsPage";
 import ContactPage from "./pages/ContactPage";
 import EnrollNowPage from "./pages/EnrollNowPage";
+import ThankYouPage from "./pages/ThankYouPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import LegalPage from "./pages/LegalPage";
 import TutorsPage from "./pages/TutorsPage";
@@ -35,6 +36,7 @@ function App() {
                 <Route path="/tutors" element={<TutorsPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/enroll" element={<EnrollNowPage />} />
+                <Route path="/enroll/thank-you" element={<ThankYouPage />} />
                 <Route path="/privacy" element={<PrivacyPage />} />
                 <Route path="/legal" element={<LegalPage />} />
             </Routes>

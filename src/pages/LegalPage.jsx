@@ -154,10 +154,10 @@ const LegalPage = () => {
           </p>
           <div className="space-y-3">
             <p className="text-gray-600">
-              <span className="font-medium">Email:</span> legal@taiyotuition.com
+              <span className="font-medium">Email:</span> admin@taiyotuition.com
             </p>
             <p className="text-gray-600">
-              <span className="font-medium">Phone:</span> +61 123 456 789
+              <span className="font-medium">Phone:</span> +61 422 283 789
             </p>
             <p className="text-gray-600">
               <span className="font-medium">Address:</span> 9-11 Hamilton Place, Mount Waverly VIC 3149
