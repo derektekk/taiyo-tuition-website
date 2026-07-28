@@ -30,13 +30,6 @@ const ContactForm = () => {
   ];
 
   const subjects = [
-    "English Units 1/2 or 3/4",
-    "Maths Methods Units 1/2 or 3/4",
-    "Chemistry Units 1/2 or 3/4",
-    "Physics Units 1/2 or 3/4",
-    "Biology Units 1/2 or 3/4",
-    "Specialist Maths Units 3 & 4",
-    "General Maths Units 1/2 or 3/4",
     "Year 5 English",
     "Year 6 English",
     "Year 7 English",
@@ -50,6 +43,29 @@ const ContactForm = () => {
     "Year 9 Maths",
     "Year 10 Maths",
   ];
+
+  const year11Subjects = [
+    "English Units 1/2 or 3/4",
+    "Maths Methods Units 1/2 or 3/4",
+    "Chemistry Units 1/2 or 3/4",
+    "Physics Units 1/2 or 3/4",
+    "Biology Units 1/2 or 3/4",
+    "Specialist Maths Units 3 & 4",
+    "General Maths Units 1/2 or 3/4",
+  ];
+
+  const year12Subjects = [
+    "English 3/4",
+    "Maths Methods 3/4",
+    "Chemistry 3/4",
+    "Physics 3/4",
+    "Biology 3/4",
+    "Specialist Maths 3/4",
+    "General Maths 3/4",
+  ];
+
+  const SELECTIVE_ENTRY_PROGRAM = "Selective Entry Program";
+  const selectiveEntryYearLevels = ["Year 5", "Year 6", "Year 7", "Year 8"];
 
   const VITE_EMAILJS_SERVICE_ID = "service_3as7qlv";
   const VITE_EMAILJS_TEMPLATE_ID_ADMIN = "template_e7d04dg";
@@ -69,11 +85,19 @@ const ContactForm = () => {
   const getFilteredSubjects = (yearLevel) => {
     if (!yearLevel) return [];
 
-    if (yearLevel === "Year 11" || yearLevel === "Year 12") {
-      return subjects.filter((subj) => subj.includes("Units"));
+    if (yearLevel === "Year 11") return year11Subjects;
+    if (yearLevel === "Year 12") return year12Subjects;
+
+    // Trailing space keeps a single-digit year from matching "Year 10" subjects
+    const yearSubjects = subjects.filter((subj) =>
+      subj.startsWith(`${yearLevel} `),
+    );
+
+    if (selectiveEntryYearLevels.includes(yearLevel)) {
+      return [...yearSubjects, SELECTIVE_ENTRY_PROGRAM];
     }
 
-    return subjects.filter((subj) => subj.startsWith(yearLevel));
+    return yearSubjects;
   };
 
   const filteredSubjects = getFilteredSubjects(formData.year_level);
