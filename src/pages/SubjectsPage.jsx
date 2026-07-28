@@ -12,6 +12,7 @@ import biologyImg from "../assets/subjectImages/biologyImg.jpg";
 import mathSpecialistImg from "../assets/subjectImages/mathSpecialistImg.jpg";
 import english510Img from "../assets/subjectImages/english5-10img.jpg";
 import maths510Img from "../assets/subjectImages/maths5-10img.jpg";
+import selectiveSchoolsImg from "../assets/Highschool_Tutoring.jpg";
 
 const SubjectsPage = () => {
     const [expandedSubjects, setExpandedSubjects] = useState(new Set());
@@ -451,6 +452,75 @@ const SubjectsPage = () => {
                             steady progress and improved confidence
                         </span>{" "}
                         across all year levels.
+                    </p>
+                </div>
+            ),
+        },
+        {
+            id: 10,
+            name: "🎯 Selective Schools Program",
+            category: "preparation",
+            image: selectiveSchoolsImg,
+            shortDescription:
+                "Targeted preparation for selective entry and SEAL exams, covering every tested skill area.",
+            detailedDescription: (
+                <div>
+                    <p className="mb-3">
+                        Our{" "}
+                        <span className="font-semibold underline decoration-primary">
+                            Selective Schools Program
+                        </span>{" "}
+                        prepares students in{" "}
+                        <span className="font-semibold">Years 5 to 8</span> for
+                        entry into Victoria's academically selective schools —
+                        including{" "}
+                        <span className="font-semibold">
+                            Melbourne High School
+                        </span>
+                        ,{" "}
+                        <span className="font-semibold">
+                            Mac.Robertson Girls' High School
+                        </span>
+                        , <span className="font-semibold">Nossal High School</span>{" "}
+                        and{" "}
+                        <span className="font-semibold">
+                            Suzanne Cory High School
+                        </span>
+                        , as well as{" "}
+                        <span className="font-semibold">SEAL</span> (Select
+                        Entry Accelerated Learning) programs.
+                    </p>
+                    <p className="mb-3">
+                        Lessons cover each area assessed in the exam:{" "}
+                        <span className="font-semibold">
+                            reading comprehension
+                        </span>
+                        , <span className="font-semibold">mathematics</span>,{" "}
+                        <span className="font-semibold">verbal reasoning</span>,{" "}
+                        <span className="font-semibold">
+                            quantitative reasoning
+                        </span>{" "}
+                        and{" "}
+                        <span className="font-semibold">creative writing</span>.
+                        Students learn the question patterns unique to these
+                        tests, along with{" "}
+                        <span className="font-semibold underline decoration-primary">
+                            timing and exam strategy
+                        </span>{" "}
+                        for working accurately under pressure.
+                    </p>
+                    <p>
+                        In our{" "}
+                        <span className="font-semibold underline">
+                            capped classes (max 10 students)
+                        </span>
+                        , students sit regular{" "}
+                        <span className="font-semibold">
+                            timed practice exams
+                        </span>{" "}
+                        with individual feedback on written responses and
+                        problem-solving methods, building the confidence and
+                        pacing needed on exam day.
                     </p>
                 </div>
             ),
