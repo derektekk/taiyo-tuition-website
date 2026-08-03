@@ -12,7 +12,7 @@ import biologyImg from "../assets/subjectImages/biologyImg.jpg";
 import mathSpecialistImg from "../assets/subjectImages/mathSpecialistImg.jpg";
 import english510Img from "../assets/subjectImages/english5-10img.jpg";
 import maths510Img from "../assets/subjectImages/maths5-10img.jpg";
-import selectiveSchoolsImg from "../assets/Highschool_Tutoring.jpg";
+import selectiveSchoolsImg from "../assets/subjectImages/selectiveSchoolsImg.jpg";
 
 const SubjectsPage = () => {
     const [expandedSubjects, setExpandedSubjects] = useState(new Set());
@@ -461,66 +461,98 @@ const SubjectsPage = () => {
             name: "🎯 Selective Schools Program",
             category: "preparation",
             image: selectiveSchoolsImg,
-            shortDescription:
-                "Targeted preparation for selective entry and SEAL exams, covering every tested skill area.",
+            shortDescription: (
+                <>
+                    Targeted preparation for competitive entry across{" "}
+                    <span className="font-semibold underline decoration-primary">
+                        two pathways
+                    </span>
+                    : the{" "}
+                    <span className="font-semibold underline decoration-primary">
+                        ACER Cooperative Scholarship Test
+                    </span>{" "}
+                    for entry into Melbourne's leading private schools, and the{" "}
+                    <span className="font-semibold underline decoration-primary">
+                        Victorian Selective Entry High School exam
+                    </span>{" "}
+                    for entry into the four government selective schools and
+                    SEAL programs.
+                </>
+            ),
             detailedDescription: (
                 <div>
                     <p className="mb-3">
                         Our{" "}
                         <span className="font-semibold underline decoration-primary">
-                            Selective Schools Program
+                            ACER Scholarship Program
                         </span>{" "}
-                        prepares students in{" "}
-                        <span className="font-semibold">Years 5 to 8</span> for
-                        entry into Victoria's academically selective schools —
-                        including{" "}
-                        <span className="font-semibold">
-                            Melbourne High School
+                        prepares{" "}
+                        <span className="font-semibold underline decoration-primary">
+                            Year 4 to Year 6
+                        </span>{" "}
+                        students for scholarships at schools including{" "}
+                        <span className="font-semibold underline decoration-primary">
+                            Scotch College, Wesley College, Haileybury,
+                            Caulfield Grammar, Camberwell Grammar, MLC, Trinity
+                            Grammar
+                        </span>{" "}
+                        and many more. Our{" "}
+                        <span className="font-semibold underline decoration-primary">
+                            SEHS Program
+                        </span>{" "}
+                        prepares{" "}
+                        <span className="font-semibold underline decoration-primary">
+                            Year 7 to Year 8
+                        </span>{" "}
+                        students for entry into{" "}
+                        <span className="font-semibold underline decoration-primary">
+                            Melbourne High School, Mac.Robertson Girls' High
+                            School, Nossal High School, Suzanne Cory High School
                         </span>
-                        ,{" "}
-                        <span className="font-semibold">
-                            Mac.Robertson Girls' High School
-                        </span>
-                        , <span className="font-semibold">Nossal High School</span>{" "}
-                        and{" "}
-                        <span className="font-semibold">
-                            Suzanne Cory High School
-                        </span>
-                        , as well as{" "}
-                        <span className="font-semibold">SEAL</span> (Select
-                        Entry Accelerated Learning) programs.
+                        , and SEAL programs.
                     </p>
                     <p className="mb-3">
-                        Lessons cover each area assessed in the exam:{" "}
-                        <span className="font-semibold">
-                            reading comprehension
-                        </span>
-                        , <span className="font-semibold">mathematics</span>,{" "}
-                        <span className="font-semibold">verbal reasoning</span>,{" "}
-                        <span className="font-semibold">
+                        Lessons cover every area assessed in each exam:{" "}
+                        <span className="font-semibold underline decoration-primary">
+                            creative and persuasive writing, reading
+                            comprehension, mathematics, and verbal and
                             quantitative reasoning
-                        </span>{" "}
-                        and{" "}
-                        <span className="font-semibold">creative writing</span>.
-                        Students learn the question patterns unique to these
-                        tests, along with{" "}
+                        </span>
+                        . Students learn the specific question patterns of each
+                        test, along with{" "}
                         <span className="font-semibold underline decoration-primary">
                             timing and exam strategy
                         </span>{" "}
                         for working accurately under pressure.
                     </p>
-                    <p>
-                        In our{" "}
-                        <span className="font-semibold underline">
-                            capped classes (max 10 students)
+                    <p className="mb-3">
+                        Our classes cap at{" "}
+                        <span className="font-semibold underline decoration-primary">
+                            6-8 students per tutor
                         </span>
-                        , students sit regular{" "}
-                        <span className="font-semibold">
-                            timed practice exams
-                        </span>{" "}
-                        with individual feedback on written responses and
+                        . Students sit regular timed practice exams with
+                        individual feedback on written responses and
                         problem-solving methods, building the confidence and
-                        pacing needed on exam day.
+                        pacing needed on exam day. Students in{" "}
+                        <span className="font-semibold underline decoration-primary">
+                            Intensive phase
+                        </span>{" "}
+                        sit{" "}
+                        <span className="font-semibold underline decoration-primary">
+                            full-length mocks under exam conditions
+                        </span>{" "}
+                        in the weeks leading up to their test.
+                    </p>
+                    <p>
+                        Enrolment is open on a{" "}
+                        <span className="font-semibold underline decoration-primary">
+                            rolling basis, with capped places
+                        </span>
+                        . Contact us for a{" "}
+                        <span className="font-semibold underline decoration-primary">
+                            free 15-minute chat and diagnostic assessment
+                        </span>
+                        .
                     </p>
                 </div>
             ),
