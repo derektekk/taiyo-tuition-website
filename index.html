@@ -57,7 +57,62 @@
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
-        gtag('config', 'AW-16463192719');
+        // GitHub Pages serves /enroll/ with a trailing slash. Ads checks /enroll.
+        function taiyoAdsPath() {
+            var path = window.location.pathname;
+            if (path.length > 1 && path.slice(-1) === '/') path = path.slice(0, -1);
+            return path || '/';
+        }
+
+        gtag('config', 'AW-16463192719', { page_path: taiyoAdsPath() });
+
+        var TRIAL_SEND_TO = 'AW-16463192719/aUA_CPqM-dccEI_Foao9';
+
+        function taiyoMarkTrialSent() {
+            try { sessionStorage.setItem('taiyo_aw_trial', '1'); } catch (e) { }
+        }
+
+        function taiyoTrialAlreadySent() {
+            try { return sessionStorage.getItem('taiyo_aw_trial') === '1'; } catch (e) { return false; }
+        }
+
+        // Lead conversion: thank-you after /enroll submit, not a view of the form.
+        function taiyoFireTrialIfThankYou() {
+            if (taiyoAdsPath() !== '/enroll/thank-you' || taiyoTrialAlreadySent()) return;
+            taiyoMarkTrialSent();
+            gtag('event', 'conversion', { send_to: TRIAL_SEND_TO });
+        }
+
+        // Event snippet Google Ads looks for. Form submit calls this, then goes to thank-you.
+        window.gtag_report_conversion = function (url) {
+            var called = false;
+            var callback = function () {
+                if (called) return;
+                called = true;
+                if (typeof url !== 'undefined') window.location = url;
+            };
+            taiyoMarkTrialSent();
+            gtag('event', 'conversion', {
+                send_to: TRIAL_SEND_TO,
+                event_callback: callback,
+                event_timeout: 2000
+            });
+            setTimeout(callback, 2000);
+            return false;
+        };
+
+        taiyoFireTrialIfThankYou();
+
+        var taiyoPushState = history.pushState;
+        history.pushState = function () {
+            taiyoPushState.apply(this, arguments);
+            taiyoFireTrialIfThankYou();
+            gtag('config', 'AW-16463192719', { page_path: taiyoAdsPath() });
+        };
+        window.addEventListener('popstate', function () {
+            taiyoFireTrialIfThankYou();
+            gtag('config', 'AW-16463192719', { page_path: taiyoAdsPath() });
+        });
     </script>
 
     <!-- Favicon -->
