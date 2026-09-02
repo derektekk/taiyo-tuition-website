@@ -183,8 +183,12 @@ const ContactForm = () => {
         VITE_EMAILJS_PUBLIC_KEY,
       );
 
-      // Redirect to thank-you page so Google Ads can measure the conversion on page load
-      navigate("/enroll/thank-you");
+      // Click conversion: wait for gtag, then go to thank-you. Fallback if the tag is blocked.
+      if (typeof gtag_report_conversion === "function") {
+        gtag_report_conversion("/enroll/thank-you");
+      } else {
+        navigate("/enroll/thank-you");
+      }
     } catch (err) {
       console.error("EmailJS Error:", err);
       setError(
