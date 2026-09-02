@@ -57,7 +57,6 @@
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
-        // GitHub Pages serves /enroll/ with a trailing slash. Ads checks /enroll.
         function taiyoAdsPath() {
             var path = window.location.pathname;
             if (path.length > 1 && path.slice(-1) === '/') path = path.slice(0, -1);
@@ -65,53 +64,47 @@
         }
 
         gtag('config', 'AW-16463192719', { page_path: taiyoAdsPath() });
-
-        var TRIAL_SEND_TO = 'AW-16463192719/aUA_CPqM-dccEI_Foao9';
-
-        function taiyoMarkTrialSent() {
-            try { sessionStorage.setItem('taiyo_aw_trial', '1'); } catch (e) { }
-        }
-
-        function taiyoTrialAlreadySent() {
-            try { return sessionStorage.getItem('taiyo_aw_trial') === '1'; } catch (e) { return false; }
-        }
-
-        // Lead conversion: thank-you after /enroll submit, not a view of the form.
-        function taiyoFireTrialIfThankYou() {
-            if (taiyoAdsPath() !== '/enroll/thank-you' || taiyoTrialAlreadySent()) return;
-            taiyoMarkTrialSent();
-            gtag('event', 'conversion', { send_to: TRIAL_SEND_TO });
-        }
-
-        // Event snippet Google Ads looks for. Form submit calls this, then goes to thank-you.
-        window.gtag_report_conversion = function (url) {
+    </script>
+    <!-- Event snippet for Free Trial Booking conversion page
+    In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+        function gtag_report_conversion(url) {
             var called = false;
             var callback = function () {
                 if (called) return;
                 called = true;
-                if (typeof url !== 'undefined') window.location = url;
+                if (typeof (url) != 'undefined') {
+                    window.location = url;
+                }
             };
-            taiyoMarkTrialSent();
+            try { sessionStorage.setItem('taiyo_aw_trial', '1'); } catch (e) { }
             gtag('event', 'conversion', {
-                send_to: TRIAL_SEND_TO,
-                event_callback: callback,
-                event_timeout: 2000
+                'send_to': 'AW-16463192719/aUA_CPqM-dccEI_Foao9',
+                'event_callback': callback
             });
             setTimeout(callback, 2000);
             return false;
-        };
+        }
 
-        taiyoFireTrialIfThankYou();
+        function taiyoFireTrialIfThankYou() {
+            if (taiyoAdsPath() !== '/enroll/thank-you') return;
+            try {
+                if (sessionStorage.getItem('taiyo_aw_trial') === '1') return;
+            } catch (e) { }
+            gtag_report_conversion();
+        }
+
+        window.addEventListener('load', taiyoFireTrialIfThankYou);
 
         var taiyoPushState = history.pushState;
         history.pushState = function () {
             taiyoPushState.apply(this, arguments);
-            taiyoFireTrialIfThankYou();
             gtag('config', 'AW-16463192719', { page_path: taiyoAdsPath() });
+            taiyoFireTrialIfThankYou();
         };
         window.addEventListener('popstate', function () {
-            taiyoFireTrialIfThankYou();
             gtag('config', 'AW-16463192719', { page_path: taiyoAdsPath() });
+            taiyoFireTrialIfThankYou();
         });
     </script>
 
