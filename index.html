@@ -5,6 +5,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KK72B7X4');</script>
+    <!-- End Google Tag Manager -->
+
     <!-- Basic SEO Meta Tags -->
     <title>
         Taiyo Tuition - Expert VCE Tutoring in Melbourne | 45+ Study Score
@@ -64,6 +72,7 @@
         }
 
         gtag('config', 'AW-16463192719', { page_path: taiyoAdsPath() });
+        gtag('config', 'G-WEFN1VY2ZD', { page_path: taiyoAdsPath() });
     </script>
     <!-- Event snippet for Free Trial Booking conversion page
     In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
@@ -100,10 +109,12 @@
         history.pushState = function () {
             taiyoPushState.apply(this, arguments);
             gtag('config', 'AW-16463192719', { page_path: taiyoAdsPath() });
+            gtag('config', 'G-WEFN1VY2ZD', { page_path: taiyoAdsPath() });
             taiyoFireTrialIfThankYou();
         };
         window.addEventListener('popstate', function () {
             gtag('config', 'AW-16463192719', { page_path: taiyoAdsPath() });
+            gtag('config', 'G-WEFN1VY2ZD', { page_path: taiyoAdsPath() });
             taiyoFireTrialIfThankYou();
         });
     </script>
@@ -236,6 +247,10 @@
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KK72B7X4"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
 </body>
