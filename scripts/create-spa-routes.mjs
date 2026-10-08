@@ -1,18 +1,33 @@
 import { mkdir, copyFile } from "node:fs/promises";
 import path from "node:path";
+import {
+  legacySubjectRedirects,
+  subjectSlugs,
+} from "../src/data/subjects.js";
 
 /**
  * GitHub Pages returns HTTP 404 for SPA client routes unless a real file exists.
  * Copy the built index.html into each route folder so Google Ads crawlers get 200.
  */
-const routes = [
+const staticRoutes = [
   "enroll",
   "enroll/thank-you",
   "contact",
   "subjects",
   "tutors",
+  "results",
+  "about",
+  "reviews",
+  "location",
+  "faq",
   "privacy",
   "legal",
+];
+
+const routes = [
+  ...staticRoutes,
+  ...subjectSlugs.map((slug) => `subjects/${slug}`),
+  ...Object.keys(legacySubjectRedirects).map((slug) => `subjects/${slug}`),
 ];
 
 const distDir = path.resolve("dist");

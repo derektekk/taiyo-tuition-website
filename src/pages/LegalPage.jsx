@@ -4,21 +4,10 @@ const LegalPage = () => {
       title: "Terms of Service",
       content: [
         "By using Taiyo Tuition's services, you agree to be bound by these terms and conditions.",
-        "Our tutoring services are provided on an 'as is' basis, and we make no warranties regarding specific academic outcomes beyond our guarantee policy.",
+        "Our tutoring services are provided on an 'as is' basis. We make no warranties regarding specific academic outcomes.",
         "Payment for services must be made according to the agreed schedule. Late payments may result in suspension of services.",
         "Students are expected to attend scheduled sessions punctually and prepared with necessary materials.",
         "Cancellations must be made at least 24 hours in advance to avoid charges."
-      ]
-    },
-    {
-      title: "Academic Guarantee",
-      content: [
-        "Taiyo Tuition guarantees a 45+ Study Score or your money back, subject to the following conditions:",
-        "Students must attend at least 90% of scheduled tutoring sessions.",
-        "Students must complete all assigned homework and practice materials.",
-        "Students must sit for all practice exams and assessments as scheduled.",
-        "The guarantee applies only to students who have been with us for a minimum of one full term.",
-        "Refund claims must be submitted within 30 days of receiving official ATAR results."
       ]
     },
     {
@@ -26,7 +15,7 @@ const LegalPage = () => {
       content: [
         "Taiyo Tuition's liability is limited to the fees paid for our services during the current term.",
         "We are not responsible for outcomes that result from factors beyond our control, including but not limited to student attendance, effort, or external circumstances.",
-        "We do not guarantee university admission or specific ATAR scores beyond our stated guarantee policy.",
+        "We do not guarantee university admission or specific ATAR or study scores.",
         "Any claims against Taiyo Tuition must be made in writing within 30 days of the alleged incident."
       ]
     },
@@ -64,20 +53,20 @@ const LegalPage = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+          <h1 className="display text-gray-900 mb-6">
             Legal Terms
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="body-lg text-gray-600 max-w-3xl mx-auto">
             Important legal information, terms of service, and conditions for using Taiyo Tuition services
           </p>
-          <div className="mt-6 text-sm text-gray-500">
-            Last updated: January 2024
+          <div className="mt-6 body-sm text-gray-500">
+            Last updated: August 2026
           </div>
         </div>
 
         {/* Introduction */}
         <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Introduction</h2>
+          <h2 className="h3 text-gray-900 mb-4">Introduction</h2>
           <p className="text-gray-600 leading-relaxed">
             Welcome to Taiyo Tuition. These terms and conditions outline the rules and regulations for the use of 
             Taiyo Tuition's services and website. By accessing and using our services, you accept these terms and 
@@ -94,7 +83,7 @@ const LegalPage = () => {
         <div className="space-y-8">
           {sections.map((section, index) => (
             <div key={index} className="bg-white rounded-2xl shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">{section.title}</h2>
+              <h2 className="h3 text-gray-900 mb-6">{section.title}</h2>
               <ul className="space-y-4">
                 {section.content.map((item, itemIndex) => (
                   <li key={itemIndex} className="flex items-start">
@@ -109,7 +98,7 @@ const LegalPage = () => {
 
         {/* Additional Legal Information */}
         <div className="bg-white rounded-2xl shadow-lg p-8 mt-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Governing Law</h2>
+          <h2 className="h3 text-gray-900 mb-6">Governing Law</h2>
           <p className="text-gray-600 leading-relaxed mb-4">
             These terms and conditions are governed by and construed in accordance with the laws of New South Wales, 
             Australia. Any disputes relating to these terms and conditions will be subject to the exclusive jurisdiction 
@@ -122,7 +111,7 @@ const LegalPage = () => {
         </div>
 
         <div className="bg-white rounded-2xl shadow-lg p-8 mt-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Modifications</h2>
+          <h2 className="h3 text-gray-900 mb-6">Modifications</h2>
           <p className="text-gray-600 leading-relaxed mb-4">
             Taiyo Tuition reserves the right to revise these terms and conditions at any time. By using our services, 
             you are agreeing to be bound by the current version of these terms and conditions.
@@ -134,7 +123,7 @@ const LegalPage = () => {
         </div>
 
         <div className="bg-white rounded-2xl shadow-lg p-8 mt-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Dispute Resolution</h2>
+          <h2 className="h3 text-gray-900 mb-6">Dispute Resolution</h2>
           <p className="text-gray-600 leading-relaxed mb-4">
             Before initiating any legal proceedings, both parties agree to attempt to resolve disputes through good faith 
             negotiation. If negotiation fails, disputes will be resolved through binding arbitration in accordance with 
@@ -148,7 +137,7 @@ const LegalPage = () => {
 
         {/* Contact Information */}
         <div className="bg-blue-50 rounded-2xl shadow-lg p-8 mt-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Legal Contact</h2>
+          <h2 className="h3 text-gray-900 mb-6">Legal Contact</h2>
           <p className="text-gray-600 leading-relaxed mb-6">
             If you have any questions about these legal terms or need clarification on any provisions, please contact us:
           </p>
@@ -160,7 +149,7 @@ const LegalPage = () => {
               <span className="font-medium">Phone:</span> +61 422 283 789
             </p>
             <p className="text-gray-600">
-              <span className="font-medium">Address:</span> 9-11 Hamilton Place, Mount Waverly VIC 3149
+              <span className="font-medium">Address:</span> 9-11 Hamilton Place, Mount Waverley VIC 3149
             </p>
           </div>
           <p className="text-gray-600 leading-relaxed mt-6">

@@ -1,4 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
+import { X } from "lucide-react";
 import taiyoIntro from "/taiyoIntro.webm";
 
 const VideoModal = ({ isOpen, onClose }) => {
@@ -61,18 +63,20 @@ const VideoModal = ({ isOpen, onClose }) => {
 
     if (!isOpen) return null;
 
-    return (
+    return createPortal(
         <div
-            className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+            className="fixed inset-0 z-[110] flex items-center justify-center bg-black/50 p-4"
             onClick={handleBackdropClick}
         >
             <div className="relative w-[50vh] h-[80vh] bg-gradient-secondary rounded-2xl">
                 {/* Close Button */}
                 <button
+                    type="button"
                     onClick={onClose}
+                    aria-label="Close video"
                     className="absolute -top-8 -right-8 z-10 bg-gradient-secondary bg-opacity-50 text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-opacity-75 transition-all duration-200 max-sm:-top-2 max-sm:-right-2"
                 >
-                    ✕
+                    <X className="size-4" strokeWidth={2} aria-hidden="true" />
                 </button>
 
                 {/* Video Content */}
@@ -90,7 +94,8 @@ const VideoModal = ({ isOpen, onClose }) => {
                     </video>
                 </div>
             </div>
-        </div>
+        </div>,
+        document.body
     );
 };
 

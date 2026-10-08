@@ -5,76 +5,160 @@
 @layer base {
     :root {
         --base-font-size: 1rem;
-        --scale-ratio: 1.25;
-        --font-family: Inter, sans-serif;
+        --scale-ratio: 1.333;
         --font-poppins: "Poppins", sans-serif;
         --font-inter: "Inter", sans-serif;
-        --h1-size: 3rem;
-        --h1-line-height: 110%;
-        --h1-letter-spacing: -2%;
-        --h2-size: 2rem;
-        --h2-line-height: 110%;
-        --h2-letter-spacing: -2%;
-        --h3-size: 2rem;
-        --h3-line-height: 130%;
-        --h3-letter-spacing: -1.5%;
-        --h4-size: 2rem;
-        --h4-line-height: 130%;
-        --h4-letter-spacing: -1.5%;
-        --h5-size: 1rem;
-        --h5-line-height: 150%;
-        --h5-letter-spacing: -0.5%;
-        --h6-size: 1rem;
-        --h6-line-height: 150%;
-        --h6-letter-spacing: 0%;
-        --body-lg-size: 1rem;
-        --body-lg-line-height: 150%;
-        --body-lg-letter-spacing: 0.5%;
+        --font-heading: var(--font-inter);
+        --font-body: var(--font-poppins);
+
+        /* Perfect Fourth (1.333) — Inter headings / Poppins body */
+        --display-size: 4.209rem;
+        --display-line-height: 1;
+        --display-letter-spacing: -0.03em;
+
+        --h1-size: 3.157rem;
+        --h1-line-height: 1.05;
+        --h1-letter-spacing: -0.025em;
+
+        --h2-size: 2.369rem;
+        --h2-line-height: 1.15;
+        --h2-letter-spacing: -0.02em;
+
+        --h3-size: 1.777rem;
+        --h3-line-height: 1.25;
+        --h3-letter-spacing: -0.015em;
+
+        --h4-size: 1.333rem;
+        --h4-line-height: 1.35;
+        --h4-letter-spacing: -0.008em;
+
+        --h5-size: 1.125rem;
+        --h5-line-height: 1.4;
+        --h5-letter-spacing: 0em;
+
+        --h6-size: 1.125rem;
+        --h6-line-height: 1.4;
+        --h6-letter-spacing: 0em;
+
+        --eyebrow-size: 0.8125rem;
+        --eyebrow-line-height: 1.4;
+        --eyebrow-letter-spacing: 0.12em;
+
+        --body-lg-size: 1.125rem;
+        --body-lg-line-height: 1.65;
+        --body-lg-letter-spacing: 0em;
+
         --body-size: 1rem;
-        --body-line-height: 150%;
-        --body-letter-spacing: 0.5%;
+        --body-line-height: 1.7;
+        --body-letter-spacing: 0em;
+
+        --body-sm-size: 0.875rem;
+        --body-sm-line-height: 1.6;
+        --body-sm-letter-spacing: 0em;
+
         --link-size: 1rem;
-        --link-line-height: 150%;
-        --link-letter-spacing: 0.5%;
-        --caption-size: 1rem;
-        --caption-line-height: 160%;
-        --caption-letter-spacing: 0.5%;
+        --link-line-height: 1.7;
+        --link-letter-spacing: 0em;
+
+        --caption-size: 0.75rem;
+        --caption-line-height: 1.6;
+        --caption-letter-spacing: 0.02em;
+    }
+
+    @media screen and (max-width: 768px) {
+        :root {
+            --display-size: 2.986rem;
+            --display-line-height: 1.05;
+            --h1-size: 2.369rem;
+            --h1-line-height: 1.1;
+            --h2-size: 1.777rem;
+            --h3-size: 1.333rem;
+        }
+    }
+
+    body {
+        font-family: var(--font-body);
+        font-size: var(--body-size);
+        line-height: var(--body-line-height);
+        letter-spacing: var(--body-letter-spacing);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-heading);
+    }
+
+    .display,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6,
+    .eyebrow {
+        font-family: var(--font-heading);
+    }
+
+    .display {
+        font-size: var(--display-size);
+        line-height: var(--display-line-height);
+        letter-spacing: var(--display-letter-spacing);
+        font-weight: 700;
     }
 
     .h1 {
         font-size: var(--h1-size);
         line-height: var(--h1-line-height);
         letter-spacing: var(--h1-letter-spacing);
+        font-weight: 700;
     }
 
     .h2 {
         font-size: var(--h2-size);
         line-height: var(--h2-line-height);
         letter-spacing: var(--h2-letter-spacing);
+        font-weight: 700;
     }
 
     .h3 {
         font-size: var(--h3-size);
         line-height: var(--h3-line-height);
         letter-spacing: var(--h3-letter-spacing);
+        font-weight: 700;
     }
 
     .h4 {
         font-size: var(--h4-size);
         line-height: var(--h4-line-height);
         letter-spacing: var(--h4-letter-spacing);
+        font-weight: 600;
     }
 
     .h5 {
         font-size: var(--h5-size);
         line-height: var(--h5-line-height);
         letter-spacing: var(--h5-letter-spacing);
+        font-weight: 600;
     }
 
     .h6 {
         font-size: var(--h6-size);
         line-height: var(--h6-line-height);
         letter-spacing: var(--h6-letter-spacing);
+        font-weight: 600;
+    }
+
+    .eyebrow {
+        font-size: var(--eyebrow-size);
+        line-height: var(--eyebrow-line-height);
+        letter-spacing: var(--eyebrow-letter-spacing);
+        font-weight: 600;
+        text-transform: uppercase;
     }
 
     .body-lg {
@@ -87,6 +171,12 @@
         font-size: var(--body-size);
         line-height: var(--body-line-height);
         letter-spacing: var(--body-letter-spacing);
+    }
+
+    .body-sm {
+        font-size: var(--body-sm-size);
+        line-height: var(--body-sm-line-height);
+        letter-spacing: var(--body-sm-letter-spacing);
     }
 
     .link {
@@ -103,36 +193,200 @@
 }
 
 @theme {
-    --color-primary: #5f97ff;
-    --color-secondary: #f6f6f6;
+        --color-primary: #5f97ff;
+        /* Dusty navy for contrast bands and text on white. Not a darker #5f97ff. */
+        --color-primary-deep: #243556;
+        --color-secondary: #f6f6f6;
     --color-tertiary: #fff;
     --color-black-primary: #4a5361;
     --color-blue-primary: #b1c9fe;
     --color-gradient-primary: #d4dbfc;
     --color-gradient-secondary: #91b8ff;
     --color-biege-primary: #f5f5f5;
+    --color-dust: #6b6560;
+    /* Muted blue ramp for stacked cards under black text. Leans to #5f97ff
+       without its saturation; every step is above 12:1 against #000. */
+    --color-mist-100: #e6edf8;
+    --color-mist-200: #d5e0f2;
+    --color-mist-300: #c4d3eb;
+    --color-mist-400: #b3c6e3;
+    --font-heading: "Inter", sans-serif;
+    --font-body: "Poppins", sans-serif;
+    --animate-social-progress: social-progress 3s linear forwards;
+    --animate-media-shimmer: media-shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes social-progress {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes media-shimmer {
+    from {
+        background-position: 100% 0;
+    }
+    to {
+        background-position: -100% 0;
+    }
+}
+
+@keyframes page-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @layer components {
+    /* Dotted primary field for inner pages (reviews, tutors, about). */
+    /* Shared vertical rhythm so stacked sections keep an even gap. */
     .section-card {
-        padding: 4rem 0;
-    }
-    .container-responsive {
-        max-width: 1280px;
-        padding: 0 1rem;
+        padding: 3rem 0;
     }
 
-    @media screen and (max-width: 768px) {
-        .section-card-content {
-            padding: 2rem 1.5rem !important;
-            justify-content: center !important;
-            align-items: start !important;
-            text-align: start !important;
-            min-height: 150px !important;
+    /* Space between a section title and the content it introduces. */
+    .section-heading {
+        margin-bottom: 2rem;
+    }
+
+    .container-responsive {
+        max-width: 1400px;
+        padding: 0 1.25rem;
+    }
+
+    /*
+     * Contour-style page rail:
+     *   section (full-bleed) >
+     *   .padding-global (5% gutter) >
+     *   .container-large (caps on wide screens)
+     */
+    .padding-global {
+        width: 100%;
+        padding-inline: 5%;
+    }
+
+    .container-large {
+        width: 100%;
+        max-width: 96rem;
+        margin-inline: auto;
+    }
+
+    .container-medium {
+        width: 100%;
+        max-width: 90rem;
+        margin-inline: auto;
+    }
+
+    .container-small {
+        width: 100%;
+        max-width: 48rem;
+        margin-inline: auto;
+    }
+
+    .media-shimmer {
+        background-color: var(--color-gradient-primary);
+        background-image: linear-gradient(
+            105deg,
+            var(--color-gradient-primary) 0%,
+            #eef2ff 42%,
+            var(--color-gradient-primary) 80%
+        );
+        background-size: 220% 100%;
+        animation: var(--animate-media-shimmer);
+    }
+
+    .media-image {
+        opacity: 0;
+    }
+
+    .media-image.is-ready {
+        opacity: 1;
+    }
+
+    .page-fade {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .page-fade.is-ready {
+        pointer-events: auto;
+        opacity: 1;
+        animation: page-fade-in 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        .media-image {
+            transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1);
         }
     }
-}
 
-body {
-    font-family: var(--font-poppins);
+    @media (prefers-reduced-motion: reduce) {
+        .page-fade.is-ready {
+            animation: none;
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    .padding-section-small {
+        padding-block: 2.5rem;
+    }
+
+    .padding-section-medium {
+        padding-block: 3.5rem;
+    }
+
+    .padding-section-large {
+        padding-block: 4.5rem;
+    }
+
+    .padding-section-large.is-hero {
+        padding-top: 7rem;
+        padding-bottom: 3rem;
+    }
+
+    @media screen and (min-width: 768px) {
+        .section-card {
+            padding: 4rem 0;
+        }
+
+        .section-heading {
+            margin-bottom: 2.5rem;
+        }
+
+        .container-responsive {
+            padding: 0 2rem;
+        }
+
+        .padding-section-small {
+            padding-block: 3rem;
+        }
+
+        .padding-section-medium {
+            padding-block: 5rem;
+        }
+
+        .padding-section-large {
+            padding-block: 7.5rem;
+        }
+
+        .padding-section-large.is-hero {
+            padding-top: 8.5rem;
+            padding-bottom: 3rem;
+        }
+    }
+
+    @media screen and (min-width: 1920px) {
+        .container-large {
+            max-width: 100rem;
+        }
+    }
 }

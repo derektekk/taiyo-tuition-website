@@ -27,3 +27,11 @@ dist-ssr
 .env
 .env.local
 .env.*.local
+
+# Vercel CLI project link
+.vercel
+
+# Local agent plans and type-scale lab
+docs/plans/
+design/
+.env*

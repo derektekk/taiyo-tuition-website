@@ -1,6 +1,9 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import HomeClose from "../components/home/HomeClose";
+import Reveal from "../components/Reveal";
 import ScrollAnimateText from "../components/ScrollAnimateText";
+import TextLink from "../components/TextLink";
 
 const ContactPage = () => {
     useEffect(() => {
@@ -10,25 +13,25 @@ const ContactPage = () => {
 
     const contactInfo = [
         {
-            icon: "📧",
+            Icon: Mail,
             title: "Email",
             details: "admin@taiyotuition.com",
             description: "Send us an email anytime",
         },
         {
-            icon: "📞",
+            Icon: Phone,
             title: "Phone",
             details: "+61 422 283 789",
             description: "Mon to Fri from 8am to 6pm",
         },
         {
-            icon: "📍",
+            Icon: MapPin,
             title: "Address",
-            details: "9-11 Hamilton Place, Mount Waverly VIC 3149",
+            details: "9-11 Hamilton Place, Mount Waverley VIC 3149",
             description: "Visit our learning center",
         },
         {
-            icon: "⏰",
+            Icon: Clock,
             title: "Hours",
             details: "Mon - Fri: 4pm - 9pm\nSat - Sun: 12pm - 6:30pm",
             description: "Weekend sessions available",
@@ -41,17 +44,16 @@ const ContactPage = () => {
             role="main"
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* 2-Column Grid: Get in Touch + Quick Questions */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-                    {/* Left Column: Get in Touch */}
-                    <section
+                    <Reveal
+                        as="section"
                         className="bg-white rounded-2xl shadow-lg p-8"
                         aria-labelledby="contact-info-heading"
                     >
                         <ScrollAnimateText
                             as="h2"
                             id="contact-info-heading"
-                            className="text-3xl font-bold text-gray-900 mb-8 text-center"
+                            className="h2 text-gray-900 mb-8 text-center"
                         >
                             Get in Touch
                         </ScrollAnimateText>
@@ -61,17 +63,15 @@ const ContactPage = () => {
                                     key={index}
                                     className="flex items-start space-x-4"
                                 >
-                                    <div
-                                        className="text-3xl mr-4 text-white"
-                                        role="img"
-                                        aria-label={info.title}
-                                    >
-                                        {info.icon}
-                                    </div>
+                                    <info.Icon
+                                        className="mt-0.5 size-6 shrink-0 text-primary"
+                                        strokeWidth={2}
+                                        aria-hidden="true"
+                                    />
                                     <div>
                                         <ScrollAnimateText
                                             as="h3"
-                                            className="font-semibold text-gray-900 text-lg"
+                                            className="h5 text-gray-900"
                                         >
                                             {info.title}
                                         </ScrollAnimateText>
@@ -79,7 +79,7 @@ const ContactPage = () => {
                                             <ScrollAnimateText>
                                                 <a
                                                     href={`mailto:${info.details}`}
-                                                    className="text-blue-600 font-medium text-lg hover:underline"
+                                                    className="body-lg text-blue-600 font-medium hover:underline"
                                                 >
                                                     {info.details}
                                                 </a>
@@ -88,7 +88,18 @@ const ContactPage = () => {
                                             <ScrollAnimateText>
                                                 <a
                                                     href={`tel:${info.details}`}
-                                                    className="text-blue-600 font-medium text-lg hover:underline"
+                                                    className="body-lg text-blue-600 font-medium hover:underline"
+                                                >
+                                                    {info.details}
+                                                </a>
+                                            </ScrollAnimateText>
+                                        ) : info.title === "Address" ? (
+                                            <ScrollAnimateText>
+                                                <a
+                                                    href="https://share.google/eFkAn9R7TESKpFVRG"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="body-lg text-blue-600 font-medium hover:underline"
                                                 >
                                                     {info.details}
                                                 </a>
@@ -96,14 +107,14 @@ const ContactPage = () => {
                                         ) : (
                                             <ScrollAnimateText
                                                 as="p"
-                                                className="text-blue-600 font-medium text-lg whitespace-pre-line"
+                                                className="body-lg text-blue-600 font-medium whitespace-pre-line"
                                             >
                                                 {info.details}
                                             </ScrollAnimateText>
                                         )}
                                         <ScrollAnimateText
                                             as="p"
-                                            className="text-gray-600"
+                                            className="body text-gray-600"
                                         >
                                             {info.description}
                                         </ScrollAnimateText>
@@ -111,102 +122,45 @@ const ContactPage = () => {
                                 </div>
                             ))}
                         </address>
-                    </section>
+                    </Reveal>
 
-                    {/* Right Column: FAQ Section */}
-                    <aside>
-                        <section
-                            className="bg-white rounded-2xl shadow-lg p-8 h-fit"
-                            aria-labelledby="faq-heading"
-                        >
-                            <ScrollAnimateText
-                                as="h2"
-                                id="faq-heading"
-                                className="text-3xl font-bold text-gray-900 mb-8 text-center"
-                            >
-                                Quick Questions?
-                            </ScrollAnimateText>
-                            <div className="space-y-6">
-                                <div className="border-b border-gray-200 pb-6">
-                                    <ScrollAnimateText className="font-semibold text-gray-900 mb-3 text-lg">
-                                        How do I book a trial lesson?
-                                    </ScrollAnimateText>
-                                    <ScrollAnimateText className="text-gray-600">
-                                        Visit our Enroll Now page and fill out
-                                        the form to arrange your free trial
-                                        lesson at your convenience and discuss
-                                        your academic goals.
-                                    </ScrollAnimateText>
-                                </div>
-                                <div className="border-b border-gray-200 pb-6">
-                                    <ScrollAnimateText className="font-semibold text-gray-900 mb-3 text-lg">
-                                        What subjects do you offer?
-                                    </ScrollAnimateText>
-                                    <ScrollAnimateText className="text-gray-700">
-                                        We offer tutoring in Mathematics,
-                                        Physics, Chemistry, English, Biology,
-                                        and many more subjects for VCE students.
-                                        Visit our subjects page to learn more.
-                                    </ScrollAnimateText>
-                                </div>
-                                <div className="border-b border-gray-200 pb-6">
-                                    <ScrollAnimateText className="font-semibold text-gray-900 mb-3 text-lg">
-                                        Do you offer online sessions?
-                                    </ScrollAnimateText>
-                                    <ScrollAnimateText className="text-gray-600">
-                                        Yes! We offer both in-person and online
-                                        tutoring sessions to accommodate your
-                                        preferences and schedule.
-                                    </ScrollAnimateText>
-                                </div>
-                                <div>
-                                    <ScrollAnimateText className="font-semibold text-gray-900 mb-3 text-lg">
-                                        How much do your classes cost?
-                                    </ScrollAnimateText>
-                                    <ScrollAnimateText className="text-gray-600">
-                                        Our pricing varies depending on the
-                                        subject and class format. Contact us
-                                        directly for detailed pricing
-                                        information and package options.
-                                    </ScrollAnimateText>
-                                </div>
-                            </div>
-                        </section>
-                    </aside>
-                </div>
-                {/* CTA Section */}
-                <section
-                    className="text-center mb-12 md:mb-16"
-                    aria-labelledby="cta-heading"
-                >
-                    <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+                    <Reveal
+                        as="aside"
+                        delay={0.1}
+                        className="bg-white rounded-2xl shadow-lg p-8 h-fit"
+                    >
                         <ScrollAnimateText
                             as="h2"
-                            id="cta-heading"
-                            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+                            className="h2 text-gray-900 mb-4"
                         >
-                            Ready to Get Started?
+                            Questions first?
                         </ScrollAnimateText>
                         <ScrollAnimateText
                             as="p"
-                            className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto"
+                            className="body text-gray-600 mb-6"
                         >
-                            Fill out our enrollment form to book a free trial
-                            lesson and take the first step toward academic
-                            success.
+                            Class size, subjects, and weekly fees are on the
+                            FAQ. Book a free trial when you're ready to start.
                         </ScrollAnimateText>
-                        <ScrollAnimateText>
-                            <Link
-                                to="/enroll"
-                                className="inline-block bg-primary text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-[#3482FF] hover:scale-105 transition-all ease-in-out duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                                aria-label="Go to enrollment form"
+                        <div className="flex flex-col gap-3">
+                            <TextLink
+                                to="/faq"
+                                className="body-sm font-heading font-semibold text-primary transition-colors hover:text-primary/80"
                             >
-                                Enrol Now
-                            </Link>
-                        </ScrollAnimateText>
-                    </div>
-                </section>
+                                Read the FAQ
+                            </TextLink>
+                            <TextLink
+                                to="/location"
+                                className="body-sm font-heading font-semibold text-primary transition-colors hover:text-primary/80"
+                            >
+                                Mount Waverley rooms
+                            </TextLink>
+                        </div>
+                    </Reveal>
+                </div>
             </div>
+
+            <HomeClose />
         </main>
     );
 };

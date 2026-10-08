@@ -1,0 +1,165 @@
+{
+    "redirects": [
+        {
+            "source": "/subjects/year-5-10-english",
+            "destination": "/subjects/year-5-6-english",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/year-5-10-maths",
+            "destination": "/subjects/year-5-6-maths",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/english-1-2",
+            "destination": "/subjects/english",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/english-3-4",
+            "destination": "/subjects/english",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/english-units-1-2",
+            "destination": "/subjects/english",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/english-units-3-4",
+            "destination": "/subjects/english",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/methods-1-2",
+            "destination": "/subjects/methods",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/methods-3-4",
+            "destination": "/subjects/methods",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/maths-methods-units-1-2",
+            "destination": "/subjects/methods",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/maths-methods-units-3-4",
+            "destination": "/subjects/methods",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/specialist-1-2",
+            "destination": "/subjects/specialist",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/specialist-3-4",
+            "destination": "/subjects/specialist",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/specialist-maths-units-1-2",
+            "destination": "/subjects/specialist",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/specialist-maths-units-3-4",
+            "destination": "/subjects/specialist",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/general-1-2",
+            "destination": "/subjects/general",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/general-3-4",
+            "destination": "/subjects/general",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/general-maths-units-1-2",
+            "destination": "/subjects/general",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/general-maths-units-3-4",
+            "destination": "/subjects/general",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/chemistry-1-2",
+            "destination": "/subjects/chemistry",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/chemistry-3-4",
+            "destination": "/subjects/chemistry",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/chemistry-units-1-2",
+            "destination": "/subjects/chemistry",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/chemistry-units-3-4",
+            "destination": "/subjects/chemistry",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/physics-1-2",
+            "destination": "/subjects/physics",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/physics-3-4",
+            "destination": "/subjects/physics",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/physics-units-1-2",
+            "destination": "/subjects/physics",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/physics-units-3-4",
+            "destination": "/subjects/physics",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/biology-1-2",
+            "destination": "/subjects/biology",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/biology-3-4",
+            "destination": "/subjects/biology",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/biology-units-1-2",
+            "destination": "/subjects/biology",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/biology-units-3-4",
+            "destination": "/subjects/biology",
+            "permanent": true
+        },
+        {
+            "source": "/subjects/selective-schools-program",
+            "destination": "/subjects/selective",
+            "permanent": true
+        },
+        {
+            "source": "/classes",
+            "destination": "/subjects",
+            "permanent": true
+        }
+    ],
+    "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}

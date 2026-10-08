@@ -1,135 +1,153 @@
 import { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import ScrollAnimateText from "./ScrollAnimateText";
+import { getSubjectBySlug, subjects } from "../data/subjects";
 
-const ContactForm = () => {
+const yearLevels = [
+  "Year 5",
+  "Year 6",
+  "Year 7",
+  "Year 8",
+  "Year 9",
+  "Year 10",
+  "Year 11",
+  "Year 12",
+];
+
+/** Which year band a year level sits in, plus whether Selective applies. */
+const YEAR_RULES = {
+  "Year 5": { band: "5–6", selective: true },
+  "Year 6": { band: "5–6", selective: true },
+  "Year 7": { band: "7–8", selective: true },
+  "Year 8": { band: "7–8", selective: true },
+  "Year 9": { band: "9–10", selective: false },
+  "Year 10": { band: "9–10", selective: false },
+  "Year 11": { vce: true },
+  "Year 12": { vce: true },
+};
+
+/** Classes that make sense for a year level, in data order. */
+const subjectsForYear = (yearLevel) => {
+  const rule = YEAR_RULES[yearLevel];
+  if (!rule) return [];
+  return subjects.filter((subject) => {
+    if (rule.vce) {
+      if (yearLevel === "Year 12" && subject.units === "1 & 2") return false;
+      return subject.group === "vce";
+    }
+    if (subject.group === "selective") return rule.selective;
+    return subject.group === "years" && subject.yearBand === rule.band;
+  });
+};
+
+/** Year a class implies when it arrives from a class page. Year bands stay empty. */
+const defaultYearFor = (subject) => {
+  if (subject?.units === "1 & 2") return "Year 11";
+  if (subject?.units === "3 & 4") return "Year 12";
+  return "";
+};
+
+const emptyForm = {
+  from_name: "",
+  from_email: "",
+  phone: "",
+  year_level: "",
+  subjects: [],
+  study_method: "",
+};
+
+/** Seed year and ticked class from ?subject=<slug>. Unknown slugs are ignored. */
+const seedFromSlug = (slug) => {
+  const subject = slug ? getSubjectBySlug(slug) : undefined;
+  if (!subject) return { form: emptyForm, pinned: null };
+  return {
+    form: {
+      ...emptyForm,
+      year_level: defaultYearFor(subject),
+      subjects: [subject.slug],
+    },
+    pinned: subject.slug,
+  };
+};
+
+const VITE_EMAILJS_SERVICE_ID = "service_3as7qlv";
+const VITE_EMAILJS_TEMPLATE_ID_ADMIN = "template_e7d04dg";
+const VITE_EMAILJS_PUBLIC_KEY = "7-LqSOcZKhS3c7raS";
+
+const ContactForm = ({ hideIntro = false }) => {
   const formRef = useRef(null);
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const subjectParam = searchParams.get("subject");
+
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const [formData, setFormData] = useState({
-    from_name: "",
-    from_email: "",
-    phone: "",
-    year_level: "",
-    subjects: [],
-    study_method: "",
-  });
+  const [formData, setFormData] = useState(() => seedFromSlug(subjectParam).form);
+  // The class ticked from the URL stays visible whatever the year says, until
+  // the visitor unticks it. Nothing else is pinned.
+  const [pinnedSlug, setPinnedSlug] = useState(
+    () => seedFromSlug(subjectParam).pinned,
+  );
+  const appliedParam = useRef(subjectParam);
 
-  const yearLevels = [
-    "Year 5",
-    "Year 6",
-    "Year 7",
-    "Year 8",
-    "Year 9",
-    "Year 10",
-    "Year 11",
-    "Year 12",
-  ];
-
-  const subjects = [
-    "Year 5 English",
-    "Year 6 English",
-    "Year 7 English",
-    "Year 8 English",
-    "Year 9 English",
-    "Year 10 English",
-    "Year 5 Maths",
-    "Year 6 Maths",
-    "Year 7 Maths",
-    "Year 8 Maths",
-    "Year 9 Maths",
-    "Year 10 Maths",
-  ];
-
-  const year11Subjects = [
-    "English Units 1/2 or 3/4",
-    "Maths Methods Units 1/2 or 3/4",
-    "Chemistry Units 1/2 or 3/4",
-    "Physics Units 1/2 or 3/4",
-    "Biology Units 1/2 or 3/4",
-    "Specialist Maths Units 3 & 4",
-    "General Maths Units 1/2 or 3/4",
-  ];
-
-  const year12Subjects = [
-    "English 3/4",
-    "Maths Methods 3/4",
-    "Chemistry 3/4",
-    "Physics 3/4",
-    "Biology 3/4",
-    "Specialist Maths 3/4",
-    "General Maths 3/4",
-  ];
-
-  const SELECTIVE_ENTRY_PROGRAM = "Selective Entry Program";
-  const selectiveEntryYearLevels = ["Year 5", "Year 6", "Year 7", "Year 8"];
-
-  const VITE_EMAILJS_SERVICE_ID = "service_3as7qlv";
-  const VITE_EMAILJS_TEMPLATE_ID_ADMIN = "template_e7d04dg";
-  const VITE_EMAILJS_PUBLIC_KEY = "7-LqSOcZKhS3c7raS";
-
+  // Re-seed if the query changes while the form stays mounted (e.g. Enrol from
+  // one class page, then another). Skips the initial mount.
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+    if (appliedParam.current === subjectParam) return;
+    appliedParam.current = subjectParam;
+    const seed = seedFromSlug(subjectParam);
+    setFormData((prev) => ({
+      ...prev,
+      year_level: seed.form.year_level,
+      subjects: seed.form.subjects,
+    }));
+    setPinnedSlug(seed.pinned);
+  }, [subjectParam]);
 
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const yearSubjects = subjectsForYear(formData.year_level);
+  const pinnedSubject =
+    pinnedSlug && formData.subjects.includes(pinnedSlug)
+      ? getSubjectBySlug(pinnedSlug)
+      : undefined;
+  const visibleSubjects =
+    pinnedSubject && !yearSubjects.includes(pinnedSubject)
+      ? [pinnedSubject, ...yearSubjects]
+      : yearSubjects;
 
-  const getFilteredSubjects = (yearLevel) => {
-    if (!yearLevel) return [];
-
-    if (yearLevel === "Year 11") return year11Subjects;
-    if (yearLevel === "Year 12") return year12Subjects;
-
-    // Trailing space keeps a single-digit year from matching "Year 10" subjects
-    const yearSubjects = subjects.filter((subj) =>
-      subj.startsWith(`${yearLevel} `),
-    );
-
-    if (selectiveEntryYearLevels.includes(yearLevel)) {
-      return [...yearSubjects, SELECTIVE_ENTRY_PROGRAM];
-    }
-
-    return yearSubjects;
-  };
-
-  const filteredSubjects = getFilteredSubjects(formData.year_level);
+  const selectedNames = formData.subjects
+    .map((slug) => getSubjectBySlug(slug)?.name)
+    .filter(Boolean);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === "year_level") {
+      // Keep the pinned class and anything still valid for the new year.
+      const allowed = new Set(subjectsForYear(value).map((item) => item.slug));
       setFormData((prev) => ({
         ...prev,
         year_level: value,
-        subjects: [],
+        subjects: prev.subjects.filter(
+          (slug) => slug === pinnedSlug || allowed.has(slug),
+        ),
       }));
     } else {
-      setFormData((prev) => ({
-        ...prev,
-        [name]: value,
-      }));
+      setFormData((prev) => ({ ...prev, [name]: value }));
     }
     if (error) setError("");
   };
 
-  const handleSubjectToggle = (subject) => {
+  const handleSubjectToggle = (slug) => {
     setFormData((prev) => {
-      const isSelected = prev.subjects.includes(subject);
-      const newSubjects = isSelected
-        ? prev.subjects.filter((s) => s !== subject)
-        : [...prev.subjects, subject];
+      const isSelected = prev.subjects.includes(slug);
       return {
         ...prev,
-        subjects: newSubjects,
+        subjects: isSelected
+          ? prev.subjects.filter((item) => item !== slug)
+          : [...prev.subjects, slug],
       };
     });
+    if (slug === pinnedSlug) setPinnedSlug(null);
     if (error) setError("");
   };
 
@@ -156,7 +174,7 @@ const ContactForm = () => {
       return false;
     }
     if (formData.subjects.length === 0) {
-      setError("Please select at least one subject");
+      setError("Please select at least one class");
       return false;
     }
     if (!formData.study_method) {
@@ -184,8 +202,8 @@ const ContactForm = () => {
       );
 
       // Click conversion: wait for gtag, then go to thank-you. Fallback if the tag is blocked.
-      if (typeof gtag_report_conversion === "function") {
-        gtag_report_conversion("/enroll/thank-you");
+      if (typeof window.gtag_report_conversion === "function") {
+        window.gtag_report_conversion("/enroll/thank-you");
       } else {
         navigate("/enroll/thank-you");
       }
@@ -199,14 +217,14 @@ const ContactForm = () => {
   };
 
   const inputClasses =
-    "w-full bg-white text-gray-700 px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all duration-200 placeholder:text-gray-400";
-  const labelClasses = "block text-sm font-medium text-gray-700 mb-3";
+    "w-full bg-tertiary text-black px-4 py-3 rounded-lg border border-primary/25 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all duration-200 placeholder:text-black-primary/50";
+  const labelClasses = "block body-sm font-medium text-black mb-3";
   const selectClasses = `${inputClasses} appearance-none cursor-pointer pr-10`;
 
   const SelectArrow = () => (
     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
       <svg
-        className="h-5 w-5 text-gray-400"
+        className="h-5 w-5 text-primary"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
         fill="currentColor"
@@ -224,23 +242,31 @@ const ContactForm = () => {
   return (
     <>
       <section
-        className="bg-white rounded-2xl shadow-lg px-8 py-8 md:py-16"
+        className={`bg-white rounded-2xl p-6 md:p-10 ${hideIntro ? "" : "shadow-lg"}`}
         aria-labelledby="contact-form-heading"
       >
-        <ScrollAnimateText
-          as="h2"
-          id="contact-form-heading"
-          className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 text-center"
-        >
-          Ready to Get Started?
-        </ScrollAnimateText>
-        <ScrollAnimateText
-          as="p"
-          className="text-lg text-gray-600 mb-8 text-center"
-        >
-          Fill out the form below and we&apos;ll get back to you within a few
-          hours
-        </ScrollAnimateText>
+        {hideIntro ? (
+          <h2 id="contact-form-heading" className="sr-only">
+            Trial booking form
+          </h2>
+        ) : (
+          <>
+            <ScrollAnimateText
+              as="h2"
+              id="contact-form-heading"
+              className="display text-black mb-4 text-center"
+            >
+              Book a free trial
+            </ScrollAnimateText>
+            <ScrollAnimateText
+              as="p"
+              className="body-lg text-black-primary section-heading text-center"
+            >
+              Fill out the form below and we&apos;ll get back to you within a few
+              hours
+            </ScrollAnimateText>
+          </>
+        )}
 
         <form
           ref={formRef}
@@ -349,7 +375,7 @@ const ContactForm = () => {
                   <option value="">Select study method</option>
                   <option value="Online">Online</option>
                   <option value="In Person">
-                    In Person (Mount Waverly Branch)
+                    In Person (Mount Waverley Branch)
                   </option>
                 </select>
                 <SelectArrow />
@@ -357,52 +383,46 @@ const ContactForm = () => {
             </div>
           </div>
 
-          {/* Subjects Grid */}
+          {/* Classes */}
           <div>
             <label id="subjects-label" className={labelClasses}>
-              Subjects Interested In <span className="text-red-500">*</span>
+              Classes Interested In <span className="text-red-500">*</span>
             </label>
-            {/* Hidden input for emailjs */}
+            {/* Hidden input for emailjs: class names, not slugs */}
             <input
               type="hidden"
               name="subject"
-              value={formData.subjects.join(", ")}
+              value={selectedNames.join(", ")}
             />
-            {!formData.year_level ? (
-              <p className="text-sm text-gray-400 italic py-2">
-                Please select a year level first to see available subjects.
+            {visibleSubjects.length === 0 ? (
+              <p className="body-sm text-black-primary py-2">
+                Please select a year level first to see available classes.
               </p>
             ) : (
               <div
-                className="gap-3"
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
-                  gridAutoFlow: isMobile ? "row" : "column",
-                  gridTemplateRows: isMobile
-                    ? "auto"
-                    : `repeat(${Math.ceil(filteredSubjects.length / 2)}, auto)`,
-                }}
+                role="group"
+                aria-labelledby="subjects-label"
+                className="grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-2"
               >
-                {filteredSubjects.map((subj) => {
-                  const isSelected = formData.subjects.includes(subj);
+                {visibleSubjects.map((subject) => {
+                  const isSelected = formData.subjects.includes(subject.slug);
                   return (
                     <label
-                      key={subj}
+                      key={subject.slug}
                       className="flex items-start gap-3 py-2 cursor-pointer transition-all duration-200"
                     >
                       <input
                         type="checkbox"
                         checked={isSelected}
-                        onChange={() => handleSubjectToggle(subj)}
+                        onChange={() => handleSubjectToggle(subject.slug)}
                         className="sr-only"
-                        aria-label={subj}
+                        aria-label={subject.name}
                       />
                       <div
                         className={`w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 transition-all duration-200 ${
                           isSelected
                             ? "bg-primary border-primary scale-110"
-                            : "border-gray-400 hover:border-gray-500"
+                            : "border-primary/40 hover:border-primary"
                         }`}
                       >
                         {isSelected && (
@@ -422,13 +442,20 @@ const ContactForm = () => {
                           </svg>
                         )}
                       </div>
-                      <span className="text-sm text-gray-700 leading-tight flex-1">
-                        {subj}
+                      <span className="body-sm text-black leading-tight flex-1">
+                        {subject.group === "vce"
+                          ? subject.shortName
+                          : subject.name}
                       </span>
                     </label>
                   );
                 })}
               </div>
+            )}
+            {!formData.year_level && visibleSubjects.length > 0 && (
+              <p className="body-sm text-black-primary py-2">
+                Select a year level to see the other classes.
+              </p>
             )}
           </div>
 
@@ -448,7 +475,7 @@ const ContactForm = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-primary text-white px-8 py-4 rounded-2xl -medium text-lg hover:bg-[#3482FF] hover:scale-[1.02] transition-all ease-in-out duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer"
+            className="h5 w-full bg-primary text-white px-8 py-4 rounded-2xl hover:bg-[#3482FF] hover:scale-[1.02] transition-all ease-in-out duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer"
             aria-busy={isLoading}
           >
             {isLoading ? (

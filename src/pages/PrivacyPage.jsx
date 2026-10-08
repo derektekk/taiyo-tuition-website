@@ -62,20 +62,20 @@ const PrivacyPage = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+          <h1 className="display text-gray-900 mb-6">
             Privacy Policy
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="body-lg text-gray-600 max-w-3xl mx-auto">
             Your privacy is important to us. This policy explains how we collect, use, and protect your information.
           </p>
-          <div className="mt-6 text-sm text-gray-500">
-            Last updated: January 2024
+          <div className="mt-6 body-sm text-gray-500">
+            Last updated: August 2026
           </div>
         </div>
 
         {/* Introduction */}
         <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Introduction</h2>
+          <h2 className="h3 text-gray-900 mb-4">Introduction</h2>
           <p className="text-gray-600 leading-relaxed">
             Taiyo Tuition ("we," "our," or "us") is committed to protecting your privacy and ensuring that your personal 
             information is handled in a safe and responsible manner. This Privacy Policy explains how we collect, use, 
@@ -91,7 +91,7 @@ const PrivacyPage = () => {
         <div className="space-y-8">
           {sections.map((section, index) => (
             <div key={index} className="bg-white rounded-2xl shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">{section.title}</h2>
+              <h2 className="h3 text-gray-900 mb-6">{section.title}</h2>
               <ul className="space-y-4">
                 {section.content.map((item, itemIndex) => (
                   <li key={itemIndex} className="flex items-start">
@@ -106,7 +106,7 @@ const PrivacyPage = () => {
 
         {/* Additional Information */}
         <div className="bg-white rounded-2xl shadow-lg p-8 mt-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Data Retention</h2>
+          <h2 className="h3 text-gray-900 mb-6">Data Retention</h2>
           <p className="text-gray-600 leading-relaxed mb-4">
             We retain your personal information only for as long as necessary to provide our services and fulfill 
             the purposes outlined in this Privacy Policy. We will retain and use your information to the extent 
@@ -119,7 +119,7 @@ const PrivacyPage = () => {
         </div>
 
         <div className="bg-white rounded-2xl shadow-lg p-8 mt-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Children's Privacy</h2>
+          <h2 className="h3 text-gray-900 mb-6">Children's Privacy</h2>
           <p className="text-gray-600 leading-relaxed mb-4">
             Our services are primarily designed for high school students preparing for their ATAR. We take additional 
             care when handling information from users under 18 years of age, and we encourage parents and guardians 
@@ -132,7 +132,7 @@ const PrivacyPage = () => {
         </div>
 
         <div className="bg-white rounded-2xl shadow-lg p-8 mt-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Changes to This Policy</h2>
+          <h2 className="h3 text-gray-900 mb-6">Changes to This Policy</h2>
           <p className="text-gray-600 leading-relaxed mb-4">
             We may update this Privacy Policy from time to time to reflect changes in our practices or for other 
             operational, legal, or regulatory reasons. We will notify you of any material changes by posting the 
@@ -146,19 +146,19 @@ const PrivacyPage = () => {
 
         {/* Contact Information */}
         <div className="bg-blue-50 rounded-2xl shadow-lg p-8 mt-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Us</h2>
+          <h2 className="h3 text-gray-900 mb-6">Contact Us</h2>
           <p className="text-gray-600 leading-relaxed mb-6">
             If you have any questions about this Privacy Policy or our data practices, please contact us:
           </p>
           <div className="space-y-3">
             <p className="text-gray-600">
-              <span className="font-medium">Email:</span> privacy@taiyotuition.com
+              <span className="font-medium">Email:</span> admin@taiyotuition.com
             </p>
             <p className="text-gray-600">
-              <span className="font-medium">Phone:</span> +61 123 456 789
+              <span className="font-medium">Phone:</span> +61 422 283 789
             </p>
             <p className="text-gray-600">
-              <span className="font-medium">Address:</span> 9-11 Hamilton Place, Mount Waverly VIC 3149
+              <span className="font-medium">Address:</span> 9-11 Hamilton Place, Mount Waverley VIC 3149
             </p>
           </div>
           <p className="text-gray-600 leading-relaxed mt-6">
