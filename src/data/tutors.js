@@ -2,6 +2,7 @@ import berniceMao from "../assets/tutors/bernice-mao.jpg";
 import ericLiu from "../assets/tutors/eric-liu.jpg";
 import justinJian from "../assets/tutors/justin-jian.jpg";
 import kashvieGulati from "../assets/tutors/kashvie-gulati.jpg";
+import liamTran from "../assets/tutors/liam-tran.jpg";
 import nikhilDavid from "../assets/tutors/nikhil-david.jpg";
 import suchiVithanage from "../assets/tutors/suchi-vithanage.jpg";
 import timTroeung from "../assets/tutors/tim-troeung.jpg";
@@ -75,6 +76,15 @@ const roster = [
         subjects: ["English"],
         qualifications: ["ATAR 98.95", "English 46"],
         bio: "Scored a 98.95 ATAR and a 46 in English.",
+    },
+    {
+        slug: "liam-tran",
+        name: "Liam Tran",
+        role: "English tutor",
+        subjects: ["English"],
+        qualifications: ["ATAR 97.65", "English 47"],
+        bio: "Scored a 97.65 ATAR and a 47 in English.",
+        image: liamTran,
     },
     {
         slug: "justin-jian",
