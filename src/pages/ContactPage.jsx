@@ -35,7 +35,7 @@ const ContactPage = () => {
 
     return (
         <main
-            className="min-h-screen bg-biege-primary py-5 md:py-10 lg:py-20 mt-[80px]"
+            className="min-h-screen bg-biege-primary pt-5 md:pt-10 lg:pt-20 mt-[80px]"
             role="main"
         >
             <PageDoc path="/contact" />
