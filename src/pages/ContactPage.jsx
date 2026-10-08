@@ -40,7 +40,7 @@ const ContactPage = () => {
         >
             <PageDoc path="/contact" />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
                     <Reveal
                         as="section"
                         className="bg-white rounded-2xl shadow-lg p-8"
