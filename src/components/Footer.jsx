@@ -152,7 +152,7 @@ const Footer = () => {
                                         alt=""
                                         width={208}
                                         height={150}
-                                        className="h-10 w-auto"
+                                        className="h-10 w-auto drop-shadow-[0_0_8px_rgba(255,255,255,0.45)]"
                                     />
                                     <span className="h4 font-heading uppercase">
                                         Taiyo Tuition
