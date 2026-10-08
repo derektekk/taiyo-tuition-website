@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/taiyo-logo.png";
+import logo from "../assets/taiyo-logo-light.png";
 import instagramLogo from "../assets/instagram.webp";
 import linkedinLogo from "../assets/linkedin-logo.webp";
 import facebookLogo from "../assets/facebook.webp";
@@ -152,7 +152,7 @@ const Footer = () => {
                                         alt=""
                                         width={208}
                                         height={150}
-                                        className="h-10 w-auto drop-shadow-[0_0_8px_rgba(255,255,255,0.45)]"
+                                        className="h-10 w-auto"
                                     />
                                     <span className="h4 font-heading uppercase">
                                         Taiyo Tuition
