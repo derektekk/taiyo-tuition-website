@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { X } from "lucide-react";
-import taiyoIntro from "/taiyoIntro.webm";
 
 const VideoModal = ({ isOpen, onClose }) => {
     const videoRef = useRef(null);
@@ -90,7 +89,8 @@ const VideoModal = ({ isOpen, onClose }) => {
                         loop
                         playsInline
                     >
-                        <source src={taiyoIntro} type="video/webm" />
+                        <source src="/taiyoIntro.webm" type="video/webm" />
+                        <source src="/taiyoIntro.mp4" type="video/mp4" />
                     </video>
                 </div>
             </div>
