@@ -1,4 +1,5 @@
 import berniceMao from "../assets/tutors/bernice-mao.jpg";
+import emmaLe from "../assets/tutors/emma-le.jpg";
 import ericLiu from "../assets/tutors/eric-liu.jpg";
 import justinJian from "../assets/tutors/justin-jian.jpg";
 import kashvieGulati from "../assets/tutors/kashvie-gulati.jpg";
@@ -12,7 +13,7 @@ import crops from "./tutorCrops.json";
  * Tutor profiles for /tutors.
  *
  * Scores are the ones the client confirmed on 6 Oct 2026. Bios stay on those
- * facts. Photos still missing for Samantha Gong and Emma Le.
+ * facts. A photo is still missing for Samantha Gong.
  * Framing for each photo is in tutorCrops.json.
  * Do not add universities or VIT numbers until they are confirmed.
  *
@@ -76,6 +77,7 @@ const roster = [
         subjects: ["English"],
         qualifications: ["ATAR 98.95", "English 46"],
         bio: "Scored a 98.95 ATAR and a 46 in English.",
+        image: emmaLe,
     },
     {
         slug: "liam-tran",
