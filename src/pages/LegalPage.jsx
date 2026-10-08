@@ -1,3 +1,5 @@
+import PageDoc from "../components/PageDoc";
+
 const LegalPage = () => {
   const sections = [
     {
@@ -50,6 +52,11 @@ const LegalPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 py-20 mt-[80px]">
+      <PageDoc
+        title="Legal Terms | Taiyo Tuition"
+        description="Terms of service for Taiyo Tuition classes in Mount Waverley and online, covering payments, cancellations, materials, and conduct."
+        path="/legal"
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">

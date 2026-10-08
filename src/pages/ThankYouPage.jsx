@@ -1,19 +1,20 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import PageDoc from "../components/PageDoc";
 import Reveal from "../components/Reveal";
 import ScrollAnimateText from "../components/ScrollAnimateText";
 
 const ThankYouPage = () => {
-    useEffect(() => {
-        document.title = "We've got it | Taiyo Tuition";
-    }, []);
-
     return (
         <main
             className="min-h-screen bg-biege-primary mt-[80px] px-5 py-16 md:px-8 md:py-24"
             role="main"
             aria-label="Trial booking received"
         >
+            <PageDoc
+                title="We've got it | Taiyo Tuition"
+                description="Your free trial request reached Taiyo Tuition. We'll reply within a few hours with a class time."
+                noindex
+            />
             <Reveal
                 as="section"
                 className="mx-auto flex max-w-xl flex-col items-center gap-4 rounded-2xl bg-white px-8 py-12 text-center shadow-[0_8px_32px_rgba(0,0,0,0.08)] md:py-16"

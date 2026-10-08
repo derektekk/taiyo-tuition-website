@@ -1,8 +1,8 @@
-import { useEffect } from "react";
 import { Clock, MapPin, UsersRound } from "lucide-react";
 import ContactForm from "../components/ContactForm";
 import BlueFuzz from "../components/BlueFuzz";
 import HeroWave from "../components/home/HeroWave";
+import PageDoc from "../components/PageDoc";
 import Reveal from "../components/Reveal";
 import ScrollAnimateText from "../components/ScrollAnimateText";
 
@@ -13,16 +13,17 @@ const facts = [
 ];
 
 const EnrollNowPage = () => {
-    useEffect(() => {
-        document.title = "Book a free trial | Taiyo Tuition";
-    }, []);
-
     return (
         <main
             className="relative min-h-screen overflow-hidden bg-tertiary pt-[80px]"
             role="main"
             aria-label="Book a free trial"
         >
+            <PageDoc
+                title="Book a free trial | Taiyo Tuition"
+                description="Book a free trial class at Taiyo Tuition, Mount Waverley. Classes capped at 10, Year 5 through VCE and Selective. We reply within a few hours."
+                path="/enroll"
+            />
             <HeroWave />
             <BlueFuzz />
 

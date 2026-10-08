@@ -1,3 +1,5 @@
+import PageDoc from "../components/PageDoc";
+
 const PrivacyPage = () => {
   const sections = [
     {
@@ -59,6 +61,11 @@ const PrivacyPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 py-20 mt-[80px]">
+      <PageDoc
+        title="Privacy Policy | Taiyo Tuition"
+        description="How Taiyo Tuition collects, uses, and protects personal information from students, parents, and website visitors."
+        path="/privacy"
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">

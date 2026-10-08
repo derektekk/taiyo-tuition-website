@@ -26,6 +26,8 @@ const toMetaDescription = (subject) => {
     return `${summary.slice(0, META_DESCRIPTION_LIMIT - 1).trimEnd()}…`;
 };
 
+const toTitleCase = (text) => text.replace(/\b\w/g, (char) => char.toUpperCase());
+
 /**
  * One template for every class. Order: hero, what you get, proof, week,
  * curriculum, resources, reviews, how to enrol, FAQs, wayfinding, close.
@@ -47,7 +49,7 @@ const SubjectDetailPage = () => {
     return (
         <main role="main">
             <title>
-                {`${subject.name} Tutoring Melbourne | Taiyo Tuition`}
+                {`${toTitleCase(subject.name)} Tutoring Melbourne | Taiyo Tuition`}
             </title>
             <meta name="description" content={toMetaDescription(subject)} />
             <link

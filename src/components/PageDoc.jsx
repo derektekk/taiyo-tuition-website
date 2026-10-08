@@ -1,8 +1,11 @@
-const PageDoc = ({ title, description, path }) => (
+const PageDoc = ({ title, description, path, noindex = false }) => (
     <>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="canonical" href={`https://taiyotuition.com${path}`} />
+        {noindex && <meta name="robots" content="noindex" />}
+        {path && (
+            <link rel="canonical" href={`https://taiyotuition.com${path}`} />
+        )}
     </>
 );
 
