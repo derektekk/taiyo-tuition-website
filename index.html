@@ -59,7 +59,7 @@
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
-        // /enroll and /enroll/ both resolve. Ads checks /enroll.
+        // GitHub Pages serves /enroll/ with a trailing slash. Ads checks /enroll.
         function taiyoAdsPath() {
             var path = window.location.pathname;
             if (path.length > 1 && path.slice(-1) === '/') path = path.slice(0, -1);
@@ -126,6 +126,28 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/taiyo-logo.png" />
     <link rel="apple-touch-icon" href="/companyLogo2025.jpg" />
+
+    <script type="text/javascript">
+        // Single Page Apps for GitHub Pages
+        // MIT License
+        // https://github.com/rafgraph/spa-github-pages
+        (function (l) {
+            if (l.search[1] === "/") {
+                var decoded = l.search
+                    .slice(1)
+                    .split("&")
+                    .map(function (s) {
+                        return s.replace(/~and~/g, "&");
+                    })
+                    .join("?");
+                window.history.replaceState(
+                    null,
+                    null,
+                    l.pathname.slice(0, -1) + decoded + l.hash
+                );
+            }
+        })(window.location);
+    </script>
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">

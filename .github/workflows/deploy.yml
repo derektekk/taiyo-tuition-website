@@ -1,0 +1,49 @@
+name: Deploy to GitHub Pages
+
+on:
+    push:
+        branches: [main]
+    workflow_dispatch:
+
+permissions:
+    contents: write
+
+# One deploy at a time. A newer push waits for the running one to finish.
+concurrency:
+    group: "pages"
+    cancel-in-progress: false
+
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "22"
+                  cache: "npm"
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Lint
+              run: npm run lint
+
+            # postbuild copies index.html into each route folder so Google Ads
+            # destination checks get HTTP 200 instead of the 404.html fallback.
+            - name: Build
+              run: npm run build
+
+            # public/CNAME ships in dist. force_orphan replaces the whole branch,
+            # so a build without it would drop the custom domain.
+            - name: Deploy to gh-pages
+              uses: peaceiris/actions-gh-pages@v4
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./dist
+                  publish_branch: gh-pages
+                  force_orphan: true
