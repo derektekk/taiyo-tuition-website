@@ -189,6 +189,10 @@ const ContactForm = ({ hideIntro = false }) => {
 
     if (!validateForm()) return;
 
+    // Bots fill every field. Stop before sending, and before the thank-you
+    // redirect, which would record an Ads conversion.
+    if (formRef.current.elements.company_website?.value) return;
+
     setIsLoading(true);
     setError("");
 
@@ -274,6 +278,21 @@ const ContactForm = ({ hideIntro = false }) => {
           className="space-y-5"
           noValidate
         >
+          <div
+            aria-hidden="true"
+            className="absolute -left-[9999px] h-px w-px overflow-hidden"
+          >
+            <label htmlFor="company_website">Leave this field empty</label>
+            <input
+              type="text"
+              id="company_website"
+              name="company_website"
+              tabIndex={-1}
+              autoComplete="off"
+              defaultValue=""
+            />
+          </div>
+
           {/* Full Name */}
           <div>
             <label htmlFor="from_name" className={labelClasses}>
