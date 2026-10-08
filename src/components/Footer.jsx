@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/taiyo-logo-light.png";
+import logo from "../assets/taiyo-logo.png";
 import instagramLogo from "../assets/instagram.webp";
 import linkedinLogo from "../assets/linkedin-logo.webp";
 import facebookLogo from "../assets/facebook.webp";
