@@ -2,16 +2,12 @@ import { atarResults } from "../data/atarResults";
 import ResultList from "../components/ResultList";
 import HomeClose from "../components/home/HomeClose";
 import HomeSection from "../components/home/HomeSection";
+import PageDoc from "../components/PageDoc";
 
 const ResultsPage = () => {
     return (
         <main role="main">
-            <title>Past ATAR Results | Taiyo Tuition</title>
-            <meta
-                name="description"
-                content="Named ATAR results from Taiyo Tuition students across Melbourne schools, including 99+ scores from Scotch, Mac.Rob, MHS, Haileybury and more."
-            />
-            <link rel="canonical" href="https://taiyotuition.com/results" />
+            <PageDoc path="/results" />
 
             <HomeSection
                 as="header"

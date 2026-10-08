@@ -1,6 +1,7 @@
 import { useState } from "react";
 import HomeClose from "../components/home/HomeClose";
 import HomeSection from "../components/home/HomeSection";
+import PageDoc from "../components/PageDoc";
 import ScrollAnimateText from "../components/ScrollAnimateText";
 import SubjectCard from "../components/SubjectCard";
 import { subjectGroupOrder, subjects } from "../data/subjects";
@@ -69,15 +70,7 @@ const SubjectsPage = () => {
 
     return (
         <main role="main">
-            <title>
-                Our Subjects | VCE and Year 5-10 Tutoring Melbourne | Taiyo
-                Tuition
-            </title>
-            <meta
-                name="description"
-                content="Explore every subject Taiyo Tuition offers, from VCE English, Maths Methods, Specialist Maths, Chemistry, Physics and Biology through to Year 5-10 tutoring and our Selective program."
-            />
-            <link rel="canonical" href="https://taiyotuition.com/subjects" />
+            <PageDoc path="/subjects" />
 
             <HomeSection
                 label="Our subjects"

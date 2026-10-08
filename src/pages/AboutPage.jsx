@@ -26,11 +26,7 @@ const nextPages = [
 const AboutPage = () => {
     return (
         <main role="main">
-            <PageDoc
-                title="Our Story | Taiyo Tuition"
-                description="Taiyo means sun. Small classes in Mount Waverley for Years 5 to 12, with tutors ranked in the top 2%."
-                path="/about"
-            />
+            <PageDoc path="/about" />
 
             <HomeSection
                 as="header"
@@ -49,7 +45,7 @@ const AboutPage = () => {
                             remembers what it felt like. You get someone close
                             enough in age to ask the question you&apos;d skip at
                             school, and the same tutor from your first class of
-                            the year to your last. The name Taiyo (太陽) means
+                            the year to your last. The name Taiyo (å¤ªé™½) means
                             sun.
                         </p>
                     </div>

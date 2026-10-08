@@ -12,21 +12,9 @@ import SubjectReviews from "../components/subject/SubjectReviews";
 import SubjectWayfinding from "../components/subject/SubjectWayfinding";
 import SubjectWeek from "../components/subject/SubjectWeek";
 import { CLOSE_ID, dockSectionsFor } from "../components/subject/sections";
-import {
-    getSubjectBySlug,
-    legacySubjectRedirects,
-    runsToText,
-} from "../data/subjects";
-
-const META_DESCRIPTION_LIMIT = 155;
-
-const toMetaDescription = (subject) => {
-    const summary = runsToText(subject.shortDescription);
-    if (summary.length <= META_DESCRIPTION_LIMIT) return summary;
-    return `${summary.slice(0, META_DESCRIPTION_LIMIT - 1).trimEnd()}…`;
-};
-
-const toTitleCase = (text) => text.replace(/\b\w/g, (char) => char.toUpperCase());
+import PageDoc from "../components/PageDoc";
+import { subjectMeta } from "../data/pageMeta";
+import { getSubjectBySlug, legacySubjectRedirects } from "../data/subjects";
 
 /**
  * One template for every class. Order: hero, what you get, proof, week,
@@ -48,14 +36,7 @@ const SubjectDetailPage = () => {
 
     return (
         <main role="main">
-            <title>
-                {`${toTitleCase(subject.name)} Tutoring Melbourne | Taiyo Tuition`}
-            </title>
-            <meta name="description" content={toMetaDescription(subject)} />
-            <link
-                rel="canonical"
-                href={`https://taiyotuition.com/subjects/${subject.slug}`}
-            />
+            <PageDoc {...subjectMeta(subject)} />
 
             <SubjectHero subject={subject} enrollTo={enrollTo} />
             <SubjectOffer subject={subject} />

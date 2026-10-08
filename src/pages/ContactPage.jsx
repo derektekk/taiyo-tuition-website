@@ -38,11 +38,7 @@ const ContactPage = () => {
             className="min-h-screen bg-biege-primary py-5 md:py-10 lg:py-20 mt-[80px]"
             role="main"
         >
-            <PageDoc
-                title="Contact | Taiyo Tuition"
-                description="Contact Taiyo Tuition in Mount Waverley. Call +61 422 283 789 or email admin@taiyotuition.com. Classes run weekday evenings and weekends."
-                path="/contact"
-            />
+            <PageDoc path="/contact" />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
                     <Reveal

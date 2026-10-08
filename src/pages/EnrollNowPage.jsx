@@ -19,11 +19,7 @@ const EnrollNowPage = () => {
             role="main"
             aria-label="Book a free trial"
         >
-            <PageDoc
-                title="Book a free trial | Taiyo Tuition"
-                description="Book a free trial class at Taiyo Tuition, Mount Waverley. Classes capped at 10, Year 5 through VCE and Selective. We reply within a few hours."
-                path="/enroll"
-            />
+            <PageDoc path="/enroll" />
             <HeroWave />
             <BlueFuzz />
 

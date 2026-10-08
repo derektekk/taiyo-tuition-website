@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import HomeClose from "../components/home/HomeClose";
+import PageDoc from "../components/PageDoc";
 import Reveal from "../components/Reveal";
 import TutorHeadshot from "../components/TutorHeadshot";
 import ScrollAnimateText from "../components/ScrollAnimateText";
@@ -79,12 +80,7 @@ const TutorsPage = () => {
             className="min-h-screen bg-biege-primary mt-[80px]"
             role="main"
         >
-            <title>Our Tutors | Taiyo Tuition</title>
-            <meta
-                name="description"
-                content="Meet the team of expert educators behind Taiyo Tuition's VCE and Year 5-10 tutoring in Mount Waverley, Melbourne."
-            />
-            <link rel="canonical" href="https://taiyotuition.com/tutors" />
+            <PageDoc path="/tutors" />
 
             <div className="max-w-7xl mx-auto px-4 py-20 sm:px-6 lg:px-8">
                 <header className="text-center mb-16">

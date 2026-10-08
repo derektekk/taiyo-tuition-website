@@ -10,11 +10,7 @@ const ThankYouPage = () => {
             role="main"
             aria-label="Trial booking received"
         >
-            <PageDoc
-                title="We've got it | Taiyo Tuition"
-                description="Your free trial request reached Taiyo Tuition. We'll reply within a few hours with a class time."
-                noindex
-            />
+            <PageDoc path="/enroll/thank-you" />
             <Reveal
                 as="section"
                 className="mx-auto flex max-w-xl flex-col items-center gap-4 rounded-2xl bg-white px-8 py-12 text-center shadow-[0_8px_32px_rgba(0,0,0,0.08)] md:py-16"

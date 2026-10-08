@@ -6,11 +6,7 @@ import PageDoc from "../components/PageDoc";
 const FaqPage = () => {
     return (
         <main role="main">
-            <PageDoc
-                title="FAQ | Taiyo Tuition"
-                description="Class size, subjects, fees, and how to enrol at Taiyo Tuition in Mount Waverley."
-                path="/faq"
-            />
+            <PageDoc path="/faq" />
 
             <FaqSplit
                 as="header"

@@ -8,11 +8,7 @@ import ReviewCard from "../components/ReviewCard";
 const ReviewsPage = () => {
     return (
         <main role="main">
-            <PageDoc
-                title="Reviews | Taiyo Tuition"
-                description="Written Google reviews from Taiyo Tuition students and parents in Mount Waverley."
-                path="/reviews"
-            />
+            <PageDoc path="/reviews" />
 
             <HomeSection
                 as="header"

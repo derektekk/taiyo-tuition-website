@@ -21,11 +21,7 @@ const LocationFact = ({ title, children }) => (
 const LocationPage = () => {
     return (
         <main role="main">
-            <PageDoc
-                title="Location | Taiyo Tuition"
-                description="Taiyo Tuition is at 9-11 Hamilton Place, Mount Waverley. In-person classes here, and the same live format online."
-                path="/location"
-            />
+            <PageDoc path="/location" />
 
             <HomeSection
                 as="header"
