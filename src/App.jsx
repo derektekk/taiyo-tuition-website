@@ -17,6 +17,7 @@ import AboutPage from "./pages/AboutPage";
 import ReviewsPage from "./pages/ReviewsPage";
 import LocationPage from "./pages/LocationPage";
 import FaqPage from "./pages/FaqPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
     return (
@@ -46,6 +47,7 @@ function App() {
                     <Route path="/enroll/thank-you" element={<ThankYouPage />} />
                     <Route path="/privacy" element={<PrivacyPage />} />
                     <Route path="/legal" element={<LegalPage />} />
+                    <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </PageFade>
             <Footer />
