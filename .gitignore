@@ -31,7 +31,8 @@ dist-ssr
 # Vercel CLI project link
 .vercel
 
-# Local agent plans and type-scale lab
+# Local agent plans, internal copy guide and type-scale lab
 docs/plans/
+.agents/
 design/
 .env*
