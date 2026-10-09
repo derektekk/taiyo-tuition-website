@@ -1,6 +1,7 @@
 import berniceMao from "../assets/tutors/bernice-mao.jpg";
 import emmaLe from "../assets/tutors/emma-le.jpg";
 import ericLiu from "../assets/tutors/eric-liu.jpg";
+import johnHo from "../assets/tutors/john-ho.jpg";
 import justinJian from "../assets/tutors/justin-jian.jpg";
 import kashvieGulati from "../assets/tutors/kashvie-gulati.jpg";
 import liamTran from "../assets/tutors/liam-tran.jpg";
@@ -132,6 +133,15 @@ const roster = [
         qualifications: ["ATAR 99.20", "Specialist Maths 49"],
         bio: "Scored a 99.20 ATAR and a 49 in Specialist Maths.",
         image: ericLiu,
+    },
+    {
+        slug: "john-ho",
+        name: "John Ho",
+        role: "Specialist Maths tutor",
+        subjects: ["Specialist Maths"],
+        qualifications: ["ATAR 99.40", "Specialist Maths 42"],
+        bio: "Scored a 99.40 ATAR and a 42 in Specialist Maths.",
+        image: johnHo,
     },
 ];
 
