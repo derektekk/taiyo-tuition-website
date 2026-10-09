@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KK7ZB7X4');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Title, description and canonical come from src/data/pageMeta.js. The build
+         writes them into each route's HTML with data-prerender; the app removes
+         those on load and PageDoc renders its own. -->
+    <title data-prerender>Years 9–10 Maths Tutoring Melbourne | Taiyo Tuition</title>
+    <meta name="keywords"
+        content="VCE tutoring Melbourne, ATAR tutoring, VCE tutoring, Mathematics tutoring, Physics tutoring, Chemistry tutoring, English tutoring, Biology tutoring, Selective tutoring, private tutoring, online tutoring, Mount Waverley tutoring, class of 10" />
+    <meta name="author" content="Taiyo Tuition" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Years 9–10 Maths Tutoring Melbourne | Taiyo Tuition" />
+    <meta property="og:description"
+        content="Tighten algebra, graphs, and reasoning so Methods or General Maths in VCE is a step they can take." />
+    <meta property="og:url" content="https://taiyotuition.com/subjects/year-9-10-maths/" />
+    <meta property="og:site_name" content="Taiyo Tuition" />
+    <meta property="og:image" content="https://taiyotuition.com/companyLogo2025.jpg" />
+    <meta property="og:image:alt" content="Taiyo Tuition Logo" />
+    <meta property="og:locale" content="en_AU" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Years 9–10 Maths Tutoring Melbourne | Taiyo Tuition" />
+    <meta name="twitter:description"
+        content="Tighten algebra, graphs, and reasoning so Methods or General Maths in VCE is a step they can take." />
+    <meta name="twitter:image" content="https://taiyotuition.com/companyLogo2025.jpg" />
+    <meta name="twitter:image:alt" content="Taiyo Tuition Logo" />
+
+    <!-- Geo Meta Tags -->
+    <meta name="geo.region" content="AU-VIC" />
+    <meta name="geo.placename" content="Mount Waverley, Melbourne, Victoria, Australia" />
+    <meta name="geo.position" content="-37.8766;145.1309" />
+    <meta name="ICBM" content="-37.8766, 145.1309" />
+
+    <!-- Business Contact Info -->
+    <meta name="contact" content="admin@taiyotuition.com" />
+    <meta name="reply-to" content="admin@taiyotuition.com" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16463192719"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        // GitHub Pages serves /enroll/ with a trailing slash. Ads checks /enroll.
+        function taiyoAdsPath() {
+            var path = window.location.pathname;
+            if (path.length > 1 && path.slice(-1) === '/') path = path.slice(0, -1);
+            return path || '/';
+        }
+
+        function taiyoConfigTags() {
+            var path = taiyoAdsPath();
+            gtag('config', 'AW-16463192719', { page_path: path });
+            gtag('config', 'G-WEFN1VY2ZD', { page_path: path });
+        }
+
+        taiyoConfigTags();
+
+        var TRIAL_SEND_TO = 'AW-16463192719/aUA_CPqM-dccEI_Foao9';
+
+        function taiyoMarkTrialSent() {
+            try { sessionStorage.setItem('taiyo_aw_trial', '1'); } catch (e) { }
+        }
+
+        function taiyoTrialAlreadySent() {
+            try { return sessionStorage.getItem('taiyo_aw_trial') === '1'; } catch (e) { return false; }
+        }
+
+        // Lead conversion: thank-you after /enroll submit, not a view of the form.
+        function taiyoFireTrialIfThankYou() {
+            if (taiyoAdsPath() !== '/enroll/thank-you' || taiyoTrialAlreadySent()) return;
+            taiyoMarkTrialSent();
+            gtag('event', 'conversion', { send_to: TRIAL_SEND_TO });
+        }
+
+        // Event snippet Google Ads looks for. Form submit calls this, then goes to thank-you.
+        window.gtag_report_conversion = function (url) {
+            var called = false;
+            var callback = function () {
+                if (called) return;
+                called = true;
+                if (typeof url !== 'undefined') window.location = url;
+            };
+            taiyoMarkTrialSent();
+            gtag('event', 'conversion', {
+                send_to: TRIAL_SEND_TO,
+                event_callback: callback,
+                event_timeout: 2000
+            });
+            setTimeout(callback, 2000);
+            return false;
+        };
+
+        taiyoFireTrialIfThankYou();
+
+        var taiyoPushState = history.pushState;
+        history.pushState = function () {
+            taiyoPushState.apply(this, arguments);
+            taiyoFireTrialIfThankYou();
+            taiyoConfigTags();
+        };
+        window.addEventListener('popstate', function () {
+            taiyoFireTrialIfThankYou();
+            taiyoConfigTags();
+        });
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/taiyo-logo.png" />
+    <link rel="apple-touch-icon" href="/companyLogo2025.jpg" />
+
+    <script type="text/javascript">
+        // Single Page Apps for GitHub Pages
+        // MIT License
+        // https://github.com/rafgraph/spa-github-pages
+        (function (l) {
+            if (l.search[1] === "/") {
+                var decoded = l.search
+                    .slice(1)
+                    .split("&")
+                    .map(function (s) {
+                        return s.replace(/~and~/g, "&");
+                    })
+                    .join("?");
+                window.history.replaceState(
+                    null,
+                    null,
+                    l.pathname.slice(0, -1) + decoded + l.hash
+                );
+            }
+        })(window.location);
+    </script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "EducationalOrganization",
+                "name": "Taiyo Tuition",
+                "description": "VCE, Years 5 to 10, and Selective tutoring in Mount Waverley. Group classes capped at 10 students.",
+                "url": "https://taiyotuition.com",
+                "logo": "https://taiyotuition.com/taiyo-logo.png",
+                "image": "https://taiyotuition.com/companyLogo2025.jpg",
+                "telephone": "+61422283789",
+                "email": "admin@taiyotuition.com",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "9-11 Hamilton Place",
+                    "addressLocality": "Mount Waverley",
+                    "addressRegion": "VIC",
+                    "postalCode": "3149",
+                    "addressCountry": "AU"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": -37.8766,
+                    "longitude": 145.1309
+                },
+                "openingHours": "Mo-Fr 16:00-21:00, Sa-Su 12:00-18:30",
+                "additionalProperty": {
+                    "@type": "PropertyValue",
+                    "name": "Class size",
+                    "value": "10 students"
+                },
+                "sameAs": [
+                    "https://www.instagram.com/taiyo_tuition",
+                    "https://www.linkedin.com/company/taiyo-tuition/",
+                    "https://www.facebook.com/profile.php?id=61569894218115"
+                ],
+                "serviceType": "Educational Services",
+                "areaServed": {
+                    "@type": "State",
+                    "name": "Victoria",
+                    "containedIn": {
+                        "@type": "Country",
+                        "name": "Australia"
+                    }
+                },
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "VCE Tutoring Services",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Course",
+                                "name": "Mathematics Tutoring",
+                                "description": "Advanced mathematics including calculus, algebra, and statistics"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Course",
+                                "name": "Physics Tutoring",
+                                "description": "Comprehensive physics covering mechanics, thermodynamics, and quantum physics"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Course",
+                                "name": "Chemistry Tutoring",
+                                "description": "Organic, inorganic, and physical chemistry fundamentals"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Course",
+                                "name": "English Tutoring",
+                                "description": "Advanced English literature, writing, and communication skills"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Course",
+                                "name": "Biology Tutoring",
+                                "description": "Human biology, genetics, and molecular biology"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Course",
+                                "name": "Selective program",
+                                "description": "ACER scholarship and Victorian Selective Entry High School exam preparation. Classes of 6 to 8."
+                            }
+                        }
+                    ]
+                }
+            }
+        </script>
+  <script type="module" crossorigin src="/assets/index-CHGLN5mi.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-B7nBIdEq.css">
+    <meta data-prerender name="description" content="Tighten algebra, graphs, and reasoning so Methods or General Maths in VCE is a step they can take." />
+    <link data-prerender rel="canonical" href="https://taiyotuition.com/subjects/year-9-10-maths/" />
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KK7ZB7X4"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="root"></div>
+</body>
+
+</html>
