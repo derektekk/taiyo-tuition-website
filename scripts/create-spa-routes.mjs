@@ -1,6 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { SITE_URL, pageMeta, subjectMeta } from "../src/data/pageMeta.js";
+import { pageMeta, pageUrl, subjectMeta } from "../src/data/pageMeta.js";
 import {
   getSubjectBySlug,
   legacySubjectRedirects,
@@ -39,7 +39,7 @@ const setMetaContent = (html, attr, name, value) => {
 };
 
 const renderHead = (template, { path: routePath, title, description, noindex }) => {
-  const url = `${SITE_URL}${routePath}`;
+  const url = pageUrl(routePath);
   const titlePattern = /<title data-prerender>[\s\S]*?<\/title>/;
   if (!titlePattern.test(template)) {
     throw new Error("index.html is missing <title data-prerender>");

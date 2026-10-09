@@ -11,6 +11,10 @@ import { runsToText } from "./subjects.js";
 
 export const SITE_URL = "https://taiyotuition.com";
 
+/** GitHub Pages redirects /tutors to /tutors/, so canonicals use the slash form. */
+export const pageUrl = (path) =>
+    `${SITE_URL}${path.endsWith("/") ? path : `${path}/`}`;
+
 const META_DESCRIPTION_LIMIT = 155;
 
 export const pageMeta = {

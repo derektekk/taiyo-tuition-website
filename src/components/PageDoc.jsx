@@ -1,4 +1,4 @@
-import { SITE_URL, pageMeta } from "../data/pageMeta";
+import { pageMeta, pageUrl } from "../data/pageMeta";
 
 /** Head tags for a route. Values come from pageMeta; props override them. */
 const PageDoc = ({ path, ...overrides }) => {
@@ -13,7 +13,7 @@ const PageDoc = ({ path, ...overrides }) => {
             <meta name="description" content={description} />
             {noindex && <meta name="robots" content="noindex" />}
             {path && !noindex && (
-                <link rel="canonical" href={`${SITE_URL}${path}`} />
+                <link rel="canonical" href={pageUrl(path)} />
             )}
         </>
     );
