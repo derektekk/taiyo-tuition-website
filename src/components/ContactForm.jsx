@@ -27,26 +27,53 @@ const YEAR_RULES = {
   "Year 12": { vce: true },
 };
 
-/** Classes that make sense for a year level, in data order. */
-const subjectsForYear = (yearLevel) => {
-  const rule = YEAR_RULES[yearLevel];
-  if (!rule) return [];
-  return subjects.filter((subject) => {
-    if (rule.vce) {
-      if (yearLevel === "Year 12" && subject.units === "1 & 2") return false;
-      return subject.group === "vce";
-    }
-    if (subject.group === "selective") return rule.selective;
-    return subject.group === "years" && subject.yearBand === rule.band;
-  });
+/** Unit pairs a VCE student can pick from, first one is the default. */
+const VCE_UNITS = {
+  "Year 11": ["1/2", "3/4"],
+  "Year 12": ["3/4"],
 };
 
-/** Year a class implies when it arrives from a class page. Year bands stay empty. */
-const defaultYearFor = (subject) => {
-  if (subject?.units === "1 & 2") return "Year 11";
-  if (subject?.units === "3 & 4") return "Year 12";
-  return "";
+/**
+ * Checkbox options for a year level, in data order. VCE subjects split into
+ * one option per unit pair; year-band classes are labelled with the chosen year.
+ */
+const classOptionsForYear = (yearLevel) => {
+  const rule = YEAR_RULES[yearLevel];
+  if (!rule) return [];
+  if (rule.vce) {
+    return subjects
+      .filter((subject) => subject.group === "vce")
+      .flatMap((subject) =>
+        VCE_UNITS[yearLevel].map((units) => ({
+          id: `${subject.slug}-${units.replace("/", "-")}`,
+          slug: subject.slug,
+          label: `VCE ${subject.shortName} ${units}`,
+        })),
+      );
+  }
+  return subjects
+    .filter((subject) =>
+      subject.group === "selective"
+        ? rule.selective
+        : subject.group === "years" && subject.yearBand === rule.band,
+    )
+    .map((subject) => ({
+      id: subject.slug,
+      slug: subject.slug,
+      label:
+        subject.group === "selective"
+          ? subject.name
+          : `${yearLevel} ${subject.shortName}`,
+    }));
 };
+
+/** Option for a class that arrived from a class page before a year is chosen. */
+const pinnedOptionFor = (subject) => ({
+  id: subject.slug,
+  slug: subject.slug,
+  label:
+    subject.group === "vce" ? `VCE ${subject.shortName}` : subject.name,
+});
 
 const emptyForm = {
   from_name: "",
@@ -57,16 +84,12 @@ const emptyForm = {
   study_method: "",
 };
 
-/** Seed year and ticked class from ?subject=<slug>. Unknown slugs are ignored. */
+/** Seed the ticked class from ?subject=<slug>. Unknown slugs are ignored. */
 const seedFromSlug = (slug) => {
   const subject = slug ? getSubjectBySlug(slug) : undefined;
   if (!subject) return { form: emptyForm, pinned: null };
   return {
-    form: {
-      ...emptyForm,
-      year_level: defaultYearFor(subject),
-      subjects: [subject.slug],
-    },
+    form: { ...emptyForm, subjects: [subject.slug] },
     pinned: subject.slug,
   };
 };
@@ -105,49 +128,65 @@ const ContactForm = ({ hideIntro = false }) => {
     setPinnedSlug(seed.pinned);
   }, [subjectParam]);
 
-  const yearSubjects = subjectsForYear(formData.year_level);
+  const yearOptions = classOptionsForYear(formData.year_level);
   const pinnedSubject =
-    pinnedSlug && formData.subjects.includes(pinnedSlug)
+    pinnedSlug &&
+    formData.subjects.includes(pinnedSlug) &&
+    !yearOptions.some((option) => option.id === pinnedSlug)
       ? getSubjectBySlug(pinnedSlug)
       : undefined;
-  const visibleSubjects =
-    pinnedSubject && !yearSubjects.includes(pinnedSubject)
-      ? [pinnedSubject, ...yearSubjects]
-      : yearSubjects;
+  const visibleOptions = pinnedSubject
+    ? [pinnedOptionFor(pinnedSubject), ...yearOptions]
+    : yearOptions;
 
   const selectedNames = formData.subjects
-    .map((slug) => getSubjectBySlug(slug)?.name)
+    .map((id) => visibleOptions.find((option) => option.id === id)?.label)
     .filter(Boolean);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === "year_level") {
-      // Keep the pinned class and anything still valid for the new year.
-      const allowed = new Set(subjectsForYear(value).map((item) => item.slug));
-      setFormData((prev) => ({
-        ...prev,
-        year_level: value,
-        subjects: prev.subjects.filter(
-          (slug) => slug === pinnedSlug || allowed.has(slug),
-        ),
-      }));
+      // Keep anything still valid for the new year. The pinned class moves to
+      // that year's option for it, or stays as-is if the year has none.
+      const options = classOptionsForYear(value);
+      const allowed = new Set(options.map((option) => option.id));
+      setFormData((prev) => {
+        const kept = prev.subjects.filter((id) => allowed.has(id));
+        const pinnedTicked =
+          pinnedSlug &&
+          prev.subjects.some(
+            (id) => id === pinnedSlug || id.startsWith(`${pinnedSlug}-`),
+          );
+        const pinnedCarried =
+          options.find((option) => option.slug === pinnedSlug)?.id ??
+          pinnedSlug;
+        const pinnedKept = kept.some(
+          (id) => options.find((option) => option.id === id)?.slug === pinnedSlug,
+        );
+        return {
+          ...prev,
+          year_level: value,
+          subjects:
+            pinnedTicked && !pinnedKept ? [pinnedCarried, ...kept] : kept,
+        };
+      });
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
     if (error) setError("");
   };
 
-  const handleSubjectToggle = (slug) => {
+  const handleSubjectToggle = (option) => {
     setFormData((prev) => {
-      const isSelected = prev.subjects.includes(slug);
+      const isSelected = prev.subjects.includes(option.id);
       return {
         ...prev,
         subjects: isSelected
-          ? prev.subjects.filter((item) => item !== slug)
-          : [...prev.subjects, slug],
+          ? prev.subjects.filter((item) => item !== option.id)
+          : [...prev.subjects, option.id],
       };
     });
-    if (slug === pinnedSlug) setPinnedSlug(null);
+    if (option.slug === pinnedSlug) setPinnedSlug(null);
     if (error) setError("");
   };
 
@@ -413,7 +452,7 @@ const ContactForm = ({ hideIntro = false }) => {
               name="subject"
               value={selectedNames.join(", ")}
             />
-            {visibleSubjects.length === 0 ? (
+            {visibleOptions.length === 0 ? (
               <p className="body-sm text-black-primary py-2">
                 Please select a year level first to see available classes.
               </p>
@@ -423,19 +462,19 @@ const ContactForm = ({ hideIntro = false }) => {
                 aria-labelledby="subjects-label"
                 className="grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-2"
               >
-                {visibleSubjects.map((subject) => {
-                  const isSelected = formData.subjects.includes(subject.slug);
+                {visibleOptions.map((option) => {
+                  const isSelected = formData.subjects.includes(option.id);
                   return (
                     <label
-                      key={subject.slug}
+                      key={option.id}
                       className="flex items-start gap-3 py-2 cursor-pointer transition-all duration-200"
                     >
                       <input
                         type="checkbox"
                         checked={isSelected}
-                        onChange={() => handleSubjectToggle(subject.slug)}
+                        onChange={() => handleSubjectToggle(option)}
                         className="sr-only"
-                        aria-label={subject.name}
+                        aria-label={option.label}
                       />
                       <div
                         className={`w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 transition-all duration-200 ${
@@ -462,16 +501,14 @@ const ContactForm = ({ hideIntro = false }) => {
                         )}
                       </div>
                       <span className="body-sm text-black leading-tight flex-1">
-                        {subject.group === "vce"
-                          ? subject.shortName
-                          : subject.name}
+                        {option.label}
                       </span>
                     </label>
                   );
                 })}
               </div>
             )}
-            {!formData.year_level && visibleSubjects.length > 0 && (
+            {!formData.year_level && visibleOptions.length > 0 && (
               <p className="body-sm text-black-primary py-2">
                 Select a year level to see the other classes.
               </p>
