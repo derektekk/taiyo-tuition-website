@@ -42,10 +42,10 @@ const AboutPage = () => {
                         </h1>
                         <p className="body text-black-primary">
                             The tutors here average a 98+ ATAR and still
-                            remembers what it felt like. You get someone close
+                            remember what it felt like. You get someone close
                             enough in age to ask the question you&apos;d skip at
                             school, and the same tutor from your first class of
-                            the year to your last. The name Taiyo (å¤ªé™½) means
+                            the year to your last. The name Taiyo (太陽) means
                             sun.
                         </p>
                     </div>
