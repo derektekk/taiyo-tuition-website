@@ -16,7 +16,7 @@
     <!-- Title, description and canonical come from src/data/pageMeta.js. The build
          writes them into each route's HTML with data-prerender; the app removes
          those on load and PageDoc renders its own. -->
-    <title data-prerender>Taiyo Tuition - VCE tutoring in Melbourne</title>
+    <title data-prerender>Taiyo Tuition</title>
     <meta name="keywords"
         content="VCE tutoring Melbourne, ATAR tutoring, VCE tutoring, Mathematics tutoring, Physics tutoring, Chemistry tutoring, English tutoring, Biology tutoring, Selective tutoring, private tutoring, online tutoring, Mount Waverley tutoring, class of 10" />
     <meta name="author" content="Taiyo Tuition" />
@@ -25,9 +25,9 @@
 
     <!-- Open Graph Meta Tags for Social Media -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Taiyo Tuition - VCE tutoring in Melbourne" />
+    <meta property="og:title" content="Taiyo Tuition" />
     <meta property="og:description"
-        content="Group classes capped at 10 students, Year 5 through VCE and Selective, in Mount Waverley or online." />
+        content="Get personalised VCE tutoring from 98+ ATAR tutors in Melbourne at Taiyo. You'll be supported by a team who recently topped these exams themselves, with quality resources and portal support. Classes capped at 10, Year 5 to VCE. Try your first class free!" />
     <meta property="og:url" content="https://taiyotuition.com/" />
     <meta property="og:site_name" content="Taiyo Tuition" />
     <meta property="og:image" content="https://taiyotuition.com/companyLogo2025.jpg" />
@@ -36,9 +36,9 @@
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Taiyo Tuition - VCE tutoring in Melbourne" />
+    <meta name="twitter:title" content="Taiyo Tuition" />
     <meta name="twitter:description"
-        content="Group classes capped at 10 students, Year 5 through VCE and Selective, in Mount Waverley or online." />
+        content="Get personalised VCE tutoring from 98+ ATAR tutors in Melbourne at Taiyo. You'll be supported by a team who recently topped these exams themselves, with quality resources and portal support. Classes capped at 10, Year 5 to VCE. Try your first class free!" />
     <meta name="twitter:image" content="https://taiyotuition.com/companyLogo2025.jpg" />
     <meta name="twitter:image:alt" content="Taiyo Tuition Logo" />
 
@@ -248,6 +248,48 @@
                         }
                     ]
                 }
+            }
+        </script>
+
+    <!-- The pages we want as Google sitelinks. Google chooses sitelinks itself;
+         this list is the same set the nav and footer link to. -->
+    <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                "name": "Taiyo Tuition",
+                "itemListElement": [
+                    {
+                        "@type": "SiteNavigationElement",
+                        "position": 1,
+                        "name": "Subjects",
+                        "url": "https://taiyotuition.com/subjects/"
+                    },
+                    {
+                        "@type": "SiteNavigationElement",
+                        "position": 2,
+                        "name": "Our tutors",
+                        "url": "https://taiyotuition.com/tutors/"
+                    },
+                    {
+                        "@type": "SiteNavigationElement",
+                        "position": 3,
+                        "name": "About",
+                        "url": "https://taiyotuition.com/about/"
+                    },
+                    {
+                        "@type": "SiteNavigationElement",
+                        "position": 4,
+                        "name": "Our location",
+                        "url": "https://taiyotuition.com/location/"
+                    },
+                    {
+                        "@type": "SiteNavigationElement",
+                        "position": 5,
+                        "name": "Enrol",
+                        "url": "https://taiyotuition.com/enroll/"
+                    }
+                ]
             }
         </script>
 </head>

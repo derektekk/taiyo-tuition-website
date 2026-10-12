@@ -19,9 +19,9 @@ const META_DESCRIPTION_LIMIT = 155;
 
 export const pageMeta = {
     "/": {
-        title: "Taiyo Tuition - VCE tutoring in Melbourne",
+        title: "Taiyo Tuition",
         description:
-            "Taiyo Tuition in Mount Waverley. Group classes capped at 10 students, Year 5 through VCE and Selective. Book a free trial.",
+            "Get personalised VCE tutoring from 98+ ATAR tutors in Melbourne at Taiyo. You'll be supported by a team who recently topped these exams themselves, with quality resources and portal support. Classes capped at 10, Year 5 to VCE. Try your first class free!",
     },
     "/subjects": {
         title: "Our Subjects | VCE and Year 5-10 Tutoring Melbourne | Taiyo Tuition",
@@ -49,7 +49,7 @@ export const pageMeta = {
             "Written Google reviews from Taiyo Tuition students and parents in Mount Waverley.",
     },
     "/location": {
-        title: "Location | Taiyo Tuition",
+        title: "Our Location | Taiyo Tuition",
         description:
             "Taiyo Tuition is at 9-11 Hamilton Place, Mount Waverley. In-person classes here, and the same live format online.",
     },
