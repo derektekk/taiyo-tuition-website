@@ -1,3 +1,4 @@
+import aidenYang from "../assets/tutors/aiden-yang.jpg";
 import berniceMao from "../assets/tutors/bernice-mao.jpg";
 import emmaLe from "../assets/tutors/emma-le.jpg";
 import ericLiu from "../assets/tutors/eric-liu.jpg";
@@ -79,6 +80,15 @@ const roster = [
         qualifications: ["ATAR 98.95", "English 46"],
         bio: "Scored a 98.95 ATAR and a 46 in English.",
         image: emmaLe,
+    },
+    {
+        slug: "aiden-yang",
+        name: "Aiden Yang",
+        role: "English tutor",
+        subjects: ["English"],
+        qualifications: ["ATAR 98.80", "English 49"],
+        bio: "Scored a 98.80 ATAR and a 49 in English.",
+        image: aidenYang,
     },
     {
         slug: "liam-tran",
