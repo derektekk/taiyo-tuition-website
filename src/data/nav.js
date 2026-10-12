@@ -157,7 +157,7 @@ export const navItems = [
                         image: storyImg,
                     },
                     {
-                        title: "Location",
+                        title: "Our location",
                         description: "Our Mount Waverley campus",
                         href: "/location",
                         image: locationImg,
