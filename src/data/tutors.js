@@ -7,6 +7,7 @@ import justinJian from "../assets/tutors/justin-jian.jpg";
 import kashvieGulati from "../assets/tutors/kashvie-gulati.jpg";
 import liamTran from "../assets/tutors/liam-tran.jpg";
 import nikhilDavid from "../assets/tutors/nikhil-david.jpg";
+import samButuyuyu from "../assets/tutors/sam-butuyuyu.jpg";
 import suchiVithanage from "../assets/tutors/suchi-vithanage.jpg";
 import timTroeung from "../assets/tutors/tim-troeung.jpg";
 import crops from "./tutorCrops.json";
@@ -125,6 +126,15 @@ const roster = [
         qualifications: ["ATAR 98.00", "Biology 47"],
         bio: "Scored a 98.00 ATAR and a 47 in Biology.",
         image: timTroeung,
+    },
+    {
+        slug: "sam-butuyuyu",
+        name: "Sam Butuyuyu",
+        role: "Biology tutor",
+        subjects: ["Biology"],
+        qualifications: ["ATAR 99.05", "Biology 45"],
+        bio: "Scored a 99.05 ATAR and a 45 in Biology.",
+        image: samButuyuyu,
     },
     {
         slug: "bernice-mao",
