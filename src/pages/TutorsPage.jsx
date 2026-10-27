@@ -4,24 +4,13 @@ import PageDoc from "../components/PageDoc";
 import Reveal from "../components/Reveal";
 import TutorHeadshot from "../components/TutorHeadshot";
 import ScrollAnimateText from "../components/ScrollAnimateText";
-import { tutors } from "../data/tutors";
+import { atarOf, studyScoreOf, tutors } from "../data/tutors";
 
 const initials = (name) =>
     name
         .split(" ")
         .map((part) => part[0])
         .join("");
-
-const atarOf = (tutor) =>
-    tutor.qualifications
-        .find((item) => item.startsWith("ATAR "))
-        ?.slice(5) ?? "";
-
-const rawOf = (tutor) => {
-    const line = tutor.qualifications.find((item) => !item.startsWith("ATAR "));
-    const match = line?.match(/(\d+)$/);
-    return match ? Number(match[1]) : null;
-};
 
 const SUBJECT_PILL = {
     Biology: "bg-[#d8f3e3] text-[#146c43]",
@@ -36,13 +25,14 @@ const pillClassFor = (subject) =>
     SUBJECT_PILL[subject] ?? "bg-[#eeeae6] text-[#4a403a]";
 
 const TutorCard = ({ tutor, index }) => {
-    const raw = rawOf(tutor);
+    const raw = studyScoreOf(tutor);
 
     return (
     <Reveal
         as="article"
         delay={index * 0.1}
-        className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col"
+        lift={false}
+        className="bg-white flex flex-col overflow-hidden rounded-2xl shadow-lg transition-[box-shadow,translate] duration-300 hover:-translate-y-2 hover:shadow-xl"
     >
         {tutor.image ? (
             <TutorHeadshot tutor={tutor} />
@@ -86,12 +76,14 @@ const TutorsPage = () => {
                 <header className="text-center mb-16">
                     <ScrollAnimateText
                         as="h1"
+                        lift={false}
                         className="display text-gray-900 mb-6"
                     >
                         Our Tutors
                     </ScrollAnimateText>
                     <ScrollAnimateText
                         as="p"
+                        lift={false}
                         className="body-lg text-gray-600 max-w-3xl mx-auto"
                     >
                         The scores they got, and the subject they teach.
@@ -113,6 +105,7 @@ const TutorsPage = () => {
                 ) : (
                     <Reveal
                         as="section"
+                        lift={false}
                         aria-label="Tutor profiles"
                         className="bg-white rounded-2xl shadow-lg p-8 md:p-12 text-center max-w-2xl mx-auto"
                     >

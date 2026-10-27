@@ -20,7 +20,8 @@ import crops from "./tutorCrops.json";
  * Framing for each photo is in tutorCrops.json.
  * Do not add universities or VIT numbers until they are confirmed.
  *
- * Class pages do not read this file.
+ * Class pages match tutors by `subjects` against the VCE subject's shortName,
+ * so those strings must stay in step with subjects.js.
  *
  * @typedef {Object} Tutor
  * @property {string} slug
@@ -170,3 +171,20 @@ export const tutors = roster.map((tutor) => ({
     ...tutor,
     crop: cropFor(tutor.slug),
 }));
+
+/** Year 5-10 pages reuse names like "English", so only VCE pages match. */
+export const getSubjectTutors = (subject) =>
+    subject.group === "vce"
+        ? tutors.filter((tutor) => tutor.subjects.includes(subject.shortName))
+        : [];
+
+export const atarOf = (tutor) =>
+    tutor.qualifications
+        .find((item) => item.startsWith("ATAR "))
+        ?.slice(5) ?? "";
+
+/** "Maths Methods 48" -> "48". */
+export const studyScoreOf = (tutor) =>
+    tutor.qualifications
+        .find((item) => !item.startsWith("ATAR "))
+        ?.match(/(\d+)$/)?.[1] ?? null;

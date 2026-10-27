@@ -1,115 +1,71 @@
-import { useCallback, useEffect, useState } from "react";
-import useEmblaCarousel from "embla-carousel-react";
 import { atarResults } from "../../data/atarResults";
 import HomeSection from "../home/HomeSection";
-import ProgressMarks from "../ProgressMarks";
-import ResultCard from "../ResultCard";
 import SubjectSectionHeader from "./SubjectSectionHeader";
-
-const PREVIEW_COUNT = 6;
-const preview = atarResults.slice(0, PREVIEW_COUNT);
 
 const cardKey = (result) => `${result.name}-${result.school}-${result.score}`;
 
-const reducedMotion = () =>
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+/** Tier by distinct score, so tied ATARs always share a colour. */
+const distinctScores = [...new Set(atarResults.map((result) => result.score))]
+    .sort((a, b) => Number(b) - Number(a));
 
-/**
- * Named ATAR preview as a snap strip. Line marks match the offer block:
- * only the current mark fills, and the fill is the time until the next snap.
- */
-const SubjectProof = () => {
-    const [emblaRef, emblaApi] = useEmblaCarousel({
-        align: "start",
-        loop: true,
-        dragFree: false,
-        duration: reducedMotion() ? 0 : 25,
-        dragThreshold: 10,
-        skipSnaps: false,
-        slidesToScroll: 1,
-    });
-    const [selected, setSelected] = useState(0);
+const TIERS = [
+    { tile: "bg-primary", score: "text-tertiary", meta: "text-tertiary/85" },
+    { tile: "bg-blue-primary", score: "text-primary-deep", meta: "text-primary-deep/80" },
+    { tile: "bg-mist-100", score: "text-black", meta: "text-black-primary" },
+    { tile: "bg-biege-primary", score: "text-black", meta: "text-black-primary" },
+];
 
-    const sync = useCallback((api) => {
-        if (!api) return;
-        setSelected(api.selectedScrollSnap());
-    }, []);
+const tierFor = (score) =>
+    TIERS[Math.min(distinctScores.indexOf(score), TIERS.length - 1)];
 
-    useEffect(() => {
-        if (!emblaApi) return;
-        sync(emblaApi);
-        emblaApi.on("select", sync);
-        emblaApi.on("reInit", sync);
-        return () => {
-            emblaApi.off("select", sync);
-            emblaApi.off("reInit", sync);
-        };
-    }, [emblaApi, sync]);
+const ScoreTile = ({ result }) => {
+    const tier = tierFor(result.score);
 
     return (
-        <HomeSection
-            id="results"
-            label="Named ATAR results"
-            className="bg-primary-deep"
-            innerClassName="flex flex-col gap-8"
+        <li
+            className={`flex flex-col justify-between gap-7 rounded-2xl p-5 ${tier.tile}`}
         >
-            <div className="flex flex-col gap-4">
-                <p className="eyebrow inline-flex w-fit rounded-full bg-primary px-3 py-1 text-tertiary">
-                    Named ATARs
-                </p>
-                <SubjectSectionHeader
-                    tone="dark"
-                    title="Students who sat Taiyo classes, by name and school."
-                    body="Published results from our students. The full list is on the results page."
-                    linkTo="/results"
-                    linkLabel="See all results"
-                />
-            </div>
-
-            <div className="group/marks relative flex w-full min-w-0 flex-col gap-5">
-                <div
-                    role="region"
-                    aria-roledescription="carousel"
-                    aria-label="Named ATAR results"
-                    className="relative"
+            <p
+                className={`h3 font-heading font-extrabold tracking-[-0.03em] ${tier.score}`}
+            >
+                {result.score}
+            </p>
+            <div className="flex min-w-0 flex-col">
+                <p
+                    className={`body-sm truncate font-heading font-semibold ${tier.score}`}
                 >
-                    <div
-                        ref={emblaRef}
-                        className="cursor-grab overflow-hidden overscroll-x-contain touch-pan-y active:cursor-grabbing"
-                    >
-                        <div className="-ml-2 flex">
-                            {preview.map((result) => (
-                                <div
-                                    key={cardKey(result)}
-                                    role="group"
-                                    aria-roledescription="slide"
-                                    className="min-w-0 flex-[0_0_85%] pl-2 lg:flex-[0_0_33.333333%]"
-                                >
-                                    <ResultCard
-                                        result={result}
-                                        layout="poster"
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-
-                <ProgressMarks
-                    items={preview}
-                    index={selected}
-                    onSelect={(i) => emblaApi?.scrollTo(i)}
-                    onCycle={() => emblaApi?.scrollNext()}
-                    labelFor={(result, i) =>
-                        `Show ${result.name}, slide ${i + 1} of ${preview.length}`
-                    }
-                    tone="dark"
-                    duration="5s"
-                />
+                    {result.name}
+                </p>
+                <p className={`caption truncate ${tier.meta}`}>{result.school}</p>
             </div>
-        </HomeSection>
+        </li>
     );
 };
+
+/** Every named ATAR at once, strongest tile for the highest score. */
+const SubjectProof = () => (
+    <HomeSection
+        id="results"
+        label="Named ATAR results"
+        className="bg-tertiary"
+        innerClassName="flex flex-col gap-8"
+    >
+        <div className="flex flex-col gap-3">
+            <p className="eyebrow text-primary">Named ATARs</p>
+            <SubjectSectionHeader
+                title="Students who sat Taiyo classes, by name and school."
+                body="Published results from our students. The full list is on the results page."
+                linkTo="/results"
+                linkLabel="See all results"
+            />
+        </div>
+
+        <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+            {atarResults.map((result) => (
+                <ScoreTile key={cardKey(result)} result={result} />
+            ))}
+        </ul>
+    </HomeSection>
+);
 
 export default SubjectProof;

@@ -35,7 +35,7 @@ const baseSubjects = [
         name: "English Units 1–4",
         category: "humanities",
         shortDescription: [
-            "Reading, writing, and argument from Units 1 & 2 through the Units 3 & 4 exam.",
+            "Text response, creating texts, and analysing argument for Units 1–4. Every essay comes back marked, with the sentence that lost marks pointed out.",
         ],
         body: [
             [
@@ -80,7 +80,7 @@ const baseSubjects = [
         name: "Maths Methods Units 1–4",
         category: "stem",
         shortDescription: [
-            "Functions, calculus, probability, and statistics from Units 1 & 2 through the exam.",
+            "Functions, calculus, and probability for Units 1–4, in a class of 10. You practise Exam 1 without CAS and Exam 2 with it, all year.",
         ],
         body: [
             [
@@ -114,7 +114,7 @@ const baseSubjects = [
         name: "Chemistry Units 1–4",
         category: "stem",
         shortDescription: [
-            "Periodicity and bonding through equilibrium, redox, and organic chemistry, with data practice every week.",
+            "Bonding, moles, equilibrium, redox, and organic chemistry for Units 1–4. Data and extended-response questions every week, in SAC and VCAA format.",
         ],
         body: [
             [
@@ -150,7 +150,7 @@ const baseSubjects = [
         name: "Physics Units 1–4",
         category: "stem",
         shortDescription: [
-            "Motion and energy through fields, relativity, and waves, with investigation and modelling practice.",
+            "Motion, energy, fields, relativity, and waves for Units 1–4. Calculations and written explanations get marked before the next class.",
         ],
         body: [
             [
@@ -184,7 +184,7 @@ const baseSubjects = [
         name: "Biology Units 1–4",
         category: "stem",
         shortDescription: [
-            "Cells and genetics through molecular biology, immunity, and evolution, with diagram and data practice.",
+            "Cells, genetics, immunity, and evolution for Units 1–4. Diagram and data questions every week, marked before the next class.",
         ],
         body: [
             [
@@ -218,7 +218,7 @@ const baseSubjects = [
         name: "Specialist Maths Units 1–4",
         category: "stem",
         shortDescription: [
-            "Proof, vectors, and complex numbers from Units 1 & 2 through differential equations in Units 3 & 4.",
+            "Proof, vectors, complex numbers, and differential equations for Units 1–4. Taught in a class of 10, with SAC and exam practice all year.",
         ],
         body: [
             [
@@ -255,7 +255,7 @@ const baseSubjects = [
         name: "General Maths Units 1–4",
         category: "stem",
         shortDescription: [
-            "Data, finance, and geometry through statistics, networks, and matrices, with CAS and exam technique.",
+            "Data, finance, networks, and matrices for Units 1–4. CAS technique and exam-style questions every week, marked before the next class.",
         ],
         body: [
             [
@@ -293,7 +293,7 @@ const baseSubjects = [
         name: "Years 5–6 English",
         category: "humanities",
         shortDescription: [
-            "Build reading, vocabulary, and writing habits that hold up in class and in NAPLAN-style tasks.",
+            "Reading, vocabulary, and writing habits that hold up in class and in NAPLAN-style tasks. Their writing comes back marked every week.",
         ],
         body: [
             [
@@ -324,7 +324,7 @@ const baseSubjects = [
         name: "Years 5–6 Maths",
         category: "stem",
         shortDescription: [
-            "Secure number sense, measurement, and working-out habits before high school algebra arrives.",
+            "Number sense, measurement, and clear working-out before high school algebra arrives. Homework is marked every week, in a class of 10.",
         ],
         body: [
             [
@@ -352,7 +352,7 @@ const baseSubjects = [
         name: "Years 7–8 English",
         category: "humanities",
         shortDescription: [
-            "Move from primary writing into text analysis, structure, and clearer argument.",
+            "The move from primary writing to text analysis, essay structure, and clearer argument. Each piece comes back marked before the next class.",
         ],
         body: [
             [
@@ -381,7 +381,7 @@ const baseSubjects = [
         name: "Years 7–8 Maths",
         category: "stem",
         shortDescription: [
-            "Build algebra, geometry, and problem-solving so high school maths has a base to stand on.",
+            "Algebra, geometry, and problem-solving so high school maths has a base to stand on. Homework is marked weekly, and 1:1 help is unlimited.",
         ],
         body: [
             [
@@ -409,7 +409,7 @@ const baseSubjects = [
         name: "Years 9–10 English",
         category: "humanities",
         shortDescription: [
-            "Sharpen analysis, comparative writing, and exam-ready structure before VCE English.",
+            "Analysis, comparative writing, and exam structure before VCE English starts. Every piece comes back marked, with what to fix next time.",
         ],
         body: [
             [
@@ -440,7 +440,7 @@ const baseSubjects = [
         name: "Years 9–10 Maths",
         category: "stem",
         shortDescription: [
-            "Tighten algebra, graphs, and reasoning so Methods or General Maths in VCE is a step they can take.",
+            "Algebra, graphs, and reasoning so Methods or General Maths in VCE is a step they can take. Homework comes back marked before the next class.",
         ],
         body: [
             [

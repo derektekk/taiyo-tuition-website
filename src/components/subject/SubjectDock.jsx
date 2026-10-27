@@ -101,6 +101,9 @@ const SubjectDock = ({ sections }) => {
 
     if (!sections.length) return null;
 
+    const links = sections.filter((section) => !section.cta);
+    const cta = sections.find((section) => section.cta);
+
     return (
         <motion.nav
             aria-label="On this page"
@@ -118,7 +121,7 @@ const SubjectDock = ({ sections }) => {
                 }`}
             >
                 <ul className="flex items-center gap-0.5 whitespace-nowrap p-1.5">
-                    {sections.map((section) => {
+                    {links.map((section) => {
                         const isActive = section.id === active;
                         return (
                             <li key={section.id} className="relative">
@@ -151,6 +154,23 @@ const SubjectDock = ({ sections }) => {
                             </li>
                         );
                     })}
+                    {cta && (
+                        <li className="ml-1">
+                            <button
+                                ref={(node) => {
+                                    buttonRefs.current[cta.id] = node;
+                                }}
+                                type="button"
+                                onClick={() => jumpTo(cta.id)}
+                                aria-current={cta.id === active ? "location" : undefined}
+                                className={`body-sm rounded-full px-4 py-1.5 font-heading font-semibold text-tertiary transition-colors duration-200 hover:bg-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
+                                    cta.id === active ? "bg-primary" : "bg-primary-deep"
+                                }`}
+                            >
+                                {cta.label}
+                            </button>
+                        </li>
+                    )}
                 </ul>
             </div>
         </motion.nav>

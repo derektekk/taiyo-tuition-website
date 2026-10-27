@@ -6,11 +6,11 @@ const frameStyle = (crop) => ({
     transformOrigin: `${crop.x}% ${crop.y}%`,
 });
 
-const TutorHeadshot = ({ tutor }) => (
+const TutorHeadshot = ({ tutor, className = "aspect-square w-full" }) => (
     <MediaImage
         src={tutor.image}
         alt={`${tutor.name}, ${tutor.role} at Taiyo Tuition`}
-        className="aspect-square w-full"
+        className={className}
         imgClassName="object-cover"
         style={frameStyle(tutor.crop)}
     />

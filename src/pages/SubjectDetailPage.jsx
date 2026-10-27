@@ -9,6 +9,7 @@ import SubjectOffer from "../components/subject/SubjectOffer";
 import SubjectProof from "../components/subject/SubjectProof";
 import SubjectResources from "../components/subject/SubjectResources";
 import SubjectReviews from "../components/subject/SubjectReviews";
+import SubjectTutors from "../components/subject/SubjectTutors";
 import SubjectWayfinding from "../components/subject/SubjectWayfinding";
 import SubjectWeek from "../components/subject/SubjectWeek";
 import { CLOSE_ID, dockSectionsFor } from "../components/subject/sections";
@@ -17,9 +18,10 @@ import { subjectMeta } from "../data/pageMeta";
 import { getSubjectBySlug, legacySubjectRedirects } from "../data/subjects";
 
 /**
- * One template for every class. Order: hero, what you get, proof, week,
- * curriculum, resources, reviews, how to enrol, FAQs, wayfinding, close.
- * The portal lives inside resources. Tutors block waits on real bios.
+ * One template for every class. Order: hero, what you get, proof, tutors,
+ * week, curriculum, resources, reviews, how to enrol, FAQs, wayfinding, close.
+ * The portal lives inside resources. Tutors only renders for VCE subjects
+ * with a matching tutor.
  */
 const SubjectDetailPage = () => {
     const { slug } = useParams();
@@ -41,6 +43,7 @@ const SubjectDetailPage = () => {
             <SubjectHero subject={subject} enrollTo={enrollTo} />
             <SubjectOffer subject={subject} />
             <SubjectProof />
+            <SubjectTutors subject={subject} />
             <SubjectWeek subject={subject} />
             <SubjectCurriculum subject={subject} />
             <SubjectResources subject={subject} />
