@@ -582,7 +582,7 @@ export const getOfferingLabel = (subject) => {
 
 /**
  * Retired slugs. Keep generating a file for each so the SPA can redirect on
- * static hosts; vercel.json carries the matching 301s for first load.
+ * static hosts like GitHub Pages, which can't serve real 301s.
  * Includes the old combined Year 5–10 pages and the long "-units-" VCE slugs.
  */
 export const legacySubjectRedirects = {
