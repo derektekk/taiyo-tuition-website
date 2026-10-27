@@ -8,6 +8,7 @@ const ScrollAnimateText = ({
     delay = 0,
     duration = 0.6,
     distance = 12,
+    lift = true,
     className = "",
     as = "div",
     ...props
@@ -23,12 +24,9 @@ const ScrollAnimateText = ({
     const reduceMotion = useReducedMotion();
     const MotionComponent = motion[as];
 
-    const hidden = reduceMotion
-        ? { opacity: 0 }
-        : { opacity: 0, y: distance };
-    const visible = reduceMotion
-        ? { opacity: 1 }
-        : { opacity: 1, y: 0 };
+    const moves = !reduceMotion && lift;
+    const hidden = moves ? { opacity: 0, y: distance } : { opacity: 0 };
+    const visible = moves ? { opacity: 1, y: 0 } : { opacity: 1 };
 
     return (
         <MotionComponent

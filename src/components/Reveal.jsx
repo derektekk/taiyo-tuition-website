@@ -5,7 +5,9 @@ import { motion, useInView, useReducedMotion } from "motion/react";
 const PAGE_EASE = [0.25, 1, 0.5, 1];
 
 // Block-level scroll reveal. Fades and lifts a section's content in once as it
-// enters the viewport. For inline text use ScrollAnimateText instead.
+// enters the viewport. Pass lift={false} when the element also uses a CSS
+// translate (a hover lift, for example) so the reveal only changes opacity.
+// For inline text use ScrollAnimateText instead.
 const Reveal = ({
     children,
     as = "div",
@@ -13,6 +15,7 @@ const Reveal = ({
     delay = 0,
     duration = 0.6,
     distance = 12,
+    lift = true,
     ...props
 }) => {
     const ref = React.useRef(null);
@@ -29,8 +32,9 @@ const Reveal = ({
     const reduceMotion = useReducedMotion();
     const MotionComponent = motion[as];
 
-    const hidden = reduceMotion ? { opacity: 0 } : { opacity: 0, y: distance };
-    const visible = reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 };
+    const moves = !reduceMotion && lift;
+    const hidden = moves ? { opacity: 0, y: distance } : { opacity: 0 };
+    const visible = moves ? { opacity: 1, y: 0 } : { opacity: 1 };
 
     return (
         <MotionComponent
