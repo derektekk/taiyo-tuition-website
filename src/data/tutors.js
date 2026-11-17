@@ -97,8 +97,8 @@ const roster = [
         name: "Liam Tran",
         role: "English tutor",
         subjects: ["English"],
-        qualifications: ["ATAR 97.65", "English 47"],
-        bio: "Scored a 97.65 ATAR and a 47 in English.",
+        qualifications: ["ATAR 97.65", "Raw 50 English"],
+        bio: "Scored a 97.65 ATAR and a raw 50 in English.",
         image: liamTran,
     },
     {
@@ -106,8 +106,8 @@ const roster = [
         name: "Justin Jian",
         role: "Maths Methods tutor",
         subjects: ["Maths Methods"],
-        qualifications: ["ATAR 96.15", "Maths Methods 48"],
-        bio: "Scored a 96.15 ATAR and a 48 in Maths Methods.",
+        qualifications: ["ATAR 96.15", "Raw 50 Maths Methods"],
+        bio: "Scored a 96.15 ATAR and a raw 50 in Maths Methods.",
         image: justinJian,
     },
     {
@@ -183,8 +183,8 @@ export const atarOf = (tutor) =>
         .find((item) => item.startsWith("ATAR "))
         ?.slice(5) ?? "";
 
-/** "Maths Methods 48" -> "48". */
+/** "Maths Methods 48" or "Raw 50 English" -> the study score. */
 export const studyScoreOf = (tutor) =>
     tutor.qualifications
         .find((item) => !item.startsWith("ATAR "))
-        ?.match(/(\d+)$/)?.[1] ?? null;
+        ?.match(/\b(\d+)\b/)?.[1] ?? null;
