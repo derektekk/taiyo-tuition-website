@@ -1,5 +1,9 @@
+import entrance from "../../assets/taiyoImages/entrance.webp";
+import studentInClass from "../../assets/taiyoImages/classPhotos2026/2026-class-photo-3.webp";
+import tutorWithStudents from "../../assets/taiyoImages/classPhotos/classPhoto4.webp";
 import AnimatedButton from "../AnimatedButton";
 import HomeSection from "../home/HomeSection";
+import MediaImage from "../MediaImage";
 import SubjectSectionHeader from "./SubjectSectionHeader";
 import TextLink from "../TextLink";
 
@@ -7,8 +11,27 @@ const pad = (n) => `(${String(n).padStart(2, "0")})`;
 
 const parasOf = (body) => (Array.isArray(body) ? body : [body]);
 
+/**
+ * One still per step, in step order. Kept here rather than in subjectProgram.js
+ * because the copy is shared by every subject and stays importable by Node.
+ * None of these repeat the hero, offer or week stills higher up the page.
+ */
+const STEP_PHOTOS = [
+    { src: entrance, alt: "The Taiyo Tuition reception in Mount Waverley" },
+    { src: studentInClass, alt: "A student following the lesson in a Taiyo class" },
+    { src: tutorWithStudents, alt: "A Taiyo tutor working through a problem with two students" },
+];
+
 const Step = ({ step, index }) => (
     <li className="flex flex-col gap-4 md:gap-5">
+        {STEP_PHOTOS[index] && (
+            <MediaImage
+                src={STEP_PHOTOS[index].src}
+                alt={STEP_PHOTOS[index].alt}
+                className="aspect-[4/3] w-full rounded-2xl"
+                imgClassName="object-cover"
+            />
+        )}
         <p className="caption font-heading font-semibold tabular-nums tracking-[0.08em] text-primary">
             {pad(index + 1)}
         </p>
